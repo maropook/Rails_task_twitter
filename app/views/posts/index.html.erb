@@ -1,7 +1,8 @@
-<h1>コメントサンプル</h1>
+
+
+<h1>twitter</h1>
 <% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
+
   <h2>投稿する</h2>
   <%= form_for @post do |f| %>
     <%= f.text_field :content %>
@@ -10,11 +11,15 @@
   <hr>
   <h2>投稿一覧</h2>
   <% @posts.each do |post| %>
-    <a href="/users/<%= post.user.id %>"><%= post.user.email %></a>
-    <p><a href="/posts/<%= post.id %>"><%= post.content %></a></p>
+  <div class="twiit">
+    <div class="twitter">
+         <p><img src=<%= post.user.image %> class = "icon_image"><a href="/users/<%= post.user.id %>"><%= post.user.username %></a></p>
+        <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+        <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
+    </div>
+  </div>
   <% end %>
 
 <% else %>
-  <%= link_to "ユーザー登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
+ 
 <% end %>

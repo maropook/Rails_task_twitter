@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
+    @like = Like.new
   end
 
   def create
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
-    params.require(:post).permit(:content)
-  end
+    def post_params
+      params.require(:post).permit(:content)
+    end
 end
