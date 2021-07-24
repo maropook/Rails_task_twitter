@@ -28,7 +28,7 @@
 
 <%= form_for [@post, @comment] do |f| %>
   <%= f.text_field :content %>
- 
+  <%= f.hidden_field :post_id, value: @post.id %> 
   <%= f.submit 'コメントする', class: "btn btn-primary" %>
 <% end %>
 <%= link_to "ホームへ戻る", posts_path %>
