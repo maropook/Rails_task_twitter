@@ -1,0 +1,20 @@
+<div id="twitter_post_edit">
+
+  <h2>ホーム</h2>
+<div class="post">
+  <img src=<%= current_user.image %> class = "icon_image">
+
+<%= form_for(@post,html: { class: "form_for_tweet" } , url: post_path(@post)) do |f| %>
+       
+        <%= f.text_area :content ,class:"text_field",:placeholder =>"#{@post.content}" %>
+           <br>
+        <hr>
+
+          <%= f.submit 'ツイートする' ,class:"btn"%>
+    </div>
+   
+<% end %>
+<%= link_to "ホームへ戻る", posts_path %>
+
+</div>
+

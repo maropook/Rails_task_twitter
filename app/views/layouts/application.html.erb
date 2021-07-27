@@ -32,13 +32,13 @@
           <li>
             <%= link_to current_user.username, pages_show_path %>
           </li>
-               <li>
-            <%= link_to 'プロフィール変更', edit_user_registration_path %>
+              <li>
+              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
               </li>
                <li>
-            <%= link_to 'eechトップページへ',pages_eech_path%>
+                 <li>
+            <%= link_to "ホームへ戻る", posts_path %>
               </li>
-               <li>
             <%= link_to 'far-milyトップへ',pages_farmily_path%>
               </li>
                <li>
@@ -54,12 +54,14 @@
             <%= link_to "ユーザー一覧へ", users_path %>
               </li>
                <li>
-            <%= link_to "ホームへ戻る", posts_path %>
-              </li>
-               <li>
             <%= link_to "DM一覧", rooms_path %>
               </li>
-
+             <li>
+            <%= link_to 'プロフィール変更', edit_user_registration_path %>
+              </li>
+                <li>
+            <%= link_to 'eechトップページへ',pages_eech_path%>
+              </li>
 
           <% else %>
                 <li>
@@ -68,6 +70,9 @@
                 <li>
                       <%= link_to 'ログイン', new_user_session_path %>
                 </li>
+                <li>
+              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+              </li>
 
                 <% end %>
  
