@@ -1,4 +1,4 @@
-# eech.mu
+# Twitterもどき
 
 ## About
 
@@ -12,7 +12,7 @@
 - rails s
 
 # 目標
-twitterを作る
+twitterもどきを作る
 
 #どんな設計にするのか
 ・ユーザー
