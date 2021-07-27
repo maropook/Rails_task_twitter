@@ -17,6 +17,13 @@
   <span class="farmily" >
     <header class="container farmily">
         <a class="icon"><img src="/assets/farmily_logo.png" class="smile" alt=""></a>
+
+
+        <% if user_signed_in? %>
+         <a ><img src=<%= current_user.image %> class="user_icon" alt=""></a>
+        <% else %>
+        <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+        <% end %>
         <%# <a class="icon"><img src="/assets/clova_logo.png" class="notification" alt=""></a>
       %>
     <div id="header">
@@ -35,10 +42,11 @@
               <li>
               <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
               </li>
-               <li>
+          
                  <li>
             <%= link_to "ホームへ戻る", posts_path %>
               </li>
+                  <li>
             <%= link_to 'far-milyトップへ',pages_farmily_path%>
               </li>
                <li>
@@ -74,7 +82,7 @@
               <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
               </li>
 
-                <% end %>
+          <% end %>
  
                
             </ul>
