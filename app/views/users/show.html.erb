@@ -1,14 +1,49 @@
-<h1>ユーザー詳細ページ</h1>
-<h3>  <img src=<%= @user.image %> class = "icon_image"><%= @user.username %></h3>
+<div id="twitter_post">
+<h2>ユーザー詳細ページ</h2>
+  <div class="twiit">
+    <div class="twitter">
+<h2>  <img src=<%= @user.image %> class = "icon_image"><%= @user.username %></h2>
+    </div>
+  </div>
+
 <h2>投稿内容</h2>
 <% @user.posts.each do |post| %>
-  <a href="/posts/<%= post.id %>"><%= post.content %></a>
-  <hr>
+   <div class="twiit">
+    <div class="twitter">
+         <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
+        <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+        <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
+    </div>
+  </div>
 <% end %>
-<h3>いいねしている投稿</h3>
+<h2>いいねしている投稿</h2>
 <% @user.liked_posts.each do |post| %>
-  <%= post.user.email %>
-  <%= post.content %>
+  <div class="twiit">
+    <div class="twitter">
+      <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
+        <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+     </div>
+  </div>
 <% end %>
+
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%= link_to "ユーザー一覧へ", users_path %>
 <%= link_to "ホームへ戻る", posts_path %>
+
+</div>
+

@@ -1,25 +1,56 @@
 
 
-<h1>twitter</h1>
+<div id="twitter_post">
 <% if user_signed_in? %>
 
-  <h2>投稿する</h2>
-  <%= form_for @post do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit %>
+  <h2>ホーム</h2>
+<div class="post">
+  <img src=<%= current_user.image %> class = "icon_image">
+
+
+  <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
+    <%= f.text_field :content ,class:"text_field",placeholder:"いまどうしてる？"%>
+    <br>
+    <hr>
+    <%= f.submit 'ツイートする' ,class:"btn"%>
   <% end %>
-  <hr>
-  <h2>投稿一覧</h2>
-  <% @posts.each do |post| %>
+</div>
+<br>
+  
+  <%# <h2>投稿一覧</h2> %>
+  <% @posts.reverse_each do |post| %>
   <div class="twiit">
     <div class="twitter">
-         <p><img src=<%= post.user.image %> class = "icon_image"><a href="/users/<%= post.user.id %>"><%= post.user.username %></a></p>
+         <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
         <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
         <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
     </div>
   </div>
   <% end %>
-
 <% else %>
+
+<div id=twitter_top>
+  <div class="container">
+    <div class="my-container">
+      <div class="left_flex">
+        <img src="/assets/twitter_top.PNG" alt="">
+      </div>
+      <div class="right_flex">
+        <br>
+        <br>
+        <img src="/assets/clova_logo.png" alt="">
+        <h1>全ての話題が，ここに．</h1>
+        <h2>twitterを始めよう</h2>
+        <div class="button">
+        <%= link_to 'アカウント作成', new_user_registration_path %>
+        </div>
+        <div class="button login">
+        <%= link_to 'ログイン', new_user_session_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
  
 <% end %>
+</div>

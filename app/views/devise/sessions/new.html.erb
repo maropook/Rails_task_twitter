@@ -1,14 +1,29 @@
-<h2>Log in</h2>
+
+<div class="farmily">
+  <div class="my-container">
+    <main id="app">
+      <header class="hid">
+
+      </header>
+      
+        <div class="form-wrapper">
+          <div class="form-logo"><img src="/assets/clova_logo.png" alt=""class="clova"></div>
+          <h1>Twitterにログイン</h1>
+
+
+
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field form-item">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder:"メールアドレスを入力",required: true %>
   </div>
 
-  <div class="field">
+  <div class="field form-item">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password"  , placeholder:"パスワードを入力",required: true%>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -18,9 +33,40 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions button-panel">
+    <%= f.submit "Log in"  ,class:"button"%>
   </div>
 <% end %>
+
+
+     
+          <div class="form-footer">
+            <p>アカウントがない場合はこちら</p>
+            <p><%= render "devise/shared/links" %></p>
+          </div>
+   
+        </div>
+
+    </main>
+    <footer id="footer">
+      <ul>
+        <li>
+          <a href="">
+            <p>far-milyへようこそ</p>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+</div>
+<h2>Log in</h2>
+
+
+
+
+
+
+
 
 <%= render "devise/shared/links" %>

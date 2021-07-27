@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def show
   end
+
+  def farmily
+  end
 end

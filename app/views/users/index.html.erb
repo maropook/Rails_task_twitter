@@ -1,7 +1,19 @@
-<h1>ユーザー一覧</h1>
+<div id="twitter_catalog">
+<h2>ユーザー一覧</h2>
 <% @users.each do |user| %>
+  <div class="twiit">
+    <div class="twitter">
+
+      <div class="user">
+
   <img src=<%= user.image %> class = "icon_image">
   <a href="/users/<%= user.id %>"><%= user.username %></a>
   <hr>
+</div>
+</div>
+</div>
+ 
 <% end %>
+
+<br>
 <%= link_to "ホームへ戻る", posts_path %>
