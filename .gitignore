@@ -76,4 +76,4 @@ yarn-debug.log*
 
 # End of https://www.toptal.com/developers/gitignore/api/rails
 
-_eech_top
+/rails_task
