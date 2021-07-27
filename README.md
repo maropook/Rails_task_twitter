@@ -11,17 +11,8 @@
 - rails db:migrate
 - rails s
 
-
----
-title: Railsでコメント機能をつくってみよう
-tags: Rails
-author: nojinoji
-slide: false
----
 # 目標
-ユーザーは投稿ができ、さらに投稿に対してコメントをすることができるようになる
-![comment_sample.gif](https://qiita-image-store.s3.amazonaws.com/0/225909/b1eca46e-dff4-a103-e923-2cfc8b21ea6b.gif)
-
+twitterを作る
 
 #どんな設計にするのか
 ・ユーザー
@@ -36,17 +27,17 @@ slide: false
 
 # プロジェクトの作成
 ```
-$ rails new comment_sample
-$ cd comment_sample
+$ rails new twitter
+$ cd twitter
 ```
 
 # 投稿機能を作る
 ## モデルの作成
-今回は投稿者用のUserモデルと投稿用のPostモデルを作ります
+今回は投稿者用のUserモデルと投稿用のPostモデルを作る
 
 ### deviseの導入
 ログインができるようにdeviseを導入します。
-Gemfileに以下を追加してください。
+Gemfileに以下を追加
 
 ```rb:Gemfile
 gem 'devise'
