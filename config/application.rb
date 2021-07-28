@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module DeviseRais6Rebange
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.assets.initialize_on_precompile = false
     config.load_defaults 6.1
 
     config.i18n.default_locale = :ja
@@ -21,7 +22,5 @@ module DeviseRais6Rebange
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = 'Tokyo'
-
-    config.assets.initialize_on_precompile = false
   end
 end
