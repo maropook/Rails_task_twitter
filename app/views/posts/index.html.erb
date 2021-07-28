@@ -12,6 +12,27 @@
     <%= f.text_field :content ,class:"text_field",placeholder:"いまどうしてる？"%>
     <br>
     <hr>
+
+      <div class="field">
+    <% if @post.image? %>
+      <div class="thumbnail">
+        <%= image_tag @post.image.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @post.persisted? && @post.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  </div>
+
     <%= f.submit 'ツイートする' ,class:"btn"%>
   <% end %>
 </div>
@@ -23,6 +44,20 @@
     <div class="twitter">
          <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong><%= post.updated_at.to_s(:datetime_jp) %></div>
         <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+
+        <p>
+ 
+  <% if post.image?%>
+
+   <strong>Image:</strong>
+    <div class="thumbnail">
+     <div class="post_images"><img src=<%= post.image.url %> class = "post_image"></div>
+      
+    </div>
+  <% end %>
+
+</p>
+
         <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
 
         <% if post.user.id == current_user.id%>

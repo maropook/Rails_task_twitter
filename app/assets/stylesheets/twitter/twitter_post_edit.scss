@@ -88,6 +88,15 @@
         object-fit: cover;
         //タテヨコ比を変えないままトリミング
     }
+    .post_image
+    {
+        width: 350px;
+        height: 350px;
+        //サイズ指定
+        //画像を丸くする
+        object-fit: cover;
+        //タテヨコ比を変えないままトリミング
+    }
     .favorite{
         margin-left: 80%;
     }

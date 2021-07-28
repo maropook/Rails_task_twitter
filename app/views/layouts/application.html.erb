@@ -18,14 +18,12 @@
     <header class="container farmily">
         <a class="icon"><img src="/assets/farmily_logo.png" class="smile" alt=""></a>
 
-
         <% if user_signed_in? %>
          <a ><img src=<%= current_user.image %> class="user_icon" alt=""></a>
         <% else %>
         <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
         <% end %>
-        <%# <a class="icon"><img src="/assets/clova_logo.png" class="notification" alt=""></a>
-      %>
+
     <div id="header">
         <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
@@ -36,16 +34,12 @@
       <nav class="farmily">
   
           <% if user_signed_in? %>
-          <li>
-            <%= link_to current_user.username, pages_show_path %>
-          </li>
-              <li>
-              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
-              </li>
+         <span class="user_name"><%= current_user.username%></span>
+            <%# <%= link_to current_user.username, pages_show_path %> 
+             
+            <%# <%= link_to 'eechトップページへ',pages_eech_path%> 
+              
           
-                 <li>
-            <%= link_to "ホームへ戻る", posts_path %>
-              </li>
                   <li>
             <%= link_to 'far-milyトップへ',pages_farmily_path%>
               </li>
@@ -53,7 +47,17 @@
             <%= link_to 'far-mily使い方',pages_howtofarmily_path%>
               </li>
                <li>
+            <%= link_to "みんなとの部屋へ", rooms_path %>
+              </li>
+              <li>
+              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+              </li>
+                <li>
             <%= link_to "マイページへ", user_path(current_user.id) %>
+              </li>
+          
+                 <li>
+            <%= link_to "ホームへ戻る", posts_path %>
               </li>
                <li>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
@@ -61,15 +65,11 @@
                <li>
             <%= link_to "ユーザー一覧へ", users_path %>
               </li>
-               <li>
-            <%= link_to "DM一覧", rooms_path %>
-              </li>
+              
              <li>
             <%= link_to 'プロフィール変更', edit_user_registration_path %>
               </li>
-                <li>
-            <%= link_to 'eechトップページへ',pages_eech_path%>
-              </li>
+            
 
           <% else %>
                 <li>

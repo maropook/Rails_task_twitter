@@ -16,9 +16,7 @@
       }
   }
           .my-container {
-              max-width: 1000px;
-              margin-right: auto;
-              margin-left: auto;
+              width: 100%;
               background: rgb(239, 230, 230);
           }
   
@@ -31,9 +29,7 @@
               position: sticky;
               z-index: 11;
               display: flex;
-              max-width: 1000px;
-              margin-right: auto;
-              margin-left: auto;
+              width:100%;
               top: 0;
               height: 48px;
               background-color: #fd9c9c;
@@ -58,18 +54,25 @@
               height: 33px;;
           }
 
+          .user_name{
+              position: absolute;
+              top: 22px;
+              left: 90px;
+              color: white;
+          }
+
           header .user_icon{
             position: absolute;
             left: 20px;
             top: 0;
-              margin-top: 5px;
+            margin-top: 5px;
             width: 40px;
             height: 40px;
             //サイズ指定
             border-radius: 100px;
             //画像を丸くする
             object-fit: cover;
-            z-index: 70;
+            z-index: 100;
            
           }
   
