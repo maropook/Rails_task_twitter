@@ -118,24 +118,39 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.default_url_options = { :host => 'https://timory.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = false #この一文も追記!!
+  # config.action_mailer.default_url_options = { :host => 'https://timory.herokuapp.com' }
+  # config.action_mailer.raise_delivery_errors = false #この一文も追記!!
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :user_name => ENV["SENDGRID_USERNAME"],
+  #     :password => ENV["SENDGRID_PASSWORD"],
+  #     :domain => "heroku.com",
+  #     :address => "smtp.sendgrid.net",
+  #     :port => 587,
+  #     :authentication => :plain,
+  #     :enable_starttls_auto => true
+  #     :address => 'smtp.gmail.com',
+  #     :port => 587,
+  #     :user_name => ENV['KEY'],
+  #     :password => ENV['SECRET_KEY'],
+  #     :authentication => :plain,
+  #     :domain         => 'gmail.com',
+  #     :enable_starttls_auto => true
+  # }
+
+
+
+  config.action_mailer.default_url_options = {:host => "timory.herokuapp.com", :protocol => "http"} #I"ve also tried it without ":protocol => "http""
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-      # :user_name => ENV["SENDGRID_USERNAME"],
-      # :password => ENV["SENDGRID_PASSWORD"],
-      # :domain => "heroku.com",
-      # :address => "smtp.sendgrid.net",
-      # :port => 587,
-      # :authentication => :plain,
-      # :enable_starttls_auto => true
-      :address => 'smtp.gmail.com',
-      :port => 587,
-      :user_name => ENV['KEY'],
-      :password => ENV['SECRET_KEY'],
-      :authentication => :plain,
-      :domain         => 'gmail.com',
-      :enable_starttls_auto => true
-  }
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :authentication => :plain,   # I"ve also tried :login
+  :enable_starttls_auto => true,  # Also tried tls => true
+  :user_name => ENV['KEY'],
+  :password => ENV['SECRET_KEY'],
+  } #I"ve also tried having the attribute :domain => "myapp.herokuapp.com",
 
 end
