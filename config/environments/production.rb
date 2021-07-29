@@ -122,12 +122,19 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false #この一文も追記!!
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :user_name => ENV["SENDGRID_USERNAME"],
-      :password => ENV["SENDGRID_PASSWORD"],
-      :domain => "heroku.com",
-      :address => "smtp.sendgrid.net",
+      # :user_name => ENV["SENDGRID_USERNAME"],
+      # :password => ENV["SENDGRID_PASSWORD"],
+      # :domain => "heroku.com",
+      # :address => "smtp.sendgrid.net",
+      # :port => 587,
+      # :authentication => :plain,
+      # :enable_starttls_auto => true
+      :address => 'smtp.gmail.com',
       :port => 587,
+      :user_name => ENV['KEY'],
+      :password => ENV['SECRET_KEY'],
       :authentication => :plain,
+      :domain         => 'gmail.com',
       :enable_starttls_auto => true
   }
 
