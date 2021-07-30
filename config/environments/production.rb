@@ -168,4 +168,6 @@ Rails.application.configure do
   #   body: "これはテストです。"
   # ).deliver_now
 
+  # heroku pg:reset DATABASW_URL
+
 end
