@@ -148,9 +148,20 @@ Rails.application.configure do
   :address => "smtp.gmail.com",
   :port => 587,
   :authentication => :plain,   # I"ve also tried :login
-  :enable_starttls_auto => true,  # Also tried tls => true
-  :user_name => ENV['KEY'],
-  :password => ENV['SECRET_KEY'],
+  :enable_starttls_auto => true,
+  domain:               'gmail.com',
+  user_name:            'iken.ishikawa@gmail.com',
+  password:             'cexdpglgpqkcyldy',  # Also tried tls => true
+  # :user_name => ENV['KEY'],
+  # :password => ENV['SECRET_KEY'],
   } #I"ve also tried having the attribute :domain => "myapp.herokuapp.com",
+
+
+  # ActionMailer::Base.mail(
+  #   from: 'iken.ishikawa@gmail.com', 
+  #   to: "iken.ishikawa@gmail.com", 
+  #   subject: "テストメール", 
+  #   body: "これはテストです。"
+  # ).deliver_now
 
 end
