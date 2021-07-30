@@ -150,8 +150,12 @@ Rails.application.configure do
   :authentication => :plain,   # I"ve also tried :login
   :enable_starttls_auto => true,
   domain:               'gmail.com',
-  user_name:            'iken.ishikawa@gmail.com',
-  password:             'cexdpglgpqkcyldy',  # Also tried tls => true
+  # user_name:            'iken.ishikawa@gmail.com',
+  # password:             'cexdpglgpqkcyldy',  # Also tried tls => true
+
+  :user_name => ENV['IKEN_GMAIL'],
+  :password => ENV['IKEN_PASSWORD'],
+  
   # :user_name => ENV['KEY'],
   # :password => ENV['SECRET_KEY'],
   } #I"ve also tried having the attribute :domain => "myapp.herokuapp.com",
