@@ -113,6 +113,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     ffi (1.15.3)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     globalid (0.5.1)
       activesupport (>= 5.0)
     hashie (4.1.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   dotenv-rails
+  font-awesome-sass
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
