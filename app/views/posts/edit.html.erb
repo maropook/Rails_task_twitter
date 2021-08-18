@@ -29,10 +29,11 @@
       </label>
     <% end %>
   </div>
+  
+  <%= f.select :status, Post.statuses.keys.to_a, {} %>
 
 
-
-          <%= f.submit '編集' ,class:"btn"%>
+  <%= f.submit '編集' ,class:"btn"%>
     </div>
    
 <% end %>

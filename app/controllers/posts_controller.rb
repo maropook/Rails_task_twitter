@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   def index
-    @posts = Post.all
+    #フォローしているユーザーの投稿
+    @posts = Post.where(status: :released)
+    @post = Post.new
+  end
+
+  def follow
+    @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased)
     @post = Post.new
   end
 
@@ -43,7 +49,13 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:content,:image, :image_cache, :remove_image)
+      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status)
 
     end
 end
+
+#フォローしているユーザーの投稿
+# @posts = Post.where(user_id: [*current_user.following_ids])
+
+#フォローしているユーザーと自分の投稿
+# @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])

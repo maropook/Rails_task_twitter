@@ -3,20 +3,17 @@
 <% @users.each do |user| %>
   <div class="twiit">
     <div class="twitter">
-
       <div class="user">
-
-  <img src=<%= user.image %> class = "icon_image">
-  <a href="/users/<%= user.id %>"><%= user.username %></a>
-          <td>フォロー: <%= user.followings.count %></td>
+        <img src=<%= user.image %> class = "icon_image">
+        <a href="/users/<%= user.id %>"><%= user.username %></a>
+        <td>フォロー: <%= user.followings.count %></td>
         <td>フォロワー: <%= user.followers.count %></td>
-  <hr>
+        <hr>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
- 
 <% end %>
-
 <br>
 <%= link_to "ホームへ戻る", posts_path %>
 
