@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   def index
-    @posts = Post.all
+    @posts = Post.where(status: :released)
+    @nonposts = Post.where(status: :nonreleased)
     @post = Post.new
   end
 
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:content,:image, :image_cache, :remove_image)
+      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status)
 
     end
 end

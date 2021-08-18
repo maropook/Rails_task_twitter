@@ -5,4 +5,6 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
 
   mount_uploader :image, ImageUploader
+
+  enum status:{nonreleased: 0, released: 1}
 end
