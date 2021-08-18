@@ -2,12 +2,15 @@
   display: flex;
   justify-content: space-between;
 }
+
 .farmily {
+
   /* Form Layout */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     nav.farmily {
       a {
         display: inline-block;
@@ -17,14 +20,17 @@
       }
     }
   }
+
   .my-container {
     width: 100%;
     background: rgb(239, 230, 230);
   }
+
   header,
   main {
     display: block;
   }
+
   header {
     position: fixed;
     z-index: 15;
@@ -34,6 +40,7 @@
     height: 100%;
     background-color: #594A31;
   }
+
   header.hid {
     z-index: 10;
     height: 0px;

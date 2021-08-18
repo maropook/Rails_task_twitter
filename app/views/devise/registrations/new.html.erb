@@ -11,40 +11,40 @@
 
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-            <!-- ユーザー名を追加 -->
-          <div class="field form-item">
-            <%= f.label :username %><br />
-            <%= f.text_field :username, placeholder:"ユーザーネームを入力",required: true%>
-          </div>
+        <!-- ユーザー名を追加 -->
+        <div class="field form-item">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, placeholder:"ユーザーネームを入力",required: true%>
+        </div>
 
-          <div class="field form-item">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力",required: true %>
-          </div>
+        <div class="field form-item">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力",required: true %>
+        </div>
 
-          <div class="field form-item">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" , placeholder:"パスワードを入力",required: true%>
-          </div>
+        <div class="field form-item">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" , placeholder:"パスワードを入力",required: true%>
+        </div>
 
-          <div class="field form-item">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"確認用パスワードを入力",required: true %>
-          </div>
+        <div class="field form-item">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"確認用パスワードを入力",required: true %>
+        </div>
 
-          <div class="field">
-            <%= f.label :image %><br/>
-            <%= f.file_field :image %>
-          </div>
+        <div class="field">
+          <%= f.label :image %><br />
+          <%= f.file_field :image %>
+        </div>
 
-          <div class="actions button-panel">
-            <%= f.submit "Sign up" ,class:"button"%>
-          </div>
+        <div class="actions button-panel">
+          <%= f.submit "Sign up" ,class:"button"%>
+        </div>
         <% end %>
 
 
@@ -66,10 +66,3 @@
     </footer>
     <%= render "devise/shared/links" %>
   </div>
- 
-
-
-
-
-
-

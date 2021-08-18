@@ -1,132 +1,145 @@
-#twitter_room{
+#twitter_room {
     box-sizing: border-box;
     padding: 0 50px;
 
-    h2{
-        color:gray;
+    h2 {
+        color: gray;
     }
-    .post{
+
+    .post {
         display: flex;
-        border:2px solid #fd9c9c;
-   
+        border: 2px solid #fd9c9c;
+
         padding: 10px 30px;
         // border-radius: 20px;
         border-radius: 4px;
 
-        ::placeholder{
+        ::placeholder {
             color: rgb(173, 173, 173);
         }
+
         input:focus {
             border: none;
             outline: none;
         }
-    
+
         // .form_for_tweet{
-            
-        .border{
-            
+
+        .border {
+
             border-bottom: 2px solid gray;
-           
+
         }
-                // }
-        .text_field{
+
+        // }
+        .text_field {
             width: 694px;
             margin: 5px;
             margin-top: 11px;
             padding: 15px;
             border: none;
-          
+
             font-size: 25px;
             color: gray;
 
 
         }
 
-        .btn{
+        .btn {
             width: 134px;
-            height:44px;
+            height: 44px;
             background-color: #fd9c9c;
             border-radius: 30px;
-            margin:0 16px;
+            margin: 0 16px;
             margin-top: 16px;
             margin-left: 80%;
             border: none;
             color: white;
             font-size: 15px;
-    
+
 
 
 
         }
     }
 
-    .twiit{
+    .twiit {
         border: 2px solid #fd9c9c;
         border-radius: 4px;
         margin: 0 0 -2px;
     }
-    .twitter{
+
+    .twitter {
         margin: 20px 30px;
     }
-    .comment_bottom{
+
+    .comment_bottom {
         margin-top: 30px;
         margin-bottom: 50px;
     }
-    h3.comment{
+
+    h3.comment {
         margin-left: 50px;
     }
-    .comment{
-      
+
+    .comment {
+
         margin-left: 30px;
     }
+
     .icon_image {
         width: 50px;
         height: 50px;
         border-radius: 100px;
         object-fit: cover;
         margin-right: 20px;
-        
+
     }
-    .room_plus{
+
+    .room_plus {
         margin-top: 20px;
     }
-    .plus{
+
+    .plus {
         margin: 5px;
         width: 40px;
         height: 40px;
         margin-right: 20px;
-       
+
 
     }
-    .favorite{
+
+    .favorite {
         margin-left: 80%;
     }
-    .user{
+
+    .user {
         padding: 10px 0;
         display: flex;
         align-items: center;
-       
-}
 
-a.user_name{
+    }
 
-    display: inline-block;
-    height:50px ;
-    margin-top: 10px;
-    margin-left: 5px;
-   
+    a.user_name {
 
-}
-a{
-
-    text-decoration: none;
-    color: gray;
-    font-size: 25px;
-}
-
-.comment_bottom{
-    padding-left: 20px;
+        display: inline-block;
+        height: 50px;
+        margin-top: 10px;
+        margin-left: 5px;
 
 
-}
+    }
+
+    a {
+
+        text-decoration: none;
+        color: gray;
+        font-size: 25px;
+    }
+
+    .comment_bottom {
+        padding-left: 20px;
+
+
+    }
 }

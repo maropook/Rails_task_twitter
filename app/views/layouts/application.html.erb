@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>timory</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <%= favicon_link_tag '/favicon.png' %>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body  class="twitter-container">
-  <span class="farmily" >
+
+<head>
+  <title>timory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <%= favicon_link_tag '/favicon.png' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="twitter-container">
+  <span class="farmily">
     <header class="container farmily">
       <img src="/assets/farmily_logo.png" class="white_logo" alt="">
       <% if user_signed_in? %>
-        <% if current_user.image? %>
-        <%= image_tag current_user.image.url, class: "user_icon" %>
-        <% else %>
-        <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
-        <% end %>
+      <% if current_user.image? %>
+      <%= image_tag current_user.image.url, class: "user_icon" %>
       <% else %>
-      <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <% end %>
+      <% else %>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
       <% end %>
       <div id="header">
         <div class="hamburger-menu">
@@ -28,10 +30,10 @@
           <div class="menu-content">
             <nav class="farmily">
               <ul>
-              <% if user_signed_in? %>
+                <% if user_signed_in? %>
                 <span class="user_name"><%= current_user.username%></span>
-                <%# <%= link_to current_user.username, pages_show_path %> 
-                <%# <%= link_to 'eechトップページへ',pages_eech_path%> 
+                <%# <%= link_to current_user.username, pages_show_path %>
+                <%# <%= link_to 'eechトップページへ',pages_eech_path%>
                 <li>
                   <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
                 </li>
@@ -62,7 +64,7 @@
                 <li>
                   <%= link_to 'プロフィール変更', edit_user_registration_path %>
                 </li>
-              <% else %>
+                <% else %>
                 <li>
                   <%= link_to 'サインアップ', new_user_registration_path %>
                 </li>
@@ -72,7 +74,7 @@
                 <li>
                   <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
                 </li>
-              <% end %>  
+                <% end %>
               </ul>
             </nav>
           </div>
@@ -85,7 +87,8 @@
       <span class="alert"><%= alert %></span>
     </div>
   </span>
-    <!-- ここに追加 -->
-    <%= yield %>
-  </body>
+  <!-- ここに追加 -->
+  <%= yield %>
+</body>
+
 </html>
