@@ -7,6 +7,13 @@ GIT
       rest-client (~> 2)
       sinatra (~> 2.0.0.beta2)
 
+GIT
+  remote: https://github.com/tcocca/acts_as_follower.git
+  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,6 +78,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.6)
@@ -169,6 +177,9 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    parallel (1.20.1)
+    parser (3.0.2.0)
+      ast (~> 2.4.1)
     pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.4.0)
@@ -209,6 +220,7 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
+    rainbow (3.0.0)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -225,6 +237,23 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.5)
+    rubocop (1.19.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.9.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.10.0)
+      parser (>= 3.0.1.1)
+    rubocop-rails (2.11.3)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
+    ruby-progressbar (1.11.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
@@ -268,6 +297,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    unicode-display_width (2.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -296,6 +326,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_follower!
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -315,6 +346,8 @@ DEPENDENCIES
   rails (~> 6.1.4)
   refile!
   refile-mini_magick
+  rubocop
+  rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver
   spring
