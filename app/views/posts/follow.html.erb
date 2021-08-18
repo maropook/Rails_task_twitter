@@ -33,9 +33,10 @@
   <% end %>
 </div>
 <br>
-
+  
+  <h1>非公開投稿一覧</h1>
   <%# <h2>投稿一覧</h2> %>
-  <% @posts.reverse_each do |post| %>
+  <% @nonposts.reverse_each do |post| %>
     <div class="twiit">
       <div class="twitter">
           <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong><%= post.updated_at.to_s(:datetime_jp) %></div>

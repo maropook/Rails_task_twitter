@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   def index
     @posts = Post.where(status: :released)
+    @post = Post.new
+  end
+
+  def follow
     @nonposts = Post.where(status: :nonreleased)
     @post = Post.new
   end
