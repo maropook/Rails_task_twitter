@@ -1,10 +1,24 @@
-# Twitterもどき
+# Timory
+
+
+![timory](https://user-images.githubusercontent.com/84751550/129872374-c632a297-a7b2-427e-a27f-a336bac54c79.png)
+
+-定時日記交換システム-
+
+http://timory.herokuapp.com/
 
 ## About
 
-課題で作成しているrailsのプロジェクト
+共同で作成しているrailsのプロジェクト
 
-##　使い方
+自分の発見や行動を
+
+好きな時間に記録
+
+決まった時間に確認
+
+## 使い方
+
 - git clone
 - bundle install
 - yarn install
@@ -12,7 +26,7 @@
 - rails s
 
 # 目標
-twitterもどきを作る
+twitterもどきだが少し違う
 
 #どんな設計にするのか
 ・ユーザー
@@ -24,6 +38,10 @@ twitterもどきを作る
 
 ・コメント
 →内容のみ
+
+# ER図
+
+<img width="906" alt="スクリーンショット 2021-08-18 18 24 46" src="https://user-images.githubusercontent.com/84751550/129873768-4c54d5ca-2482-48fb-bca8-4cb6eb786b63.png">
 
 # プロジェクトの作成
 ```
