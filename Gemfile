@@ -72,6 +72,7 @@ gem "refile-mini_magick"
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+gem 'whenever', require: false
 group :production do
   gem 'pg'
 end
