@@ -8,3 +8,5 @@ class Post < ApplicationRecord
 
   enum status:{nonreleased: 0, released: 1}
 end
+
+# Post.update_all ['cronstatus = ?',1]
