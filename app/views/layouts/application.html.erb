@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>rails課題</title>
+    <title>timory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
+    <%= favicon_link_tag '/favicon.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,7 +19,15 @@
         <a class="icon"><img src="/assets/farmily_logo.png" class="smile" alt=""></a>
 
         <% if user_signed_in? %>
-         <a ><img src=<%= current_user.image %> class="user_icon" alt=""></a>
+        
+          <% if current_user.image? %>
+          <%= image_tag current_user.image.url, class: "user_icon" %>
+          
+          <% else %>
+          <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+          
+          <% end %>
+        
         <% else %>
         <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
         <% end %>
