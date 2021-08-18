@@ -14,17 +14,14 @@ img.clova{
     height: 50px;
 }
   
-.farmily{
+.farmily_devise{
+    width: 72%;
   /* Form Layout */
-
-
-
   * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-   
 
     body{
         background: #e9e9e9;
@@ -63,7 +60,6 @@ img.clova{
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
             height: 50px;
-            
             width: 100%;
             padding: 0 10px;
         }
@@ -130,7 +126,7 @@ img.clova{
         }
 
         .my-container {
-           
+           width: 72%;
             background: rgb(239, 230, 230);
         }
 

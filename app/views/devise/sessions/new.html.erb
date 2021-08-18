@@ -1,20 +1,12 @@
 
-<div class="farmily">
+<div class="farmily_devise">
   <div class="my-container">
     <main id="app">
       <header class="hid">
-
       </header>
-      
         <div class="form-wrapper">
           <div class="form-logo"><img src="/assets/clova_logo.png" alt=""class="clova"></div>
           <h1>Timoryにログイン</h1>
-
-
-
-
-
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-item">
     <%= f.label :email %><br />
@@ -37,14 +29,11 @@
     <%= f.submit "Log in"  ,class:"button"%>
   </div>
 <% end %>
-
-
-     
           <div class="form-footer">
             <p>アカウントがない場合はこちら</p>
             <p><%= render "devise/shared/links" %></p>
           </div>
-   
+
         </div>
 
     </main>
@@ -58,15 +47,5 @@
       </ul>
     </footer>
   </div>
+
 </div>
-</div>
-<h2>Log in</h2>
-
-
-
-
-
-
-
-
-<%= render "devise/shared/links" %>

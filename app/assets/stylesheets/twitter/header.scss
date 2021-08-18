@@ -1,206 +1,86 @@
-.farmily{
-    /* Form Layout */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  
-      nav.farmily{
-          a{
-              display: inline-block;
-              margin-top: 15px;
-              color: #ffffff;
-              text-decoration: none;
-          }
-      }
-  }
-          .my-container {
-              width: 100%;
-              background: rgb(239, 230, 230);
-          }
-  
-        
-          header, main {
-              display: block;
-          }
-  
-          header {
-              position: sticky;
-              z-index: 11;
-              display: flex;
-              width:100%;
-              top: 0;
-              height: 48px;
-              background-color: #fd9c9c;
-          }
-          header.hid{
-              z-index: 10;
-              height: 0px;
-          }
-  
-          header .icon, header .service {
-              position: relative;
-              top: -1px;
-              padding: 10px 18px;
-              text-align: center;
-              font-size: 1.8rem;
-              margin-right: 25px;
-          }
-  
-          header .icon .smile {
-              margin-left: 50px;
-              width: 98px;
-              height: 33px;;
-          }
-
-          .user_name{
-              position: absolute;
-              top: 22px;
-              left: 90px;
-              color: white;
-          }
-
-          header .user_icon{
-            position: absolute;
-            left: 20px;
-            top: 0;
-            margin-top: 5px;
-            width: 40px;
-            height: 40px;
-            //サイズ指定
-            border-radius: 100px;
-            //画像を丸くする
-            object-fit: cover;
-            z-index: 100;
-           
-          }
-  
-          header .service .logo {
-              width: 33px;
-              height: 33px;
-          }
-  
-          header .service .logo {
-              position: absolute;
-              margin-left: 240px;
-              width: 40px;
-              height: 40px;
-          }
-  
-          header .notification {
-              position: absolute;
-              margin-left: 2400%;
-              margin-top: -5px;
-              width: 40px;
-              height: 40px;
-          }
-  
-          header .smile {
-              position: absolute;
-              margin-left: 0px;
-          }
-
-          header{
-              display: flex;
-              justify-content: space-between;   
-          }
-          .notice_alert{
-              z-index: 15;
-              margin-top: -4px;
-              padding-left: 15px;
-            background-color: #fd9c9c;
-            color: white;
-          }
-          
-
-        }
-
-.farmily #header{
-
-    .menu-btn {
-        margin-right: 20px;
-        top: 0px;
-        right: 20px;
-        display: flex;
-        height: 44px;
-        width: 60px;
-        justify-content: center;
-        align-items: center;
-        z-index: 20;
-        background-color: #fd9c9c;
-    }
-  
-    .menu-btn span:before{
-        z-index: 90;
-        content: '';
-        top: 0;
+.twitter-container {
+  display: flex;
+  justify-content: space-between;
+}
+.farmily {
+  /* Form Layout */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    nav.farmily {
+      a {
         display: inline-block;
-        height: 45px;
-        width: 45px;
-        background-image: url(/assets/clova_logo.png);
-        background-size: contain;
-        vertical-align: middle;
-        position: absolute;
-    }
-    
-    #menu-btn-check:checked ~ .menu-btn span {
-        background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
-    }
-    #menu-btn-check:checked ~ .menu-btn span::before {
-        top: 0;
-        transform: rotate(45deg);
-    }
-    #menu-btn-check:checked ~ .menu-btn span::after {
-        top: 0;
-        transform: rotate(-45deg);
-    }
-
-    #menu-btn-check {
-        display: none;
-    }
-
-    .menu-content ul {
-        padding: 70px 10px 0;
-    }
-    .menu-content ul li {
-        border-bottom: solid 1px #ffffff;
-        list-style: none;
-    }
-    .menu-content ul li a {
-        display: block;
-        width: 100%;
-        font-size: 15px;
-        box-sizing: border-box;
-        color:#ffffff;
+        margin-top: 15px;
+        color: #ffffff;
         text-decoration: none;
-        padding: 9px 15px 10px 0;
-        position: relative;
+      }
     }
-    .menu-content ul li a::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-top: solid 2px #ffffff;
-        border-right: solid 2px #ffffff;
-        transform: rotate(45deg);
-        position: absolute;
-        right: 11px;
-        top: 16px;
-    }
-    .menu-content {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 100%;/*leftの値を変更してメニューを画面外へ*/
-        z-index: 80;
-        background-color: #fd9c9c;
-        transition: all 0.5s;/*アニメーション設定*/
-    }
+  }
+  .my-container {
+    width: 100%;
+    background: rgb(239, 230, 230);
+  }
+  header,
+  main {
+    display: block;
+  }
+  header {
+    position: fixed;
+    z-index: 15;
+    width: 28%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #594A31;
+  }
+  header.hid {
+    z-index: 10;
+    height: 0px;
+  }
 
-    #menu-btn-check:checked ~ .menu-content {
-        left: 0;/*メニューを画面内へ*/
-    }
+  .user_name {
+    position: absolute;
+    top: 22px;
+    left: 90px;
+    color: white;
+  }
 
+  header .user_icon {
+    position: absolute;
+    left: 5%;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    //サイズ指定
+    border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    z-index: 100;
+  }
+
+  header .white_logo {
+    position: absolute;
+    margin-left: 17%;
+    top: 2%;
+    width: 168px;
+    height: 67px;
+  }
+
+  .notice_alert {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 11;
+    margin-top: -4px;
+    right: 0;
+    padding-left: 20%;
+    background-color: #594A31;
+    color: white;
+  }
+
+  .hamburger-menu {
+    margin-top: 35%;
+    margin-left: 17%;
+  }
 }
