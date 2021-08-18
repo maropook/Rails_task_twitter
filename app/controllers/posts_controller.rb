@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   def index
+    #フォローしているユーザーの投稿
     @posts = Post.where(status: :released)
     @post = Post.new
   end
 
   def follow
-    @nonposts = Post.where(status: :nonreleased)
+    @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased)
     @post = Post.new
   end
 
@@ -52,3 +53,9 @@ class PostsController < ApplicationController
 
     end
 end
+
+#フォローしているユーザーの投稿
+# @posts = Post.where(user_id: [*current_user.following_ids])
+
+#フォローしているユーザーと自分の投稿
+# @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])
