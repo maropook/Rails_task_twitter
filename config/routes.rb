@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :users, only: [:index, :show]
-    
+  resources :users, only: [:index, :show] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end  
   root 'pages#farmily'
 
   resources :messages, :only => [:create]

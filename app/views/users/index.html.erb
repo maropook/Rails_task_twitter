@@ -8,6 +8,8 @@
 
   <img src=<%= user.image %> class = "icon_image">
   <a href="/users/<%= user.id %>"><%= user.username %></a>
+          <td>フォロー: <%= user.followings.count %></td>
+        <td>フォロワー: <%= user.followers.count %></td>
   <hr>
 </div>
 </div>
@@ -17,3 +19,4 @@
 
 <br>
 <%= link_to "ホームへ戻る", posts_path %>
+
