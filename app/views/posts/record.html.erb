@@ -1,0 +1,41 @@
+<div id="timory_record">
+    <% if user_signed_in? %>
+    <img src="/assets/pencil_brown.png" class="session_icon" alt="">
+    <div class="post">
+        <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
+        <%= f.text_field :content ,class:"text_field",placeholder:"記録する"%>
+        <br>
+        <hr>
+        <div class="field">
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
+            <%= f.select :status, Post.statuses.keys.to_a, {} %>
+            <%= f.submit '記録する' ,class:"btn"%>
+        </div>
+        <% end %>
+    </div>
+    <% else %>
+    <div id=twitter_top>
+        <div class="container">
+            <div class="my-container my-container-session">
+                <div class="left_flex">
+                    <img src="/assets/twitter_top.PNG" alt="">
+                </div>
+                <div class="right_flex">
+                    <br>
+                    <br>
+                    <img src="/assets/clova_logo.png" alt="">
+                    <h1>全ての話題が，ここに．</h1>
+                    <h2>twitterを始めよう</h2>
+                    <div class="button">
+                        <%= link_to 'アカウント作成', new_user_registration_path %>
+                    </div>
+                    <div class="button login">
+                        <%= link_to 'ログイン', new_user_session_path %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

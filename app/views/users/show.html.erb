@@ -15,13 +15,25 @@
   <%= link_to "フォロワー一覧", user_followers_path(@user.id)%>
   <%= link_to "フォロー一覧", user_followings_path(@user.id)%>
   <h2>投稿内容</h2>
-  <% @user.posts.each do |post| %>
+  <% @user.posts.reverse_each do |post| %>
   <div class="twiit">
     <div class="twitter">
       <div class="user"><img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
             href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
       <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+      <p>
+        <% if post.image?%>
+        <strong>Image:</strong>
+        <div class="thumbnail">
+          <div class="post_images"><img src=<%= post.image.url %> class="post_image"></div>
+        </div>
+        <% end %>
+      </p>
       <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
+      <% if post.user.id == current_user.id%>
+      <td><%= link_to "編集", edit_post_path(post) %></td>　　　　　　　
+      <td><%= link_to "削除", post_path(post), method: :delete %></td>
+      <% end %>
     </div>
   </div>
   <% end %>

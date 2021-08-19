@@ -24,14 +24,52 @@
       <% else %>
       <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
       <% end %>
+      <!--ここからメニュー-->
+      <div id="timory_header">
+        <div class="timory_menu">
+          <nav class="farmily">
+            <ul>
+              <% if user_signed_in? %>
+              <span class="user_name"><%= current_user.username%></span>
+              <li>
+                <img src="/assets/myself_white.png" class="header_icon" alt="">
+                <%= link_to "自分", user_path(current_user.id) %>
+              </li>
+              <%# //////////////みんな//////// %>
+              <li>
+                <img src="/assets/everyone_white.png" class="header_icon" alt="">
+                <%= link_to "みんな", posts_path %>
+              </li>
+              <%# <%= link_to 'みんな(local)',posts_follow_path%>
+              <li>
+                <img src="/assets/other_white.png" class="header_icon" alt="">
+                <%= link_to "その他", posts_other_path %>
+              </li>
+              <li>
+                <img src="/assets/pencil_white.png" class="header_icon" alt="">
+                <%= link_to "記録", posts_record_path %>
+              </li>
+              <li>
+                <img src="/assets/clock_white.png" class="header_icon" alt="">
+                <%= link_to "履歴", posts_record_path %>
+              </li>
+              <% else %>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!--ここまでメニュー-->
+      <!--ここからメニュー-->
       <div id="header">
         <div class="hamburger-menu">
-          <!--ここからメニュー-->
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
           <div class="menu-content">
             <nav class="farmily">
               <ul>
                 <% if user_signed_in? %>
-                <span class="user_name"><%= current_user.username%></span>
                 <%# <%= link_to current_user.username, pages_show_path %>
                 <%# <%= link_to 'eechトップページへ',pages_eech_path%>
                 <li>
@@ -56,13 +94,33 @@
                   <%= link_to "マイページへ", user_path(current_user.id) %>
                 </li>
                 <li>
-                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-                </li>
-                <li>
                   <%= link_to "ユーザー一覧へ", users_path %>
                 </li>
                 <li>
                   <%= link_to 'プロフィール変更', edit_user_registration_path %>
+                </li>
+                <% else %>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="login_header">
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check_login">
+          <label for="menu-btn-check_login" class="menu-btn"><span></span></label>
+          <div class="menu-content">
+            <nav class="farmily">
+              <ul>
+                <% if user_signed_in? %>
+                <li>
+                  <%= link_to "マイページへ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                 </li>
                 <% else %>
                 <li>
@@ -71,16 +129,14 @@
                 <li>
                   <%= link_to 'ログイン', new_user_session_path %>
                 </li>
-                <li>
-                  <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
-                </li>
                 <% end %>
               </ul>
             </nav>
           </div>
-          <!--ここまでメニュー-->
+
         </div>
       </div>
+      <!--ここまでメニュー-->
     </header>
     <div class="notice_alert">
       <span class="notice"><%= notice %></span>

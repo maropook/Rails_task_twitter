@@ -1,6 +1,40 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
+img.session_icon {
+  width: 62px;
+  height: 62px;
+  left: 20px;
+  top: 30px;
+}
+
+#timory_header {
+
+
+  .timory_menu {
+    margin-top: 39%;
+    margin-left: 12%;
+  }
+
+
+  li {
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    padding: 10px 0;
+
+    a {
+      margin-top: 0;
+    }
+  }
+
+  img.header_icon {
+
+    width: 63px;
+    height: 63px;
+  }
+}
+
 .twitter-container {
   display: flex;
   justify-content: space-between;
@@ -79,7 +113,7 @@ $farmily-color: #FF7E79;
 
   header .white_logo {
     position: absolute;
-    margin-left: 17%;
+    margin-left: 15%;
     top: 2%;
     width: 168px;
     height: 67px;
@@ -92,17 +126,221 @@ $farmily-color: #FF7E79;
     z-index: 11;
     margin-top: -4px;
     right: 0;
-    padding-left: 20%;
+    padding-left: 35%;
     background-color: $timory-color;
     color: white;
   }
 
-  .hamburger-menu {
-    margin-top: 35%;
+  .hamburger-menu,
+  .menu {
+    margin-top: 28%;
     margin-left: 17%;
   }
 
   ul {
     list-style: none;
   }
+}
+
+
+
+.farmily #header {
+  .menu-btn {
+    visibility: hidden;
+    margin-right: 20px;
+    top: -20px;
+    right: 20px;
+    display: flex;
+    height: 44px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background-color: #fd9c9c;
+  }
+
+  .menu-btn span:before {
+    visibility: visible;
+    z-index: 90;
+    content: '';
+    top: 10px;
+    right: -250%;
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background-image: url(/assets/clova_logo.png);
+    background-size: contain;
+    vertical-align: middle;
+    position: absolute;
+  }
+
+  #menu-btn-check:checked~.menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+    /*メニューオープン時は真ん中の線を透明にする*/
+  }
+
+  #menu-btn-check:checked~.menu-btn span::before {
+    transform: rotate(45deg);
+  }
+
+  #menu-btn-check:checked~.menu-btn span::after {
+    transform: rotate(-45deg);
+  }
+
+  #menu-btn-check {
+    display: none;
+  }
+
+  .menu-content ul {
+    padding: 10px 10px 0;
+  }
+
+  .menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+  }
+
+  .menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0px 15px 9px 0;
+    position: relative;
+  }
+
+  .menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 9px;
+  }
+
+  .menu-content {
+    width: 28%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 100%;
+    /*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: $timory-color;
+    transition: all 0.5s;
+    /*アニメーション設定*/
+  }
+
+  #menu-btn-check:checked~.menu-content {
+    right: 72%;
+    /*メニューを画面内へ*/
+  }
+
+}
+
+// ########ユーザアイコンをタップした時ログインログアウトを表示########
+
+.farmily #login_header {
+  .menu-btn {
+    visibility: hidden;
+    margin-right: 20px;
+    top: -20px;
+    right: 20px;
+    display: flex;
+    height: 44px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background-color: #fd9c9c;
+  }
+
+  .menu-btn span:before {
+    visibility: visible;
+    z-index: 190;
+    content: '';
+    bottom: 10px;
+    left: 12px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background-image: url(/assets/cleanness.png);
+    background-size: contain;
+    vertical-align: middle;
+    position: absolute;
+  }
+
+  #menu-btn-check_login:checked~.menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+    /*メニューオープン時は真ん中の線を透明にする*/
+  }
+
+  #menu-btn-check_login:checked~.menu-btn span::before {
+    transform: rotate(45deg);
+  }
+
+  #menu-btn-check_login:checked~.menu-btn span::after {
+    transform: rotate(-45deg);
+  }
+
+  #menu-btn-check_login {
+    display: none;
+  }
+
+  .menu-content ul {
+    padding-left: 70px;
+  }
+
+  .menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+  }
+
+  .menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0px 15px 9px 0;
+    position: relative;
+  }
+
+  .menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+  }
+
+  .menu-content {
+    width: 26%;
+    height: 109px;
+    position: fixed;
+    bottom: 0;
+    right: 100%;
+    /*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    padding: 0;
+    background-color: $timory-color;
+    transition: all 0.5s;
+    /*アニメーション設定*/
+  }
+
+  #menu-btn-check_login:checked~.menu-content {
+    right: 73%;
+    /*メニューを画面内へ*/
+  }
+
 }

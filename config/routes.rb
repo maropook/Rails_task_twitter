@@ -4,13 +4,15 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
-  end  
+  end
   root 'pages#farmily'
 
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
 
   get 'posts/follow' => 'posts#follow'
+  get 'posts/record' => 'posts#record'
+  get 'posts/other' => 'posts#other'
   resources :posts, only: [:index, :show, :create, :destroy, :edit, :update] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]

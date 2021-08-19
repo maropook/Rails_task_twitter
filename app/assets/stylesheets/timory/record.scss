@@ -1,16 +1,19 @@
-#twitter_post {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+
+#timory_record {
     box-sizing: border-box;
     padding: 0 20px;
     width: 72%;
 
 
     h2 {
-        color: gray;
+        color: $timory-color;
     }
 
     .post {
-        display: flex;
-        border: 2px solid #fd9c9c;
+
+
 
         padding: 10px 30px;
         // border-radius: 20px;
@@ -28,24 +31,24 @@
         // .form_for_tweet{
         .border {
 
-            border-bottom: 2px solid gray
+            border-bottom: 2px solid $timory-color
         }
 
         // }
         .text_field {
-            width: 100%;
+            width: 90%;
             margin: 5px;
             margin-top: 11px;
-            padding: 15px;
+
             border: none;
             font-size: 25px;
-            color: gray;
+            color: $timory-color;
         }
 
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #fd9c9c;
+            background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
@@ -58,7 +61,7 @@
     }
 
     .twiit {
-        border: 2px solid #fd9c9c;
+        border: 2px solid $timory-color;
         border-radius: 4px;
         margin: 0 0 -2px;
     }

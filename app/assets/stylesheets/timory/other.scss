@@ -1,0 +1,46 @@
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+
+
+
+.farmily_other {
+    box-sizing: border-box;
+    padding: 0 20px;
+
+
+    .farmily #header-other {
+
+        .menu-content ul {
+            padding: 10px 10px 0;
+        }
+
+        .menu-content ul li {
+            border-bottom: solid 1px $timory-color;
+            list-style: none;
+        }
+
+        .menu-content ul li a {
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: $timory-color;
+            text-decoration: none;
+            padding: 9px 15px 9px 0;
+            position: relative;
+        }
+
+        .menu-content ul li a::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-top: solid 2px $timory-color;
+            border-right: solid 2px $timory-color;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 11px;
+            top: 16px;
+        }
+    }
+
+}
