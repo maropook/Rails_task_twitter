@@ -1,5 +1,6 @@
 set :output, 'log/crontab.log'
-set :environment,"development"
+rails_env = ENV['RAILS_ENV'] || :development
+set :environment, rails_env
 # require File.expand_path(File.dirname(__FILE__) + "/environment")
 # set :output, 'log/cron.log'
 
@@ -11,7 +12,7 @@ end
 # cat log/crontab.log
 
 # cronにデータを反映
-# bundle exec whenever --update-crontab 
+# bundle exec whenever --update-crontab
 
 # cronにデータを削除
-# bundle exec whenever --update-crontab 
+# bundle exec whenever --update-crontab
