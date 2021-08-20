@@ -3,13 +3,27 @@
     <%# みんな(公開) %>
     <%# <h2>投稿一覧</h2> %>
     <div class="tab">
-        <a class="div" href="/users/myself"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
-        <a class="div" href="/users/myself"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
+        <a class="div_white div" href="/posts/follow"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
+        <a class="div" href="/posts/global"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
     </div>
     <div class="everyone">
         <div class="search">
-            <p>検索窓</p>
-            <p>検索結果ユーザ</p>
+            <div class="search_window_top">
+
+            </div>
+            <div class="search_window">
+                <img src="/assets/search_white.png" alt="">
+            </div>
+            <div class="search_result">
+                <% @users.each do |user| %>
+                <div class="result">
+                    <img src=<%= user.image %> class="result_user">
+                    <a href="/users/<%= user.id %>"><%= user.username %></a>
+                </div>
+                <% end %>
+            </div>
+
+
         </div>
         <div class="twiit">
             <% @posts.reverse_each do |post| %>

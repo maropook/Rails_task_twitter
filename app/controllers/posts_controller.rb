@@ -8,11 +8,13 @@ class PostsController < ApplicationController
 
   def global
     #フォローしているユーザーの投稿
+    @users=User.all
     @posts = Post.where(status: :released, cronstatus: 1)
     @post = Post.new
   end
 
   def follow
+    @users=User.all
     @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1)
     @post = Post.new
   end

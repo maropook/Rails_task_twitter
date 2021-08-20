@@ -1,63 +1,28 @@
-<%# 自分　じぶん   <h2>履歴</h2>%>
-<div id="twitter_post">
-    <img src="/assets/clock_brown.png" class="session_icon" alt="">
-    <div class="twiit">
-        <div class="twitter">
-            <h2><img src=<%= @user.image %> class="icon_image"><%= @user.username %></h2>
-            <td>フォロー: <%= @user.followings.count %></td>
-            <td>フォロワー: <%= @user.followers.count %></td>
-        </div>
+<%# 自分　じぶん %>
+<div id="myself">
+    <div class="diary">
+        <img src="/assets/clock_brown.png" class="session_icon" alt="">
     </div>
-    <% if current_user.following?(@user) %>
-    <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete %>
-    <% else %>
-    <%= link_to "フォロー", user_relationships_path(@user.id), method: :post %>
-    <% end %>
-    <%= link_to "フォロワー一覧", user_followers_path(@user.id)%>
-    <%= link_to "フォロー一覧", user_followings_path(@user.id)%>
-    <h2>投稿内容</h2>
-    <% @user.posts.reverse_each do |post| %>
+    <% @myselfs.reverse_each do |post| %>
     <div class="twiit">
         <div class="twitter">
             <div class="user">
-                <div class="user_detail">
-                    <img src=<%= post.user.image %> class="icon_image">
-                    <strong><a class="user_name"
-                            href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-                </div>
+                <div class="datetime">
 
-                <% if post.user.id == current_user.id%>
-                　　　　　 <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
-                <% end %>
-            </div>
-            <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
-            <p>
+                    <p><%= post.updated_at.to_s(:datetime_jp_clock) %></p>
+                </div>
                 <% if post.image?%>
-                <strong>Image:</strong>
-                <div class="thumbnail">
-                    <div class="post_images"><img src=<%= post.image.url %> class="post_image"></div>
-                </div>
+
+                <img src=<%= post.image.url %> class="post_image">
                 <% end %>
-            </p>
-            <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
+                <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+
+            </div>
 
         </div>
     </div>
     <% end %>
-    <h2>いいねしている投稿</h2>
-    <% @user.liked_posts.each do |post| %>
-    <div class="twiit">
-        <div class="twitter">
-            <div class="user"><img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
-                        href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
-            <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
-        </div>
-    </div>
-    <% end %>
 
 
 
-
-    <%= link_to "ユーザー一覧へ", users_path %>
-    <%= link_to "ホームへ戻る", posts_path %>
 </div>
