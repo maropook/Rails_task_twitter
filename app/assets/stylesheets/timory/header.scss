@@ -1,6 +1,11 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
+html,
+body {
+  font-size: 16px;
+}
+
 img.session_icon {
   margin-top: 20px;
   width: 62px;
@@ -28,7 +33,7 @@ img.edit_icon {
 
   li {
     display: flex;
-    font-size: 30px;
+    font-size: 2rem;
     align-items: center;
     padding: 10px 0;
 

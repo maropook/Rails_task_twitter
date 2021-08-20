@@ -7,14 +7,15 @@ class PostsController < ApplicationController
   end
   def search
     @users=User.all
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).where(status: :released, cronstatus: 1)
     @post = Post.new
     @keyword = params[:keyword]
     render "global"
   end
   def searchfollow
+    @followings = current_user.followings
     @users=User.all
-    @nonposts = Post.search(params[:keyword])
+    @nonposts = Post.search(params[:keyword]).where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1)
     @post = Post.new
     @keyword = params[:keyword]
     render "follow"
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def follow
+    @followings = current_user.followings
     @users=User.all
     @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1)
     @post = Post.new
