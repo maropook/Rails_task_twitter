@@ -72,6 +72,26 @@ $farmily-color: #FF7E79;
 
             }
 
+            .search-form {
+
+                input:first-child {
+                    width: 75%;
+                }
+
+                .btn {
+                    background-image: url("/assets/search.png");
+                    background-repeat: no-repeat;
+                    border: 0px;
+                    width: 30px;
+                    height: 30px;
+
+                    text-indent: -9999px;
+                    cursor: pointer;
+
+
+                }
+            }
+
             .search_window {
                 position: fixed;
                 top: 90px;
@@ -79,10 +99,7 @@ $farmily-color: #FF7E79;
                 height: 30px;
                 background-color: $timory-color;
 
-                img {
-                    width: 30px;
-                    height: 30px;
-                }
+
 
             }
 
@@ -229,18 +246,19 @@ $farmily-color: #FF7E79;
         box-sizing: border-box;
         width: 65%;
         height: 1000px;
-        z-index: 9;
+
         position: fixed;
         bottom: 0;
         border-left: 2px solid $timory-color;
         border-right: 2px solid $timory-color;
+        pointer-events: none;
 
     }
 
     .search_side {
 
         height: 1000px;
-        z-index: 9;
+        pointer-events: none;
         position: fixed;
         bottom: 0;
         width: 21%;

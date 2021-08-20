@@ -12,7 +12,12 @@
 
       </div>
       <div class="search_window">
-        <img src="/assets/search_white.png" alt="">
+        <div class="search-form">
+          <%= form_with url: searchfollow_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit 'hogebutton', class: "btn" %>
+          <% end %>
+        </div>
       </div>
       <div class="search_result">
         <% @users.each do |user| %>
