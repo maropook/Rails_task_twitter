@@ -213,6 +213,32 @@ $farmily-color: #FF7E79;
 
     }
 
+    .tab_side {
+        box-sizing: border-box;
+        width: 65%;
+        height: 1000px;
+        z-index: 9;
+        position: fixed;
+        bottom: 0;
+
+        border-left: 2px solid $timory-color;
+        border-right: 2px solid $timory-color;
+
+    }
+
+    .search_side {
+        box-sizing: border-box;
+        height: 1000px;
+        z-index: 9;
+        position: fixed;
+        bottom: 0;
+        width: 21.5%;
+        border-right: 2px solid $timory-color;
+
+    }
+
+
+
     div#videos {
         display: block;
         width: 100%;
