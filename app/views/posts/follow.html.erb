@@ -1,6 +1,7 @@
 <div id="twitter_post">
   <% if user_signed_in? %>
-  <h2>ホーム</h2>
+  <%# みんな(フォロー) %>
+  <h2>フォロー限定</h2>
   <div class="post">
     <img src=<%= current_user.image %> class="icon_image">
     <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
@@ -54,7 +55,7 @@
       <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
       <% if post.user.id == current_user.id%>
       <td><%= link_to "編集", edit_post_path(post) %></td>　　　　　　　
-      <td><%= link_to "削除", post_path(post), method: :delete %></td>
+
       <% end %>
     </div>
   </div>

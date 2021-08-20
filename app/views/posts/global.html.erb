@@ -1,0 +1,58 @@
+<div id="global">
+    <% if user_signed_in? %>
+    <%# みんな(公開) %>
+    <%# <h2>投稿一覧</h2> %>
+    <div class="tab">
+        <a class="div" href="/users/myself"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
+        <a class="div" href="/users/myself"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
+    </div>
+    <div class="everyone">
+        <div class="search">
+            <p>検索窓</p>
+            <p>検索結果ユーザ</p>
+        </div>
+        <div class="twiit">
+            <% @posts.reverse_each do |post| %>
+            <div class="twitter">
+                <div class="user">
+                    <div class="user_detail">
+                        <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
+                                href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
+                        <div class="date_good">
+                            <%= post.updated_at.to_s(:datetime_jp) %>　👍<%= post.liked_users.count %>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="edit">
+                    <% if post.user.id == current_user.id%>
+                    　<%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+                    <% end %>
+                </div>
+                <div class="post">
+                    <% if post.content?%>
+                    <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                    </p>
+                    <% end %>
+                    <% if post.image?%>
+
+                    <div id="videos">
+                        <div class="half">
+
+                            <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+
+
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class=" tab_end">
+    </div>
+    <% else %>
+    <% end %>
+</div>

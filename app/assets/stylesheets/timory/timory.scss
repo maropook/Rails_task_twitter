@@ -3,6 +3,11 @@
     padding: 0 20px;
     width: 72%;
 
+    .diary {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
 
     h2 {
         color: gray;
@@ -10,7 +15,7 @@
 
     .post {
         display: flex;
-        border: 2px solid #fd9c9c;
+        border: 2px solid #594A31;
 
         padding: 10px 30px;
         // border-radius: 20px;
@@ -45,7 +50,7 @@
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #fd9c9c;
+            background-color: #594A31;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
@@ -58,7 +63,7 @@
     }
 
     .twiit {
-        border: 2px solid #fd9c9c;
+        border: 2px solid #594A31;
         border-radius: 4px;
         margin: 0 0 -2px;
     }
@@ -105,6 +110,16 @@
 
     .user {
         display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .user_detail {
+        display: flex;
+        align-items: center;
+
+
     }
 
     a.user_name {

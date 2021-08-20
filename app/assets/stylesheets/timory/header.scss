@@ -2,11 +2,20 @@ $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
 img.session_icon {
+  margin-top: 20px;
   width: 62px;
   height: 62px;
   left: 20px;
-  top: 30px;
+  top: 40px;
 }
+
+img.edit_icon {
+  right: 200%;
+  width: 32px;
+  height: 32px;
+
+}
+
 
 #timory_header {
 
@@ -156,7 +165,7 @@ img.session_icon {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background-color: #fd9c9c;
+    background-color: #594A31;
   }
 
   .menu-btn span:before {
@@ -257,7 +266,7 @@ img.session_icon {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background-color: #fd9c9c;
+    background-color: #594A31;
   }
 
   .menu-btn span:before {

@@ -1,3 +1,4 @@
+<%# 自分　じぶん %>
 <div id="twitter_post">
   <h2>ユーザー詳細ページ</h2>
   <div class="twiit">
@@ -18,8 +19,16 @@
   <% @user.posts.reverse_each do |post| %>
   <div class="twiit">
     <div class="twitter">
-      <div class="user"><img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
-            href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong></div>
+      <div class="user">
+        <div class="user_detail">
+          <img src=<%= post.user.image %> class="icon_image">
+          <strong><a class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
+        </div>
+
+        <% if post.user.id == current_user.id%>
+        　　　　　 <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+        <% end %>
+      </div>
       <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
       <p>
         <% if post.image?%>
@@ -30,10 +39,7 @@
         <% end %>
       </p>
       <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
-      <% if post.user.id == current_user.id%>
-      <td><%= link_to "編集", edit_post_path(post) %></td>　　　　　　　
-      <td><%= link_to "削除", post_path(post), method: :delete %></td>
-      <% end %>
+
     </div>
   </div>
   <% end %>
