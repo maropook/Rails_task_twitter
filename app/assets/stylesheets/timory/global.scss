@@ -1,6 +1,11 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
+* {
+
+    box-sizing: border-box;
+}
+
 #global {
     position: relative;
 
@@ -55,7 +60,7 @@ $farmily-color: #FF7E79;
 
         .search {
             padding: 0px 10px;
-            width: 30%;
+            width: 33%;
             border-left: 2px solid $timory-color;
 
             .search_window_top {
@@ -113,12 +118,18 @@ $farmily-color: #FF7E79;
             .twitter {
                 position: relative;
                 padding: 0px 5px;
-                border: 2px solid #594A31;
+                border: 2px solid #3d382f;
+                border-left: none;
                 border-top: none;
 
                 .edit {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100px;
+                    height: 50px;
                     position: absolute;
-                    top: 10px;
+                    top: 0px;
                     right: 0px;
                 }
 
@@ -144,6 +155,7 @@ $farmily-color: #FF7E79;
 
 
                 .user {
+                    margin-top: 5px;
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
@@ -220,19 +232,18 @@ $farmily-color: #FF7E79;
         z-index: 9;
         position: fixed;
         bottom: 0;
-
         border-left: 2px solid $timory-color;
         border-right: 2px solid $timory-color;
 
     }
 
     .search_side {
-        box-sizing: border-box;
+
         height: 1000px;
         z-index: 9;
         position: fixed;
         bottom: 0;
-        width: 21.5%;
+        width: 21%;
         border-right: 2px solid $timory-color;
 
     }
