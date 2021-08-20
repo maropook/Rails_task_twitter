@@ -1,28 +1,19 @@
 <div id="twitter_room">
-<h2>DM一覧</h2>
+  <h2>DM一覧</h2>
   <div class="twiit">
     <div class="twitter">
-<% @anotherEntries.each do |e| %>
-  <%= link_to room_path(e.room.id) do %>
-
-
-
+      <% @anotherEntries.each do |e| %>
+      <%= link_to room_path(e.room.id) do %>
       <div class="user">
-        <img src=<%= e.user.image %> class = "icon_image"><%= e.user.username %>さんの部屋<br>
+        <img src=<%= e.user.image %> class="icon_image"><%= e.user.username %>さんの部屋<br>
       </div>
-
-    
-  <% end %>
-<% end %>
+      <% end %>
+      <% end %>
       <div class="user room_plus">
-        <img src="/assets/plus_brown.png" class = "icon_image plus"><br>
+        <img src="/assets/plus_brown.png" class="icon_image plus"><br>
         <%= link_to "部屋を追加", users_path %>
       </div>
-
     </div>
   </div>
- 
-
-
-<br>
-<%= link_to "ホームへ戻る", posts_path %>
+  <br>
+  <%= link_to "ホームへ戻る", posts_path %>

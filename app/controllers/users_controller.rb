@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :only => [:show]
+  before_action :authenticate_user!, :only => [:show, :myself, :history]
   def index
     @users=User.all
   end
@@ -25,4 +25,14 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def myself
+    @user= current_user
+    @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Date.today)
+  end
+  def history
+    @user= current_user
+    @myselfs = Post.where(user_id: current_user.id)
+  end
+
 end

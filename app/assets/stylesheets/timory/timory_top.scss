@@ -1,0 +1,142 @@
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+
+.timory_top {
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        font-family: "凸版文久ゴシック";
+    }
+
+    /*main-grid*/
+    .main-grid {
+
+        right: 0;
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "left main"
+            "footer footer";
+        grid-template-columns: 0fr 10fr;
+        grid-gap: 0px;
+    }
+
+    /*header*/
+    header {
+        background-color: $farmily-color;
+        color: #594A31;
+        width: 100%;
+    }
+
+    .logo-w {
+        height: 3%;
+        width: auto;
+        top: 6px;
+        left: 10px;
+    }
+
+    .logo-h {
+        height: 2%;
+        width: auto;
+        top: 2.5px;
+        right: 10px;
+    }
+
+    article {
+        grid-area: main;
+        /*main*/
+        background-color: #ffff;
+        color: #594A31;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%
+    }
+
+    /*footer*/
+    footer {
+        height: 62.5px;
+        grid-area: footer;
+        background-color: #594A31;
+        color: white;
+    }
+
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50em
+    }
+
+    .center h3 {
+        padding-left: 10%;
+        font-size: 35px;
+    }
+
+    .center p {
+        padding-left: 22%;
+        font-size: 20px;
+    }
+
+
+    .background {
+        margin: 50rem;
+        font-size: 20px;
+    }
+
+    .inner {
+        text-align: left;
+        width: 100%;
+    }
+
+    .background.center {
+        text-align: center;
+    }
+
+
+    figure {
+        width: 100%;
+        position: relative;
+    }
+
+    .figure-img {
+        width: 100%;
+        vertical-align: top;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    figure figcaption {
+        font-size: 50px;
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .decorator {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .font-size {
+        font-size: 20px;
+        line-height: 1.5;
+        margin-bottom: 10em;
+        width: 45%;
+        text-align: center;
+    }
+
+
+    .img-size {
+        width: 50%;
+    }
+
+
+
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>timory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <%= favicon_link_tag '/favicon.png' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="twitter-container">
+  <span class="farmily">
+    <header class="container farmily">
+      <a class="icon"><img src="/assets/farmily_logo.png" class="white_logo" alt=""></a>
+      <% if user_signed_in? %>
+      <% if current_user.image? %>
+      <%= image_tag current_user.image.url, class: "user_icon" %>
+      <% else %>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <% end %>
+      <% else %>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <% end %>
+      <div id="header">
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
+          <!--ここからメニュー-->
+          <div class="menu-content">
+            <nav class="farmily">
+              <ul>
+                <% if user_signed_in? %>
+                <span class="user_name"><%= current_user.username%></span>
+                <%# <%= link_to current_user.username, pages_show_path %>
+                <%# <%= link_to 'eechトップページへ',pages_eech_path%>
+                <li>
+                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
+                </li>
+                <li>
+                  <%= link_to 'フォローした人の日記',posts_follow_path%>
+                </li>
+                <li>
+                  <%= link_to 'timoryトップへ',pages_farmily_path%>
+                </li>
+                <li>
+                  <%= link_to 'timory使い方',pages_howtofarmily_path%>
+                </li>
+                <li>
+                  <%= link_to "みんなとの部屋へ", rooms_path %>
+                </li>
+                <li>
+                  <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+                </li>
+                <li>
+                  <%= link_to "マイページへ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                  <%= link_to "ユーザー一覧へ", users_path %>
+                </li>
+                <li>
+                  <%= link_to 'プロフィール変更', edit_user_registration_path %>
+                </li>
+                <% else %>
+                <li>
+                  <%= link_to 'サインアップ', new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path %>
+                </li>
+                <li>
+                  <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+                </li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+          <!--ここまでメニュー-->
+        </div>
+      </div>
+    </header>
+    <div class="notice_alert">
+      <span class="notice"><%= notice %></span>
+      <span class="alert"><%= alert %></span>
+    </div>
+  </span>
+  <!-- ここに追加 -->
+  <%= yield %>
+</body>
+
+</html>
+
+
+
+
+
+
+
+///////////////////////////
+.farmily{
+/* Form Layout */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+nav.farmily{
+a{
+display: inline-block;
+margin-top: 15px;
+color: #ffffff;
+text-decoration: none;
+}
+}
+}
+.my-container {
+width: 100%;
+background: rgb(239, 230, 230);
+}
+
+
+header, main {
+display: block;
+}
+
+header {
+position: sticky;
+z-index: 11;
+display: flex;
+width:100%;
+top: 0;
+height: 48px;
+background-color: #594A31;
+}
+header.hid{
+z-index: 10;
+height: 0px;
+}
+
+header .icon, header .service {
+position: relative;
+top: -1px;
+padding: 10px 18px;
+text-align: center;
+font-size: 1.8rem;
+margin-right: 25px;
+}
+
+header .icon .white_logo {
+margin-left: 50px;
+width: 98px;
+height: 33px;;
+}
+
+.user_name{
+position: absolute;
+top: 22px;
+left: 90px;
+color: white;
+}
+
+header .user_icon{
+position: absolute;
+left: 20px;
+top: 0;
+margin-top: 5px;
+width: 40px;
+height: 40px;
+//サイズ指定
+border-radius: 100px;
+//画像を丸くする
+object-fit: cover;
+z-index: 100;
+
+}
+
+header .service .logo {
+width: 33px;
+height: 33px;
+}
+
+header .service .logo {
+position: absolute;
+margin-left: 240px;
+width: 40px;
+height: 40px;
+}
+
+header .notification {
+position: absolute;
+margin-left: 2400%;
+margin-top: -5px;
+width: 40px;
+height: 40px;
+}
+
+header .white_logo {
+position: absolute;
+margin-left: 0px;
+}
+
+header{
+display: flex;
+justify-content: space-between;
+}
+.notice_alert{
+z-index: 15;
+margin-top: -4px;
+padding-left: 15px;
+background-color: #594A31;
+color: white;
+}
+
+
+}
+
+.farmily #header{
+
+.menu-btn {
+margin-right: 20px;
+top: 0px;
+right: 20px;
+display: flex;
+height: 44px;
+width: 60px;
+justify-content: center;
+align-items: center;
+z-index: 20;
+background-color: #594A31;
+}
+
+.menu-btn span:before{
+z-index: 90;
+content: '';
+top: 0;
+display: inline-block;
+height: 45px;
+width: 45px;
+background-image: url(/assets/clova_logo.png);
+background-size: contain;
+vertical-align: middle;
+position: absolute;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+top: 0;
+transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+top: 0;
+transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+display: none;
+}
+
+.menu-content ul {
+padding: 70px 10px 0;
+}
+.menu-content ul li {
+border-bottom: solid 1px #ffffff;
+list-style: none;
+}
+.menu-content ul li a {
+display: block;
+width: 100%;
+font-size: 15px;
+box-sizing: border-box;
+color:#ffffff;
+text-decoration: none;
+padding: 9px 15px 10px 0;
+position: relative;
+}
+.menu-content ul li a::before {
+content: "";
+width: 7px;
+height: 7px;
+border-top: solid 2px #ffffff;
+border-right: solid 2px #ffffff;
+transform: rotate(45deg);
+position: absolute;
+right: 11px;
+top: 16px;
+}
+.menu-content {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 100%;/*leftの値を変更してメニューを画面外へ*/
+z-index: 80;
+background-color: #594A31;
+transition: all 0.5s;/*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+left: 0;/*メニューを画面内へ*/
+}
+
+}

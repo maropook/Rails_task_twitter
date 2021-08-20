@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <style>
+        /* <ul id="videos">
+    <li class="half">
+        <div class="wrapper"><img src="/assets/cat1.png" alt="">
+        </div>
+        <p>マロンとホクロです</p>
+    </li> */
+
+        ul#videos {
+            display: block;
+            width: 500px;
+            padding: 0 5px 65px;
+        }
+
+        ul#videos li {
+            position: relative;
+
+        }
+
+        li .wrapper {
+            position: relative;
+        }
+
+        li .wrapper::before {
+            content: "";
+            padding-bottom: 65%;
+            display: block;
+        }
+
+
+
+        li .wrapper>img {
+            min-width: 180px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+<ul id="videos">
+    <li class="half">
+        <p>マロンとホクロです</p>
+        <div class="wrapper"><img src="/assets/3.png" alt="">
+        </div>
+    </li>
+</ul>

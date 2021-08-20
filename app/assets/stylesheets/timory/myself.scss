@@ -1,0 +1,91 @@
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+
+#myself {
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 72%;
+    color: #594A31;
+
+
+    .edit_icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .datetime {
+        p {
+
+            font-weight: 600;
+        }
+
+        a {
+            padding-right: 5px;
+        }
+
+        border-right: thick solid $timory-color;
+        display: flex;
+        align-items: center;
+        margin-right: -5px;
+        padding: 7px;
+        padding-right: 20px;
+    }
+
+    .diary {
+        p {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        display: flex;
+        align-items: center;
+
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .twitter {
+        margin: 0px 10px;
+    }
+
+    .comment_bottom {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+
+    .comment {
+        padding-left: 30px;
+
+    }
+
+
+    .post_image {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        margin-left: 11px;
+
+
+    }
+
+    .favorite {
+        margin-left: 80%;
+    }
+
+    .user {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+
+    a {
+
+        text-decoration: none;
+        color: $timory-color;
+        font-size: 20px;
+    }
+
+}

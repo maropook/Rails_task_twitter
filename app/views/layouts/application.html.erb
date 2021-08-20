@@ -1,106 +1,151 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>rails課題</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-  </head>
+<head>
+  <title>timory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <%= favicon_link_tag '/favicon.png' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body  class="twitter-container">
-
-  <span class="farmily" >
+<body class="twitter-container">
+  <span class="farmily">
     <header class="container farmily">
-        <a class="icon"><img src="/assets/farmily_logo.png" class="smile" alt=""></a>
-
-        <% if user_signed_in? %>
-         <a ><img src=<%= current_user.image %> class="user_icon" alt=""></a>
-        <% else %>
-        <a ><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
-        <% end %>
-
-    <div id="header">
-        <div class="hamburger-menu">
-        <input type="checkbox" id="menu-btn-check">
-        <label for="menu-btn-check" class="menu-btn"><span></span></label>
-        <!--ここからメニュー-->
-        <div class="menu-content">
+      <img src="/assets/farmily_logo.png" class="white_logo" alt="">
+      <% if user_signed_in? %>
+      <% if current_user.image? %>
+      <%= image_tag current_user.image.url, class: "user_icon" %>
+      <% else %>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <% end %>
+      <% else %>
+      <a><img src="/assets/user_icon.png" class="user_icon" alt=""></a>
+      <% end %>
+      <!--ここからメニュー-->
+      <div id="timory_header">
+        <div class="timory_menu">
+          <nav class="farmily">
             <ul>
-      <nav class="farmily">
-  
-          <% if user_signed_in? %>
-         <span class="user_name"><%= current_user.username%></span>
-            <%# <%= link_to current_user.username, pages_show_path %> 
-             
-            <%# <%= link_to 'eechトップページへ',pages_eech_path%> 
-            <li>
-              <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
-            </li>
-            <li>
-              <%= link_to 'フォローした人の日記',posts_follow_path%>
-            </li>
-            <li>
-              <%= link_to 'timoryトップへ',pages_farmily_path%>
-            </li>
-            <li>
-              <%= link_to 'timory使い方',pages_howtofarmily_path%>
-            </li>
-            <li>
-              <%= link_to "みんなとの部屋へ", rooms_path %>
-            </li>
-            <li>
-              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
-            </li>
-            <li>
-              <%= link_to "マイページへ", user_path(current_user.id) %>
-            </li>
-            <li>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            </li>
-            <li>
-              <%= link_to "ユーザー一覧へ", users_path %>
-            </li>
-            <li>
-              <%= link_to 'プロフィール変更', edit_user_registration_path %>
-            </li>
-          <% else %>
-                <li>
-                     <%= link_to 'サインアップ', new_user_registration_path %>
-                </li>
-                <li>
-                      <%= link_to 'ログイン', new_user_session_path %>
-                </li>
-                <li>
-              <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+              <% if user_signed_in? %>
+              <span class="user_name"><%= current_user.username%></span>
+              <li>
+                <img src="/assets/myself_white.png" class="header_icon" alt="">
+                <%= link_to "自分", users_myself_path %>
               </li>
-
-          <% end %>
- 
-               
+              <%# //////////////みんな//////// %>
+              <li>
+                <img src="/assets/everyone_white.png" class="header_icon" alt="">
+                <%= link_to "みんな", posts_global_path %>
+              </li>
+              <%# <%= link_to "みんな index昔の", posts_path %>
+              <%# <%= link_to 'みんな(local)',posts_follow_path%>
+              <li>
+                <img src="/assets/other_white.png" class="header_icon" alt="">
+                <%= link_to "その他", posts_other_path %>
+              </li>
+              <li>
+                <img src="/assets/pencil_white.png" class="header_icon" alt="">
+                <%= link_to "記録",  posts_record_path%>
+              </li>
+              <li>
+                <img src="/assets/clock_white.png" class="header_icon" alt="">
+                <%= link_to "履歴",  users_history_path%>
+              </li>
+              <% else %>
+              <% end %>
             </ul>
+          </nav>
         </div>
-        <!--ここまでメニュー-->
-    </div>
-    </div>
-     </nav>
-   
+      </div>
+
+      <!--ここまでメニュー-->
+      <!--ここからメニュー-->
+      <div id="header">
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
+          <div class="menu-content">
+            <nav class="farmily">
+              <ul>
+                <% if user_signed_in? %>
+                <%# <%= link_to current_user.username, pages_show_path %>
+                <%# <%= link_to 'eechトップページへ',pages_eech_path%>
+                <li>
+                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
+                </li>
+                <li>
+                  <%= link_to 'フォローした人の日記',posts_follow_path%>
+                </li>
+                <li>
+                  <%= link_to 'timoryトップへ',pages_farmily_path%>
+                </li>
+                <li>
+                  <%= link_to 'timory使い方',pages_howtofarmily_path%>
+                </li>
+                <li>
+                  <%= link_to "みんなとの部屋へ", rooms_path %>
+                </li>
+                <li>
+                  <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
+                </li>
+                <li>
+                  <%= link_to "マイページへ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to "ユーザー一覧へ", users_path %>
+                </li>
+                <li>
+                  <%= link_to 'プロフィール変更', edit_user_registration_path %>
+                </li>
+                <% else %>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="login_header">
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check_login">
+          <label for="menu-btn-check_login" class="menu-btn"><span></span></label>
+          <div class="menu-content">
+            <nav class="farmily">
+              <ul>
+                <% if user_signed_in? %>
+                <li>
+                  <%= link_to "マイページへ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+                <% else %>
+                <li>
+                  <%= link_to 'サインアップ', new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path %>
+                </li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+      <!--ここまでメニュー-->
     </header>
-
-      
-
     <div class="notice_alert">
-    <span class="notice"><%= notice %></span>
-    <span class="alert"><%= alert %></span>
+      <span class="notice"><%= notice %></span>
+      <span class="alert"><%= alert %></span>
     </div>
-   
-    </span>
-    <!-- ここに追加 -->
- 
-    <%= yield %>
-  </body>
+  </span>
+  <!-- ここに追加 -->
+  <%= yield %>
+</body>
+
 </html>

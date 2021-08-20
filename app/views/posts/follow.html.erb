@@ -1,84 +1,72 @@
-<div id="twitter_post">
-<% if user_signed_in? %>
-<h2>ホーム</h2>
-<div class="post">
-  <img src=<%= current_user.image %> class = "icon_image">
-  <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
-    <%= f.text_field :content ,class:"text_field",placeholder:"いまどうしてる？"%>
-    <br>
-    <hr>
-    <div class="field">
-      <% if @post.image? %>
-        <div class="thumbnail">
-          <%= image_tag @post.image.url %>
-        </div>
-      <% end %>
-      <br>
-      <%= f.label :image %>
-      <br>
-      <%= f.file_field :image %>
-      <%= f.hidden_field :image_cache %>
-    </div>
-    <div class="field">
-      <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-      <% if @post.persisted? && @post.image? %>
-        <label>
-          <%= f.check_box :remove_image %>
-          画像を削除
-        </label>
-      <% end %>
-    </div>
-    <%= f.select :status, Post.statuses.keys.to_a, {} %>
-    <%= f.submit 'ツイートする' ,class:"btn"%>
-  <% end %>
-</div>
-<br>
-  
-  <h1>非公開投稿一覧</h1>
+<div id="global">
+  <% if user_signed_in? %>
+  <%# みんな(公開) %>
   <%# <h2>投稿一覧</h2> %>
-  <% @nonposts.reverse_each do |post| %>
-    <div class="twiit">
-      <div class="twitter">
-          <div class="user"><img src=<%= post.user.image %> class = "icon_image"><strong><a  class="user_name" href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong><%= post.updated_at.to_s(:datetime_jp) %></div>
-          <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
-          <p>
-            <% if post.image?%>
-            <strong>Image:</strong>
-              <div class="thumbnail">
-              <div class="post_images"><img src=<%= post.image.url %> class = "post_image"></div>
-              </div>
-            <% end %>
-          </p>
-          <p class="favorite">いいね数(<%= post.liked_users.count %>)</p>
-          <% if post.user.id == current_user.id%>
-          <td><%= link_to "編集", edit_post_path(post) %></td>　　　　　　　 
-          <td><%= link_to "削除", post_path(post), method: :delete %></td> 
-          <% end %>
+  <div class="tab">
+    <a class="div" href="/posts/follow"><img src="/assets/everyone_white.png" class="tab_icon" alt=""></a>
+    <a class="div_white div" href="/posts/global"><img src="/assets/earth_brown.png" class="tab_icon" alt=""></a>
+  </div>
+  <div class="everyone">
+    <div class="search">
+      <div class="search_window_top">
+
       </div>
+      <div class="search_window">
+        <img src="/assets/search_white.png" alt="">
+      </div>
+      <div class="search_result">
+        <% @users.each do |user| %>
+        <div class="result">
+          <img src=<%= user.image %> class="result_user">
+          <a href="/users/<%= user.id %>"><%= user.username %></a>
+        </div>
+        <% end %>
+      </div>
+
+
     </div>
-  <% end %>
-<% else %>
-<div id=twitter_top>
-  <div class="container">
-    <div class="my-container">
-      <div class="left_flex">
-        <img src="/assets/twitter_top.PNG" alt="">
-      </div>
-      <div class="right_flex">
-        <br>
-        <br>
-        <img src="/assets/clova_logo.png" alt="">
-        <h1>全ての話題が，ここに．</h1>
-        <h2>twitterを始めよう</h2>
-        <div class="button">
-        <%= link_to 'アカウント作成', new_user_registration_path %>
+    <div class="twiit">
+      <% @nonposts.reverse_each do |post| %>
+      <div class="twitter">
+        <div class="user">
+          <div class="user_detail">
+            <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
+                href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
+            <div class="date_good">
+              <%= post.updated_at.to_s(:datetime_jp) %>　👍<%= post.liked_users.count %>
+            </div>
+
+          </div>
         </div>
-        <div class="button login">
-        <%= link_to 'ログイン', new_user_session_path %>
+        <div class="edit">
+          <% if post.user.id == current_user.id%>
+          　<%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+          <% end %>
         </div>
+        <div class="post">
+          <% if post.content?%>
+          <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+          </p>
+          <% end %>
+          <% if post.image?%>
+
+          <div id="videos">
+            <div class="half">
+
+              <div class="wrapper"><img src=<%= post.image.url %> alt="">
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+
       </div>
+      <% end %>
     </div>
   </div>
-</div>
-<% end %>
+  <div class=" tab_end">
+  </div>
+  <% else %>
+  <% end %>
 </div>

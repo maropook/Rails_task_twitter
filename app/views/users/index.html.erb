@@ -1,10 +1,10 @@
 <div id="twitter_catalog">
-<h2>ユーザー一覧</h2>
-<% @users.each do |user| %>
+  <h2>ユーザー一覧</h2>
+  <% @users.each do |user| %>
   <div class="twiit">
     <div class="twitter">
       <div class="user">
-        <img src=<%= user.image %> class = "icon_image">
+        <img src=<%= user.image %> class="icon_image">
         <a href="/users/<%= user.id %>"><%= user.username %></a>
         <td>フォロー: <%= user.followings.count %></td>
         <td>フォロワー: <%= user.followers.count %></td>
@@ -12,8 +12,6 @@
       </div>
     </div>
   </div>
+  <% end %>
+  <%= link_to "ホームへ戻る", posts_path %>
 </div>
-<% end %>
-<br>
-<%= link_to "ホームへ戻る", posts_path %>
-

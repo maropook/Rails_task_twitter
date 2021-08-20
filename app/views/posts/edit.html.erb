@@ -1,43 +1,36 @@
 <div id="twitter_post_edit">
+  <h2>投稿編集</h2>
+  <div class="post">
+    <img src=<%= current_user.image %> class="icon_image">
 
-  <h2>ホーム</h2>
-<div class="post">
-  <img src=<%= current_user.image %> class = "icon_image">
-
-<%= form_for(@post,html: { class: "form_for_tweet" } , url: post_path(@post)) do |f| %>
-       
-        <%= f.text_area :content ,class:"text_field",:placeholder =>"#{@post.content}" %>
-           <br>
-        <hr>
-
-             <div class="field">
-    <% if @post.image? %>
+    <%= form_for(@post,html: { class: "form_for_tweet" } , url: post_path(@post)) do |f| %>
+    <%= f.text_area :content ,class:"text_field",:placeholder =>"#{@post.content}" %>
+    <br>
+    <hr>
+    <div class="field">
+      <% if @post.image? %>
       <div class="thumbnail">
         <%= image_tag @post.image.url %>
       </div>
-    <% end %><br>
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
-  <div class="field">
-    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-    <% if @post.persisted? && @post.image? %>
+      <% end %><br>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div class="field">
+      <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+      <% if @post.persisted? && @post.image? %>
       <label>
         <%= f.check_box :remove_image %>
         画像を削除
       </label>
-    <% end %>
-  </div>
-  
-  <%= f.select :status, Post.statuses.keys.to_a, {} %>
-
-
-  <%= f.submit '編集' ,class:"btn"%>
+      <% end %>
     </div>
-   
-<% end %>
-<%= link_to "ホームへ戻る", posts_path %>
+    <%= f.select :status, Post.statuses.keys.to_a, {} %>
+    <%= f.submit '編集' ,class:"btn"%>
+    <td><%= link_to "削除", post_path(@post), method: :delete %></td>
 
+  </div>
+  <% end %>
+  <%= link_to "ホームへ戻る", posts_path %>
 </div>
-

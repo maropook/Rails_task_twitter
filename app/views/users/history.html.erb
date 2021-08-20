@@ -1,0 +1,28 @@
+<%# 自分　じぶん %>
+<div id="myself">
+    <div class="diary">
+        <img src="/assets/clock_brown.png" class="session_icon" alt="">
+    </div>
+    <% @myselfs.reverse_each do |post| %>
+    <div class="twiit">
+        <div class="twitter">
+            <div class="user">
+                <div class="datetime">
+
+                    <p><%= post.updated_at.to_s(:datetime_jp_clock) %></p>
+                </div>
+                <% if post.image?%>
+
+                <img src=<%= post.image.url %> class="post_image">
+                <% end %>
+                <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+
+            </div>
+
+        </div>
+    </div>
+    <% end %>
+
+
+
+</div>

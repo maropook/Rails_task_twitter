@@ -1,0 +1,144 @@
+#twitter_post {
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 72%;
+
+    .diary {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    h2 {
+        color: gray;
+    }
+
+    .post {
+        display: flex;
+        border: 2px solid #594A31;
+
+        padding: 10px 30px;
+        // border-radius: 20px;
+        border-radius: 4px;
+
+        ::placeholder {
+            color: rgb(173, 173, 173);
+        }
+
+        input:focus {
+            border: none;
+            outline: none;
+        }
+
+        // .form_for_tweet{
+        .border {
+
+            border-bottom: 2px solid gray
+        }
+
+        // }
+        .text_field {
+            width: 100%;
+            margin: 5px;
+            margin-top: 11px;
+            padding: 15px;
+            border: none;
+            font-size: 25px;
+            color: gray;
+        }
+
+        .btn {
+            width: 134px;
+            height: 44px;
+            background-color: #594A31;
+            border-radius: 30px;
+            margin: 0 16px;
+            margin-top: 16px;
+            margin-left: 65%;
+            border: none;
+            color: white;
+            font-size: 15px;
+
+        }
+    }
+
+    .twiit {
+        border: 2px solid #594A31;
+        border-radius: 4px;
+        margin: 0 0 -2px;
+    }
+
+    .twitter {
+        margin: 20px 30px;
+    }
+
+    .comment_bottom {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    h3.comment {
+        margin-left: 50px;
+    }
+
+    .comment {
+        margin-left: 30px;
+    }
+
+    .icon_image {
+        width: 50px;
+        height: 50px;
+        //サイズ指定
+        border-radius: 100px;
+        //画像を丸くする
+        object-fit: cover;
+        //タテヨコ比を変えないままトリミング
+    }
+
+    .post_image {
+        width: 350px;
+        height: 350px;
+        //サイズ指定
+        //画像を丸くする
+        object-fit: cover;
+        //タテヨコ比を変えないままトリミング
+    }
+
+    .favorite {
+        margin-left: 80%;
+    }
+
+    .user {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .user_detail {
+        display: flex;
+        align-items: center;
+
+
+    }
+
+    a.user_name {
+        display: inline-block;
+        height: 50px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    a {
+
+        text-decoration: none;
+        color: gray;
+        font-size: 25px;
+    }
+
+    .comment_bottom {
+        padding-left: 20px;
+
+
+    }
+}

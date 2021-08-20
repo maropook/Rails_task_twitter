@@ -6,9 +6,24 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def global
+    #フォローしているユーザーの投稿
+    @users=User.all
+    @posts = Post.where(status: :released, cronstatus: 1)
+    @post = Post.new
+  end
+
   def follow
+    @users=User.all
     @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1)
     @post = Post.new
+  end
+
+  def record
+    @post = Post.new
+  end
+
+  def other
   end
 
   def show
@@ -31,7 +46,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
    end
- 
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -44,7 +59,7 @@ class PostsController < ApplicationController
   def destroy
     @post =Post.find(params[:id])
     @post.destroy
-    redirect_to request.referer
+    redirect_to posts_path
   end
 
   private
