@@ -9,7 +9,6 @@
     <div class="everyone">
         <div class="search">
             <div class="search_window_top">
-
             </div>
             <div class="search_window">
                 <div class="search-form">
@@ -18,7 +17,6 @@
                     <%= f.submit 'hogebutton', class: "btn" %>
                     <% end %>
                 </div>
-
             </div>
             <div class="search_result">
                 <% @users.each do |user| %>
@@ -36,15 +34,12 @@
                     <div class="user_detail">
                         <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
                                 href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-                        <div class="date_good">
-                            👍<%= post.liked_users.count %>
-                            <%# <%= post.updated_at.to_s(:datetime_jp) %>　
-                        </div>
+
                     </div>
                 </div>
                 <div class="edit">
-                    <div class="date_good">
-                        <%minute=(Time.zone.now - post.created_at).floor / 60     %>
+                    <div class="edit_icon">
+                        <%minute=(Time.zone.now - post.created_at).floor / 60 %>
                         <%hours=(Time.zone.now - post.created_at).floor / 3600     %>
                         <%days=(Time.zone.now - post.created_at).floor / 14400     %>
                         <% if days != 0%>
@@ -54,15 +49,17 @@
                         <%=hours%>時間
                         <% else %>
                         <% if minute != 0%>
-                        <%= minute%>分
+                        <%=minute%>分
                         <% else %>
-                        <%=(Time.zone.now - post.created_at).floor  %>秒
+                        <%=(Time.zone.now - post.created_at).floor%>秒
                         <% end %>
                         <% end %>
                         <% end %>
                     </div>
                     <% if post.user.id == current_user.id%>
-                    　<%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+                    <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+                    <% else %>
+                    <div class="edit_icon"></div>
                     <% end %>
                 </div>
                 <div class="post">
@@ -74,12 +71,26 @@
 
                     <div id="videos">
                         <div class="half">
-
                             <div class="wrapper"><img src=<%= post.image.url %> alt="">
                             </div>
                         </div>
                     </div>
                     <% end %>
+                    <div class="good">
+                        <div class="date_good">
+                            <% if current_user.already_liked?(post) %>
+                            <%= link_to image_tag("heart_brown.png", class:"like"),  post_like_path(post,current_user),method: :delete%>
+                            <% else %>
+                            <%= link_to image_tag("heart_white.png", class:"like"),post_likes_path(post),method: :post%>
+                            <% end %>
+                            <%= post.liked_users.count %>
+                            <%# <%= post.updated_at.to_s(:datetime_jp) %>　
+                        </div>
+                        <div class="date_good">
+                            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
+                                    class="like"></a>
+                        </div>
+                    </div>
                 </div>
 
 

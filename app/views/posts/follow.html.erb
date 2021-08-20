@@ -9,7 +9,6 @@
   <div class="everyone">
     <div class="search">
       <div class="search_window_top">
-
       </div>
       <div class="search_window">
         <div class="search-form">
@@ -20,10 +19,10 @@
         </div>
       </div>
       <div class="search_result">
-        <% @users.each do |user| %>
+        <% @followings.each do |follow| %>
         <div class="result">
-          <img src=<%= user.image %> class="result_user">
-          <a href="/users/<%= user.id %>"><%= user.username %></a>
+          <img src=<%= follow.image %> class="result_user">
+          <a href="/users/<%= follow.id %>"><%= follow.username %></a>
         </div>
         <% end %>
       </div>
@@ -37,11 +36,6 @@
           <div class="user_detail">
             <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
                 href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-            <div class="date_good">
-              👍<%= post.liked_users.count %>
-
-
-            </div>
 
           </div>
         </div>
@@ -65,7 +59,9 @@
             <% end %>
           </div>
           <% if post.user.id == current_user.id%>
-          　<%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+          <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+          <% else %>
+          <div class="edit_icon"></div>
           <% end %>
         </div>
         <div class="post">
@@ -74,15 +70,27 @@
           </p>
           <% end %>
           <% if post.image?%>
-
           <div id="videos">
             <div class="half">
-
               <div class="wrapper"><img src=<%= post.image.url %> alt="">
               </div>
             </div>
           </div>
           <% end %>
+        </div>
+        <div class="good">
+          <div class="date_good">
+            <% if current_user.already_liked?(post) %>
+            <%= link_to image_tag("heart_brown.png", class:"like"),  post_like_path(post,current_user),method: :delete%>
+            <% else %>
+            <%= link_to image_tag("heart_white.png", class:"like"),post_likes_path(post),method: :post%>
+            <% end %>
+            <%= post.liked_users.count %>
+            <%# <%= post.updated_at.to_s(:datetime_jp) %>　
+          </div>
+          <div class="date_good">
+            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
+          </div>
         </div>
 
 

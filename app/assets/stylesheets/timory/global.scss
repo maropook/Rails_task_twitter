@@ -13,6 +13,18 @@ $farmily-color: #FF7E79;
     margin: 20px;
     width: 65%;
 
+    .good {
+        margin-left: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .like {
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+    }
+
     .tab {
         z-index: 10;
         background-color: white;
@@ -74,8 +86,19 @@ $farmily-color: #FF7E79;
 
             .search-form {
 
+                box-sizing: border-box;
+
                 input:first-child {
                     width: 75%;
+                    border: 0px;
+                    height: 30px;
+                    background-color: $timory-color;
+                    color: white;
+
+                }
+
+                input:focus {
+                    outline: none;
                 }
 
                 .btn {
@@ -133,18 +156,26 @@ $farmily-color: #FF7E79;
             color: $timory-color;
 
             .twitter {
+                box-sizing: border-box;
                 position: relative;
                 padding: 0px 5px;
                 border: 2px solid #3d382f;
                 border-left: none;
                 border-top: none;
 
+                .edit_icon {
+                    width: 45px;
+                    height: 40px;
+                    margin: 0;
+                }
+
                 .edit {
+                    margin: 0;
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
-                    width: 100px;
-                    height: 50px;
+                    width: 94px;
+                    height: 45px;
                     position: absolute;
                     top: 0px;
                     right: 0px;
@@ -186,6 +217,9 @@ $farmily-color: #FF7E79;
                     width: 100%;
 
                     .date_good {
+                        width: 22px;
+                        display: flex;
+                        align-items: center;
                         width: 150px;
                         margin-left: 10px;
 
