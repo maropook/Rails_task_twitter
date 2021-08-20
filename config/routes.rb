@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
+  get 'search' => 'posts#search'
+  get 'searchfollow' => 'posts#searchfollow'
   get 'posts/global' => 'posts#global'
   get 'posts/follow' => 'posts#follow'
   get 'posts/record' => 'posts#record'

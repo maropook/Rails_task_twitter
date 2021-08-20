@@ -5,7 +5,20 @@ class PostsController < ApplicationController
     @posts = Post.where(status: :released, cronstatus: 1)
     @post = Post.new
   end
-
+  def search
+    @users=User.all
+    @posts = Post.search(params[:keyword])
+    @post = Post.new
+    @keyword = params[:keyword]
+    render "global"
+  end
+  def searchfollow
+    @users=User.all
+    @nonposts = Post.search(params[:keyword])
+    @post = Post.new
+    @keyword = params[:keyword]
+    render "follow"
+  end
   def global
     #フォローしているユーザーの投稿
     @users=User.all
