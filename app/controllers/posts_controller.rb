@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create]
+  include IsAmPm
+  before_action :is_am_pm
+  before_action :authenticate_user!
+  # , only: [:show, :create]
   def index
     #フォローしているユーザーの投稿
     @posts = Post.where(status: :released, cronstatus: 1)

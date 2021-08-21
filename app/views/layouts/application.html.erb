@@ -31,6 +31,8 @@
             <ul>
               <% if user_signed_in? %>
               <span class="user_name"><%= current_user.username%></span>
+              <%# <% if @is_am %>
+              <% if true %>
               <li>
                 <img src="/assets/myself_white.png" class="header_icon" alt="">
                 <%= link_to "自分", users_myself_path %>
@@ -40,12 +42,6 @@
                 <img src="/assets/everyone_white.png" class="header_icon" alt="">
                 <%= link_to "みんな", posts_global_path %>
               </li>
-              <%# <%= link_to "みんな index昔の", posts_path %>
-              <%# <%= link_to 'みんな(local)',posts_follow_path%>
-              <li>
-                <img src="/assets/other_white.png" class="header_icon" alt="">
-                <%= link_to "その他", posts_other_path %>
-              </li>
               <li>
                 <img src="/assets/pencil_white.png" class="header_icon" alt="">
                 <%= link_to "記録",  posts_record_path%>
@@ -54,6 +50,24 @@
                 <img src="/assets/clock_white.png" class="header_icon" alt="">
                 <%= link_to "履歴",  users_history_path%>
               </li>
+              <%# <%= link_to "みんな index昔の", posts_path %>
+              <%# <%= link_to 'みんな(local)',posts_follow_path%>
+              <% else %>
+              <li>
+                <img src="/assets/pencil_white.png" class="header_icon" alt="">
+                <%= link_to "記録",  posts_record_path%>
+              </li>
+              <li>
+                <img src="/assets/clock_white.png" class="header_icon" alt="">
+                <%= link_to "履歴",  users_history_path%>
+              </li>
+              <% end %>
+
+              <li>
+                <img src="/assets/other_white.png" class="header_icon" alt="">
+                <%= link_to "その他", posts_other_path %>
+              </li>
+
               <% else %>
               <% end %>
             </ul>

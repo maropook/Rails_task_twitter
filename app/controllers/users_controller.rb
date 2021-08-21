@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include IsAmPm
+  before_action :is_am_pm
   before_action :authenticate_user!, :only => [:show, :myself, :history]
   def index
     @users=User.all
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 
   def myself
     @user= current_user
-    @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Date.today)
+    @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
   def history
     @user= current_user
