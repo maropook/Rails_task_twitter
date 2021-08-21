@@ -9,7 +9,11 @@
         <div class="field">
             <%= f.file_field :image %>
             <%= f.hidden_field :image_cache %>
-            <%= f.select :status, Post.statuses.keys.to_a, {} %>
+            <select name="post[status]" id="post_status">
+                <option value="nonreleased">非公開</option>
+                <option selected="selected" value="released">公開</option>
+            </select>
+            <%# <%= f.select :status, Post.statuses.keys.to_a, {} %>
             <%= f.submit '記録する' ,class:"btn"%>
         </div>
         <% end %>

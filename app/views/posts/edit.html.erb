@@ -1,4 +1,4 @@
-<div id="twitter_post_edit">
+<div id="timory_record">
   <h2>投稿編集</h2>
   <div class="post">
     <img src=<%= current_user.image %> class="icon_image">
@@ -13,11 +13,8 @@
         <%= image_tag @post.image.url %>
       </div>
       <% end %><br>
-      <%= f.label :image %><br>
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
-    </div>
-    <div class="field">
       <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
       <% if @post.persisted? && @post.image? %>
       <label>
@@ -26,7 +23,10 @@
       </label>
       <% end %>
     </div>
-    <%= f.select :status, Post.statuses.keys.to_a, {} %>
+    <select name="post[status]" id="post_status">
+      <option value="nonreleased">非公開</option>
+      <option selected="selected" value="released">公開</option>
+    </select>
     <%= f.submit '編集' ,class:"btn"%>
     <td><%= link_to "削除", post_path(@post), method: :delete %></td>
 
