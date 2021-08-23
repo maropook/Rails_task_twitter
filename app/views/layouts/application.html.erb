@@ -69,6 +69,12 @@
               </li>
 
               <% else %>
+              <li>
+                <%= link_to 'サインアップ', new_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to 'ログイン', new_user_session_path %>
+              </li>
               <% end %>
             </ul>
           </nav>
@@ -84,15 +90,6 @@
           <div class="menu-content">
             <nav class="farmily">
               <ul>
-                <% if user_signed_in? %>
-                <%# <%= link_to current_user.username, pages_show_path %>
-                <%# <%= link_to 'eechトップページへ',pages_eech_path%>
-                <li>
-                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
-                </li>
-                <li>
-                  <%= link_to 'フォローした人の日記',posts_follow_path%>
-                </li>
                 <li>
                   <%= link_to 'timoryトップへ',pages_farmily_path%>
                 </li>
@@ -100,11 +97,28 @@
                   <%= link_to 'timory使い方',pages_howtofarmily_path%>
                 </li>
                 <li>
-                  <%= link_to "みんなとの部屋へ", rooms_path %>
-                </li>
-                <li>
                   <a href="https://iken-pro.github.io/iken_webpage/">あいけんWebページ</a>
                 </li>
+                <% if user_signed_in? %>
+                <%# <%= link_to current_user.username, pages_show_path %>
+                <%# <%= link_to 'eechトップページへ',pages_eech_path%>
+                <li>
+                  <%= link_to "マイページへ", user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
+                </li>
+                <li>
+                  <%= link_to 'フォローした人の日記',posts_follow_path%>
+                </li>
+
+                <li>
+                  <%= link_to "みんなとの部屋へ", rooms_path %>
+                </li>
+
                 <li>
                   <%= link_to "マイページへ", user_path(current_user.id) %>
                 </li>
@@ -115,6 +129,13 @@
                   <%= link_to 'プロフィール変更', edit_user_registration_path %>
                 </li>
                 <% else %>
+                <li>
+                  <%= link_to 'サインアップ', new_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path %>
+                </li>
+
                 <% end %>
               </ul>
             </nav>

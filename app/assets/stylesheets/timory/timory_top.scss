@@ -2,6 +2,7 @@ $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
 .timory_top {
+
     * {
         margin: 0px;
         padding: 0px;
@@ -9,6 +10,12 @@ $farmily-color: #FF7E79;
 
     body {
         font-family: "凸版文久ゴシック";
+    }
+
+    .center h3.tim {
+        text-align: center;
+        font-size: 18px;
+
     }
 
     /*main-grid*/
@@ -71,7 +78,7 @@ $farmily-color: #FF7E79;
     }
 
     .center h3 {
-        padding-left: 10%;
+        text-align: center;
         font-size: 35px;
     }
 
