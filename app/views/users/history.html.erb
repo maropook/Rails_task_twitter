@@ -2,13 +2,16 @@
 <div id="myself">
     <div class="diary">
         <img src="/assets/clock_brown.png" class="session_icon" alt="">
-    </div>
+    </div> <% flag = true%>
     <% @myselfs.reverse_each do |post| %>
     <div class="twiit">
         <div class="twitter">
             <div class="user">
                 <div class="datetime">
 
+
+                    <p><%= post.created_at.to_s(:datetime_jp_date) %></p>
+                    <p>　</p>
                     <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
                 </div>
                 <% if post.image?%>
