@@ -33,7 +33,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3' 
+  gem 'sqlite3'
 end
 
 group :development do
@@ -76,3 +76,4 @@ gem 'whenever', require: false
 group :production do
   gem 'pg'
 end
+gem 'cloudinary' , '1.11.1'
