@@ -1,41 +1,121 @@
-<div id="twitter_post">
-  <h1>投稿詳細ページ</h1>
-  <div class="twiit">
-    <div class="twitter">
-      <div class="user"><img src=<%= @post.user.image %>
-          class="icon_image"><strong><%= @post.user.username %></strong><%= @post.updated_at.to_s(:datetime_jp) %></div>
-      <p class="comment_bottom"><%= @post.content %></p>
-      <p class="favorite">いいね数(<%= @post.liked_users.count %>)</p>
-      <% if current_user.already_liked?(@post) %>
-      <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
-      <% else %>
-      <%= button_to 'いいね', post_likes_path(@post) %>
-      <% end %>
-      <h4>いいねしたユーザー</h4>
-      <% @post.liked_users.each do |user| %>
-      <p> <img src=<%= user.image %> class="icon_image"> <%= user.username %></p>
+<div id="global">
+  <% if user_signed_in? %>
+  <div class="tab">
+    <a class="div_white div" href="/posts/follow"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
+    <a class="div" href="/posts/global"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
+  </div>
+  <div class="everyone">
+    <div class="search">
+      <div class="search_window_top">
+      </div>
+      <div class="search_window">
+        <div class="search-form">
+          <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit 'hogebutton', class: "btn" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="search_result">
+        <% @users.each do |user| %>
+        <div class="result">
+          <img src=<%= user.image %> class="result_user">
+          <a href="/users/<%= user.id %>"><%= user.username %></a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="twiit">
+      <div class="twitter">
+        <div class="user">
+          <div class="user_detail">
+            <img src=<%= @post.user.image %> class="icon_image"><strong><a class="user_name"
+                href="/users/<%= @post.user.id %>"><%= @post.user.username %></a></strong>
+          </div>
+        </div>
+        <div class="edit">
+          <div class="edit_icon">
+            <%minute=(Time.zone.now - @post.created_at).floor / 60 %>
+            <%hours=(Time.zone.now - @post.created_at).floor / 3600     %>
+            <%days=(Time.zone.now - @post.created_at).floor / 14400     %>
+            <% if days != 0%>
+            <%=days%>日
+            <% else %>
+            <% if hours != 0%>
+            <%=hours%>時間
+            <% else %>
+            <% if minute != 0%>
+            <%=minute%>分
+            <% else %>
+            <%=(Time.zone.now - @post.created_at).floor%>秒
+            <% end %>
+            <% end %>
+            <% end %>
+          </div>
+          <% if @post.user.id == current_user.id%>
+          <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(@post) %>
+          <% else %>
+          <div class="edit_icon"></div>
+          <% end %>
+        </div>
+        <div class="post">
+          <% if @post.content?%>
+          <p class="comment_bottom"> <a class="comment" href="/posts/<%= @post.id %>"><%= @post.content %></a>
+          </p>
+          <% end %>
+          <% if @post.image?%>
+          <div id="videos">
+            <div class="half">
+              <div class="wrapper"><img src=<%= @post.image.url %> alt="">
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <div class="good">
+            <div class="date_good">
+              <% if current_user.already_liked?(@post) %>
+              <%= link_to image_tag("heart_brown.png", class:"like"),  post_like_path(@post,current_user),method: :delete%>
+              <% else %>
+              <%= link_to image_tag("heart_white.png", class:"like"),post_likes_path(@post),method: :@post%>
+              <% end %>
+              <%= @post.liked_users.count %>
+              <%# <%= @post.updated_at.to_s(:datetime_jp) %>　
+            </div>
+            <div class="date_good">
+              <a class="comment" href="/posts/<%= @post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
+            </div>
+          </div>
+        </div>
+        <div class="comment__">
+          <hr>
+          <h2>コメント一覧</h2>
+          <% @comments.each do |c| %>
+          <div>
+            <img src=<%= c.user.image %> class="icon_image"> <a
+              href="/users/<%= @post.user.id %>"><%= c.user.username %></a>
+            <%= c.content %>
+            <hr>
+          </div>
+          <% end %>
+          <div class="post">
+            <%= form_for [@post, @comment],html: { class: "form_for_tweet" } do |f| %>
+            <%= f.text_field :content,class:"text_field",placeholder:"いまどうしてる？" %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.submit 'コメントする', class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
 
-      <% end %>
+      </div>
     </div>
   </div>
-
-  <h2>コメント一覧</h2>
-  <% @comments.each do |c| %>
-  <div>
-    <img src=<%= c.user.image %> class="icon_image"> <a href="/users/<%= @post.user.id %>"><%= c.user.username %></a>
-    <%= c.content %>
-    <hr>
+  <div class="  search_side">
   </div>
+  <div class=" tab_end">
+  </div>
+  <div class=" tab_side">
+  </div>
+
+  <% else %>
   <% end %>
-  <div class="post">
-    <%= form_for [@post, @comment],html: { class: "form_for_tweet" } do |f| %>
-    <%= f.text_field :content,class:"text_field",placeholder:"いまどうしてる？" %>
-    <%= f.hidden_field :post_id, value: @post.id %>
-    <br>
-    <hr>
-    <%= f.submit 'コメントする', class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <%= link_to "ホームへ戻る", posts_path %>
-
 </div>

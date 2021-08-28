@@ -45,6 +45,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @users=User.all
+    @posts = Post.where(status: :released, cronstatus: 1)
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new

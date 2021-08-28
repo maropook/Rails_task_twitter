@@ -77,3 +77,5 @@ yarn-debug.log*
 # End of https://www.toptal.com/developers/gitignore/api/rails
 
 /rails_task
+
+cloudinary.yml
