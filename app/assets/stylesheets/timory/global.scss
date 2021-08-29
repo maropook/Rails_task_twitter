@@ -164,9 +164,13 @@ $farmily-color: #FF7E79;
                 border-top: none;
 
                 .edit_icon {
-                    width: 45px;
+                    width: 40px;
                     height: 40px;
                     margin: 0;
+                }
+
+                .time {
+                    width: 55px;
                 }
 
                 .edit {
@@ -174,7 +178,7 @@ $farmily-color: #FF7E79;
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
-                    width: 94px;
+                    width: 105px;
                     height: 45px;
                     position: absolute;
                     top: 0px;
