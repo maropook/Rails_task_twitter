@@ -13,7 +13,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field form-item">
-          <%= f.label :username %>ユーザーネーム<br />
+          <p>ユーザーネーム</p>
           <%= f.text_field :username %>
         </div>
 
@@ -41,12 +41,12 @@
         </div>
 
         <div class="field form-item">
-          <%= f.label :current_password %> <i>(必須です)</i><br />
+          <span class="require">必須!</span><%= f.label :current_password %> <br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
 
         <div class="field">
-          <%= f.label :image %><br />
+          <p>アイコン画像</p>
           <%= f.file_field :image %>
         </div>
 
@@ -74,3 +74,17 @@
     </footer> %>
   </div>
 </div>
+
+<style>
+  span.require {
+    display: inline-block;
+    background-color: #594A31;
+    padding: 1px 5px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+
+  }
+</style>
