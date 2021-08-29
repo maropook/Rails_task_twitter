@@ -38,23 +38,11 @@
                     </div>
                 </div>
                 <div class="edit">
-                    <div class="edit_icon">
-                        <%minute=(Time.zone.now - post.created_at).floor / 60 %>
-                        <%hours=(Time.zone.now - post.created_at).floor / 3600     %>
-                        <%days=(Time.zone.now - post.created_at).floor / 14400     %>
-                        <% if days != 0%>
-                        <%=days%>日
-                        <% else %>
-                        <% if hours != 0%>
-                        <%=hours%>時間
-                        <% else %>
-                        <% if minute != 0%>
-                        <%=minute%>分
-                        <% else %>
-                        <%=(Time.zone.now - post.created_at).floor%>秒
-                        <% end %>
-                        <% end %>
-                        <% end %>
+
+                    <div class="time">
+                        <%= time_ago_in_words(post.created_at) %>
+
+
                     </div>
                     <% if post.user.id == current_user.id%>
                     <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>

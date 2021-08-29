@@ -30,11 +30,12 @@ class UsersController < ApplicationController
 
   def myself
     @user= current_user
-    @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
+    @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Time.zone.now.beginning_of_day).order(:created_at)
   end
+
   def history
     @user= current_user
-    @myselfs = Post.where(user_id: current_user.id)
+    @myselfs = Post.where(user_id: current_user.id).order(:created_at)
   end
 
 end
