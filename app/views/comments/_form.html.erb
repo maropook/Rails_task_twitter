@@ -1,0 +1,7 @@
+ <div class="post">
+     <%= form_for [@post, @comment],remote: true,html: { class: "form_for_tweet" } do |f| %>
+     <%= f.text_field :content,class:"text_field",placeholder:"いまどうしてる？" %>
+     <%= f.hidden_field :post_id, value: @post.id %>
+     <%= f.submit 'コメントする', class: "btn btn-primary" %>
+     <% end %>
+ </div>

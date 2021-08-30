@@ -81,27 +81,15 @@
 
             <div class="date_good">
               <a class="comment" href="/posts/<%= @post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
-            </div>
+              <%= @post.comments.count%></div>
           </div>
         </div>
-        <div class="comment__">
-          <hr>
-          <h2>コメント一覧</h2>
-          <% @comments.each do |c| %>
-          <div>
-            <img src=<%= c.user.image %> class="icon_image"> <a
-              href="/users/<%= @post.user.id %>"><%= c.user.username %></a>
-            <%= c.content %>
-            <hr>
-          </div>
-          <% end %>
-          <div class="post">
-            <%= form_for [@post, @comment],html: { class: "form_for_tweet" } do |f| %>
-            <%= f.text_field :content,class:"text_field",placeholder:"いまどうしてる？" %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-            <%= f.submit 'コメントする', class: "btn btn-primary" %>
-            <% end %>
-          </div>
+
+        <div id="comments_area">
+          <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
+        </div>
+        <div class="new-comment">
+          <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
         </div>
 
       </div>
