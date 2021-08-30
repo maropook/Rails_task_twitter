@@ -65,14 +65,8 @@
                     </div>
                     <% end %>
                     <div class="good">
-                        <div class="date_good">
-                            <% if current_user.already_liked?(post) %>
-                            <%= link_to image_tag("heart_brown.png", class:"like"),  post_like_path(post,current_user),method: :delete%>
-                            <% else %>
-                            <%= link_to image_tag("heart_white.png", class:"like"),post_likes_path(post),method: :post%>
-                            <% end %>
-                            <%= post.liked_users.count %>
-                            <%# <%= post.updated_at.to_s(:datetime_jp) %>　
+                        <div class="date_good" id="likes_buttons_<%= post.id %>">
+                            <%= render partial: 'likes/like', locals: { post: post} %>
                         </div>
                         <div class="date_good">
                             <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
