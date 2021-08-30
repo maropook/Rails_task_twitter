@@ -1,0 +1,22 @@
+ <div id=twitter_top>
+    <div class="container">
+      <div class="my-container my-container-session">
+        <div class="left_flex">
+          <img src="/assets/twitter_top.PNG" alt="">
+        </div>
+        <div class="right_flex">
+          <br>
+          <br>
+          <img src="/assets/clova_logo.png" alt="">
+          <h1>全ての話題が，ここに．</h1>
+          <h2>twitterを始めよう</h2>
+          <div class="button">
+            <%= link_to 'アカウント作成', new_user_registration_path %>
+          </div>
+          <div class="button login">
+            <%= link_to 'ログイン', new_user_session_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -50,7 +50,7 @@
                 <img src="/assets/clock_white.png" class="header_icon" alt="">
                 <%= link_to "履歴",  users_history_path%>
               </li>
-              <%# <%= link_to "みんな index昔の", posts_path %>
+              <%# <%= link_to "みんな index昔の", posts_global_path %>
               <%# <%= link_to 'みんな(local)',posts_follow_path%>
               <% else %>
               <li>
@@ -109,7 +109,7 @@
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                 </li>
                 <li>
-                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
+                  <%= link_to "公開日記(ホーム)へ戻る", posts_global_path %>
                 </li>
                 <li>
                   <%= link_to 'フォローした人の日記',posts_follow_path%>
