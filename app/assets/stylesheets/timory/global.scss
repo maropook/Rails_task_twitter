@@ -7,20 +7,60 @@ $farmily-color: #FF7E79;
 }
 
 #global {
-    font-size: 16px;
     position: relative;
 
     box-sizing: border-box;
     margin: 20px;
     width: 65%;
 
+    a {
+        text-decoration: none;
+        color: $timory-color;
+    }
+
     @media (max-width:450px) {
+        font-size: 10px;
+
+        .search_result {
+            display: none;
+        }
+
+        .time {
+            width: 25px;
+        }
+
+        .icon_image {
+            width: 30px;
+            height: 30px;
+            margin-right: 0px;
+        }
+
+        a {
+            font-size: 16px;
+        }
+
         div.post {
             margin-left: 0px;
         }
     }
 
     @media (min-width:449px) {
+        .time {
+            width: 55px;
+        }
+
+        .icon_image {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        font-size: 16px;
+
+        a {
+            font-size: 20px;
+        }
+
         div.post {
             margin-left: 50px;
         }
@@ -106,6 +146,10 @@ $farmily-color: #FF7E79;
 
                 width: 100%;
 
+                form {
+                    display: flex;
+                }
+
                 input {
                     width: 65%;
                     border: 0px;
@@ -147,10 +191,7 @@ $farmily-color: #FF7E79;
                     align-items: center;
                 }
 
-                a {
-                    text-decoration: none;
-                    color: $timory-color;
-                }
+
 
                 .result_user {
                     width: 40px;
@@ -182,9 +223,7 @@ $farmily-color: #FF7E79;
                     margin: 0;
                 }
 
-                .time {
-                    width: 55px;
-                }
+
 
                 .edit {
                     margin: 0;
@@ -206,13 +245,6 @@ $farmily-color: #FF7E79;
                 }
 
 
-                .comment {
-
-                    color: $timory-color;
-                    text-decoration: none;
-                    font-size: 20px;
-
-                }
 
 
 
@@ -245,15 +277,14 @@ $farmily-color: #FF7E79;
                     a {
                         color: $timory-color;
                         text-decoration: none;
-                        font-size: 20px;
+
                     }
 
                     .icon_image {
-                        width: 50px;
-                        height: 50px;
+
                         border-radius: 100px;
                         object-fit: cover;
-                        margin-right: 20px;
+
                     }
 
 
