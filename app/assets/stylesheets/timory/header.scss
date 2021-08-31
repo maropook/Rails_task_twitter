@@ -17,14 +17,49 @@ img.edit_icon {
 
 }
 
+@media(min-width: 769px) {
+
+  .menu-content ul li a {
+    font-size: 15px;
+  }
+
+  .menu-content ul {
+    padding-left: 0px;
+  }
+
+
+}
+
+@media (max-width:768px) {
+
+  .menu-content ul li a {
+    font-size: 11px;
+  }
+
+  .menu-content ul {
+    padding-left: 0px;
+  }
+
+
+}
+
 
 #timory_header {
-
 
   @media(min-width: 769px) {
     li {
       font-size: .8rem;
     }
+
+    .user_name {
+      position: absolute;
+      font-size: 20px;
+      bottom: 22px;
+      left: 80px;
+      color: white;
+    }
+
+
 
 
   }
@@ -35,6 +70,20 @@ img.edit_icon {
 
       font-size: 1.2rem;
     }
+
+    .user_name {
+      position: absolute;
+      font-size: 15px;
+      bottom: 22px;
+      left: 56px;
+      color: white;
+    }
+
+    .menu-content ul li a {
+      font-size: 11px;
+    }
+
+
 
   }
 
@@ -122,13 +171,6 @@ img.edit_icon {
     height: 0px;
   }
 
-  .user_name {
-    position: absolute;
-    font-size: 20px;
-    bottom: 22px;
-    left: 80px;
-    color: white;
-  }
 
   header .user_icon {
     position: absolute;
@@ -237,7 +279,6 @@ img.edit_icon {
   .menu-content ul li a {
     display: block;
     width: 100%;
-    font-size: 15px;
     box-sizing: border-box;
     color: #ffffff;
     text-decoration: none;
@@ -326,9 +367,6 @@ img.edit_icon {
     display: none;
   }
 
-  .menu-content ul {
-    padding-left: 70px;
-  }
 
   .menu-content ul li {
     border-bottom: solid 1px #ffffff;
@@ -362,7 +400,7 @@ img.edit_icon {
     width: 26%;
     height: 109px;
     position: fixed;
-    bottom: 0;
+    bottom: 79px;
     right: 100%;
     /*leftの値を変更してメニューを画面外へ*/
     z-index: 80;
