@@ -1,34 +1,95 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
+
+
+@media(min-width: 769px) {
+    .timory_top {
+        h3 {
+
+            font-size: 1.8rem;
+        }
+
+        h3.noimg {
+            font-size: 1.6rem;
+
+        }
+
+        .noimg {
+            br:last-child {
+                display: none;
+            }
+        }
+
+        .wp-block-spacer {
+            height: 100px;
+
+        }
+
+        .noimg_spacer {
+            height: 80px;
+        }
+
+        p {
+            font-size: .7rem;
+            margin-top: 37px;
+
+        }
+
+    }
+}
+
+@media (max-width:768px) {
+
+    .timory_top {
+
+        h3 {
+
+            font-size: 2rem;
+        }
+
+        h3.noimg {
+            font-size: 1.8rem;
+
+        }
+
+        .noimg_spacer {
+            height: 30px;
+        }
+
+        p {
+            font-size: .9rem;
+            margin-top: 9px;
+
+        }
+
+        .wp-block-spacer {
+            height: 40px;
+
+        }
+
+
+
+    }
+}
+
+
 .timory_top {
+
+
 
     * {
         margin: 0px;
         padding: 0px;
     }
 
-    body {
-        font-family: "凸版文久ゴシック";
-    }
-
-    .center h3.tim {
-        text-align: center;
-        font-size: 18px;
-
-    }
 
     /*main-grid*/
     .main-grid {
 
         right: 0;
-        display: grid;
-        grid-template-areas:
-            "header header"
-            "left main"
-            "footer footer";
-        grid-template-columns: 0fr 10fr;
-        grid-gap: 0px;
+        text-align: center;
+
     }
 
     /*header*/
@@ -71,21 +132,8 @@ $farmily-color: #FF7E79;
     }
 
 
-    .center {
-        margin-left: auto;
-        margin-right: auto;
-        width: 50em
-    }
 
-    .center h3 {
-        text-align: center;
-        font-size: 35px;
-    }
 
-    .center p {
-        padding-left: 22%;
-        font-size: 20px;
-    }
 
 
     .background {
@@ -112,6 +160,10 @@ $farmily-color: #FF7E79;
         width: 100%;
         vertical-align: top;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .figure-img.noimg {
+        box-shadow: none;
     }
 
     figure figcaption {
@@ -142,6 +194,10 @@ $farmily-color: #FF7E79;
 
     .img-size {
         width: 50%;
+    }
+
+    .wp-block-spacer {
+        background-color: white;
     }
 
 

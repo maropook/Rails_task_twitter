@@ -1,10 +1,6 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 
-html,
-body {
-  font-size: 16px;
-}
 
 img.session_icon {
   margin-top: 20px;
@@ -25,6 +21,24 @@ img.edit_icon {
 #timory_header {
 
 
+  @media(min-width: 769px) {
+    li {
+      font-size: .8rem;
+    }
+
+
+  }
+
+  @media (max-width:768px) {
+
+    li {
+
+      font-size: 1.2rem;
+    }
+
+  }
+
+
   .timory_menu {
     margin-top: 39%;
     margin-left: 12%;
@@ -33,9 +47,9 @@ img.edit_icon {
 
   li {
     display: flex;
-    font-size: 2rem;
+
     align-items: center;
-    padding: 10px 0;
+    padding: 8px 0;
 
     a {
       margin-top: 0;
@@ -70,9 +84,12 @@ img.edit_icon {
     box-sizing: border-box;
 
     nav.farmily {
+
+      margin-top: 60px;
+
       a {
         display: inline-block;
-        margin-top: 15px;
+
         color: #ffffff;
         text-decoration: none;
       }
@@ -127,10 +144,12 @@ img.edit_icon {
 
   header .white_logo {
     position: absolute;
-    margin-left: 15%;
+    margin-left: 5%;
     top: 2%;
-    width: 168px;
-    height: 67px;
+    max-width: 90%;
+    width: 90%;
+    height: auto;
+
   }
 
   .notice_alert {
