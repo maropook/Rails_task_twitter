@@ -53,6 +53,7 @@
                 <div class="post">
                     <% if post.content?%>
                     <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+
                     </p>
                     <% end %>
                     <% if post.image?%>
@@ -70,7 +71,7 @@
                         </div>
                         <div class="date_good">
                             <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
-                                    class="like"></a>
+                                    class="like"></a><%= post.comments.count%>
                         </div>
                     </div>
                 </div>

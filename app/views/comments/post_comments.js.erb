@@ -1,0 +1,4 @@
+<!--id="comments_areaにをrenderで指定した部分テンプレートに更新-->
+$("#comments_area").html("<%= j(render 'comments/post_comments',post: @post, comments: @comments ) %>")
+$("#new-comment").html("<%= j(render 'comments/post_comments',post: @post, comments: @comments ) %>")
+$("input").val('');

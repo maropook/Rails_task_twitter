@@ -70,11 +70,10 @@
             <%= render partial: 'likes/like', locals: { post: post} %>
           </div>
           <div class="date_good">
-            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
+            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
+                class="like"></a><%= post.comments.count%>
           </div>
         </div>
-
-
       </div>
       <% end %>
     </div>

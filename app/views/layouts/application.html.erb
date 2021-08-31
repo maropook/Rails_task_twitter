@@ -2,14 +2,20 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>timory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <%= favicon_link_tag '/favicon.png' %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+<style>
+  html {
+    font-size: calc(100vw / 320 * 10);
+  }
+</style>
 
 <body class="twitter-container">
   <span class="farmily">
@@ -50,7 +56,7 @@
                 <img src="/assets/clock_white.png" class="header_icon" alt="">
                 <%= link_to "履歴",  users_history_path%>
               </li>
-              <%# <%= link_to "みんな index昔の", posts_path %>
+              <%# <%= link_to "みんな index昔の", posts_global_path %>
               <%# <%= link_to 'みんな(local)',posts_follow_path%>
               <% else %>
               <li>
@@ -109,7 +115,7 @@
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                 </li>
                 <li>
-                  <%= link_to "公開日記(ホーム)へ戻る", posts_path %>
+                  <%= link_to "公開日記(ホーム)へ戻る", posts_global_path %>
                 </li>
                 <li>
                   <%= link_to 'フォローした人の日記',posts_follow_path%>

@@ -1,0 +1,15 @@
+<div class="comment__">
+    <hr>
+    <h2>コメント一覧</h2>
+    <%  comments.each do |comment| %>
+    <div>
+        <img src=<%= comment.user.image %> class="icon_image"> <a
+            href="/users/<%= post.user.id %>"><%= comment.user.username %></a>
+        <%= comment.content %>
+        <div class="comment-delete">
+            <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete,remote: true,  data: {confirm: "本当に削除しますか？"} %>
+        </div>
+        <hr>
+    </div>
+    <% end %>
+</div>
