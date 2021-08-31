@@ -13,8 +13,9 @@
             <div class="search_window">
                 <div class="search-form">
                     <%= form_with url: search_path, method: :get, local: true do |f| %>
+                    <%= f.submit '🔍', class: "btn" %>
+
                     <%= f.text_field :keyword, value: @keyword %>
-                    <%= f.submit 'hogebutton', class: "btn" %>
                     <% end %>
                 </div>
             </div>

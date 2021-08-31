@@ -23,6 +23,7 @@
 
       /* Form Layout */
       * {
+          font-size: 16px;
 
           margin: 0;
           padding: 0;
@@ -42,6 +43,7 @@
           }
 
           h1 {
+              font-size: 28px;
               text-align: center;
               padding: 0 0 1em 0;
               color: $timory-color;
