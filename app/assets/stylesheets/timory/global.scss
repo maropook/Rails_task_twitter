@@ -7,11 +7,26 @@ $farmily-color: #FF7E79;
 }
 
 #global {
+    font-size: 16px;
     position: relative;
 
     box-sizing: border-box;
     margin: 20px;
     width: 65%;
+
+    @media (max-width:450px) {
+        div.post {
+            margin-left: 0px;
+        }
+    }
+
+    @media (min-width:449px) {
+        div.post {
+            margin-left: 50px;
+        }
+    }
+
+
 
     .good {
         margin-left: 50px;
@@ -71,7 +86,8 @@ $farmily-color: #FF7E79;
 
 
         .search {
-            padding: 0px 10px;
+            box-sizing: border-box;
+            padding: 0px 5px;
             width: 33%;
             border-left: 2px solid $timory-color;
 
@@ -88,10 +104,12 @@ $farmily-color: #FF7E79;
 
                 box-sizing: border-box;
 
-                input:first-child {
-                    width: 75%;
+                width: 100%;
+
+                input {
+                    width: 65%;
                     border: 0px;
-                    height: 30px;
+                    height: 28px;
                     background-color: $timory-color;
                     color: white;
 
@@ -102,14 +120,9 @@ $farmily-color: #FF7E79;
                 }
 
                 .btn {
-                    background-image: url("/assets/search.png");
-                    background-repeat: no-repeat;
-                    border: 0px;
                     width: 30px;
-                    height: 30px;
-
-                    text-indent: -9999px;
-                    cursor: pointer;
+                    background-color: $timory-color;
+                    color: $timory-color;
 
 
                 }
@@ -151,7 +164,7 @@ $farmily-color: #FF7E79;
 
         .twiit {
             position: relative;
-            width: 70%;
+            width: 67%;
             margin: 0 0 -2px;
             color: $timory-color;
 
@@ -185,9 +198,7 @@ $farmily-color: #FF7E79;
                     right: 0px;
                 }
 
-                .post {
-                    margin-left: 50px;
-                }
+
 
                 .comment_bottom {
                     margin: 0px;
@@ -331,7 +342,7 @@ $farmily-color: #FF7E79;
 
 
         .wrapper>img {
-            min-width: 180px;
+            min-width: 50px;
             position: absolute;
             top: 0;
             width: 100%;
