@@ -1,16 +1,21 @@
-# Twitterもどき
+[Timory](http://timory.herokuapp.com/)
+# 日記投稿サービス
 
 ## About
 
 課題で作成しているrailsのプロジェクト
 
 ##　使い方
-- git clone
-- bundle install
-- yarn install
-- rails db:migrate
-- rails s
 
+```
+
+git clone
+bundle install
+yarn install
+rails db:migrate
+rails s
+
+```
 # 目標
 twitterもどきを作る
 
@@ -273,7 +278,7 @@ class CommentsController < ApplicationController
     end
 
   end
-  
+
   private
   def comment_params
     params.require(:comment).permit(:content, :post_id) #追加
