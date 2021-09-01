@@ -7,6 +7,26 @@ $farmily-color: #FF7E79;
     width: 72%;
     font-size: 16px;
 
+    .select {}
+
+    .input_image {
+        display: block;
+        background-color: #594A31;
+        width: 130px;
+        height: 30px;
+        margin-top: 10px;
+
+        border-radius: 5px;
+        padding-top: 2px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    #input_img {
+        display: none;
+    }
+
     input::placeholder {
         color: $timory-color;
     }
@@ -67,13 +87,14 @@ $farmily-color: #FF7E79;
         }
 
         .btn {
+            float: right;
             width: 134px;
             height: 44px;
             background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
-            margin-left: 65%;
+            left: 0;
             border: none;
             color: white;
             font-size: 15px;

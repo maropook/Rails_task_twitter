@@ -7,15 +7,25 @@
         <br>
         <hr>
         <div class="field">
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
-            <select name="post[status]" id="post_status">
+            <label for="input_img" class="input_image">
+                画像を選択
+                <%= f.file_field :image ,id:"input_img",onchange:"previewImage(this);",accept:'image/*'%>
+                <%= f.hidden_field :image_cache %>
+            </label>
+
+            <select name="post[status]" id="post_status" class="select">
                 <option value="nonreleased">非公開</option>
                 <option selected="selected" value="released">公開</option>
             </select>
+            <br>
+            <canvas id="preview" style="max-width:180px; margin-top:10px"></canvas>
+
+            <br>
             <%# <%= f.select :status, Post.statuses.keys.to_a, {} %>
             <%= f.submit '記録する' ,class:"btn"%>
+
         </div>
+
         <% end %>
     </div>
     <% else %>
@@ -43,3 +53,20 @@
     </div>
     <% end %>
 </div>
+<script>
+    function previewImage(obj) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function () {
+            var canvas = document.getElementById('preview');
+            var ctx = canvas.getContext('2d');
+            var image = new Image();
+            image.src = fileReader.result;
+            image.onload = (function () {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                ctx.drawImage(image, 0, 0);
+            });
+        });
+        fileReader.readAsDataURL(obj.files[0]);
+    }
+</script>
