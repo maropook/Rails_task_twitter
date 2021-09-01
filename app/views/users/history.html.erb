@@ -12,12 +12,14 @@
                     <p>　</p>
                     <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
                 </div>
-                <% if post.image?%>
+                <div class="isflex">
+                    <% if post.image?%>
 
-                <img src=<%= post.image.url %> class="post_image">
-                <% end %>
-                <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                    <img src=<%= post.image.url %> class="post_image">
+                    <% end %>
 
+                    <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                </div>
             </div>
 
         </div>

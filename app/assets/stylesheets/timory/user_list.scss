@@ -1,21 +1,56 @@
-#twitter_user_detail {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
+#user_list {
     box-sizing: border-box;
     padding: 0 50px;
 
+
+    @media (max-width:450px) {
+        .relation {
+            color: $timory-color;
+            font-size: 10px;
+        }
+
+
+    }
+
+    @media (min-width:449px) {
+
+        .relation {
+            color: $timory-color;
+            font-size: 18px;
+        }
+
+
+    }
+
+
+    .relation {
+        color: $timory-color;
+
+    }
+
+    .user_flex {
+        display: flex;
+        align-items: center;
+    }
+
     h2 {
-        color: gray;
+        color: $timory-color;
     }
 
     .post {
         display: flex;
-        border-bottom: 2px solid #594A31;
+        border-bottom: 2px solid $timory-color;
 
         padding: 10px 30px;
         // border-radius: 20px;
         border-radius: 4px;
 
         ::placeholder {
-            color: rgb(173, 173, 173);
+            color: $timory-color;
         }
 
         input:focus {
@@ -27,7 +62,7 @@
 
         .border {
 
-            border-bottom: 2px solid gray;
+            border-bottom: 2px solid $timory-color;
 
         }
 
@@ -40,7 +75,7 @@
             border: none;
 
             font-size: 25px;
-            color: gray;
+            color: $timory-color;
 
 
         }
@@ -48,7 +83,7 @@
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #594A31;
+            background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
@@ -64,14 +99,12 @@
     }
 
     .twiit {
-        border-bottom: 2px solid #594A31;
+        border-bottom: 2px solid $timory-color;
 
-        margin: 0 0 -2px;
+        margin: 6px 0 -2px;
     }
 
-    .twitter {
-        margin: 20px 30px;
-    }
+
 
     .comment_bottom {
         margin-top: 30px;
@@ -113,11 +146,7 @@
         margin-left: 80%;
     }
 
-    .user {
-        display: flex;
-        align-items: center;
 
-    }
 
     a.user_name {
 
@@ -132,7 +161,7 @@
     a {
 
         text-decoration: none;
-        color: gray;
+        color: $timory-color;
         font-size: 25px;
     }
 

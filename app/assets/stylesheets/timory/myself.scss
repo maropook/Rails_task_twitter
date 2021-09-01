@@ -1,13 +1,62 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
 #myself {
     font-size: 16px;
     box-sizing: border-box;
     padding: 0 20px;
     width: 72%;
-    color: #594A31;
+    color: $timory-color;
 
+    p.head {
+        font-size: 25px;
+    }
+
+    @media (max-width:450px) {
+        p {
+            font-size: 13px;
+        }
+
+
+        .isflex {
+            border-left: thick solid $timory-color;
+        }
+
+
+        .comment {
+            padding-left: 10px;
+
+        }
+    }
+
+    @media (min-width:449px) {
+        p {
+            font-size: 18px;
+        }
+
+        .datetime {
+
+
+            border-right: thick solid $timory-color;
+        }
+
+        .isflex {
+            display: flex;
+        }
+
+        .user {
+            display: flex;
+        }
+
+
+        .comment {
+            padding-left: 30px;
+
+        }
+
+
+    }
 
     .edit_icon {
         width: 20px;
@@ -24,7 +73,7 @@ $farmily-color: #FF7E79;
             padding-right: 5px;
         }
 
-        border-right: thick solid $timory-color;
+
         display: flex;
         align-items: center;
         margin-right: -5px;
@@ -41,7 +90,6 @@ $farmily-color: #FF7E79;
         display: flex;
         align-items: center;
 
-        font-size: 25px;
         margin-bottom: 25px;
     }
 
@@ -55,10 +103,6 @@ $farmily-color: #FF7E79;
     }
 
 
-    .comment {
-        padding-left: 30px;
-
-    }
 
 
     .post_image {
@@ -75,7 +119,7 @@ $farmily-color: #FF7E79;
     }
 
     .user {
-        display: flex;
+
         width: 100%;
         justify-content: flex-start;
         align-items: center;

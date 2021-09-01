@@ -1,16 +1,18 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
-
-
+$timory-dark-color:#3d382f;
 
 @media(min-width: 769px) {
     .timory_top {
         h3 {
-
+            font-family: 'Toppan Bunkyu Gothic';
+            font-weight: normal;
             font-size: 1.8rem;
         }
 
         h3.noimg {
+            font-family: 'Toppan Bunkyu Gothic';
+            font-weight: normal;
             font-size: 1.6rem;
 
         }
@@ -78,11 +80,6 @@ $farmily-color: #FF7E79;
 
 
 
-    * {
-        margin: 0px;
-        padding: 0px;
-    }
-
 
     /*main-grid*/
     .main-grid {
@@ -95,7 +92,7 @@ $farmily-color: #FF7E79;
     /*header*/
     header {
         background-color: $farmily-color;
-        color: #594A31;
+        color: $timory-color;
         width: 100%;
     }
 
@@ -117,7 +114,7 @@ $farmily-color: #FF7E79;
         grid-area: main;
         /*main*/
         background-color: #ffff;
-        color: #594A31;
+        color: $timory-color;
         margin-left: auto;
         margin-right: auto;
         width: 100%
@@ -127,7 +124,7 @@ $farmily-color: #FF7E79;
     footer {
         height: 62.5px;
         grid-area: footer;
-        background-color: #594A31;
+        background-color: $timory-color;
         color: white;
     }
 

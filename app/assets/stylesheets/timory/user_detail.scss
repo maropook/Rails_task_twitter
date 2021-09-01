@@ -1,17 +1,34 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
 * {
 
     box-sizing: border-box;
 }
 
-#publish {
+#user_detail {
     position: relative;
 
     box-sizing: border-box;
     margin: 20px;
     width: 65%;
+
+    .user_tag {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    h2 {
+        color: $timory-color;
+        text-align: center;
+    }
+
+    a {
+        color: $timory-color;
+        text-decoration: none;
+    }
 
     .record .post {
         padding: 10px 30px;
@@ -126,7 +143,6 @@ $farmily-color: #FF7E79;
         position: relative;
 
         width: 100%;
-        margin-top: 60px;
 
 
         .search {
@@ -218,7 +234,7 @@ $farmily-color: #FF7E79;
                 box-sizing: border-box;
                 position: relative;
                 padding: 0px 5px;
-                border: 2px solid #3d382f;
+                border: 2px solid $timory-dark-color;
                 border-left: none;
                 border-top: none;
 

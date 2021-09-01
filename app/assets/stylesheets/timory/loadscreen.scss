@@ -2,6 +2,9 @@
 // <div class="loadscreen">
 // <p class="animation_img"><img src="assets/clova_logo.png"></p>
 // </div>
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
 @keyframes fadein {
     0% {
@@ -52,7 +55,7 @@
 
 
 .loadscreen {
-    background-color: #fd9c9c;
+    background-color: $farmily-color;
     position: fixed;
     top: 0px;
     left: 0;
