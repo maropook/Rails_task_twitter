@@ -1,5 +1,6 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
 #timory_record {
     box-sizing: border-box;
@@ -11,7 +12,7 @@ $farmily-color: #FF7E79;
 
     .input_image {
         display: block;
-        background-color: #594A31;
+        background-color: $timory-color;
         width: 130px;
         height: 30px;
         margin-top: 10px;
@@ -171,4 +172,79 @@ $farmily-color: #FF7E79;
 
 
     }
+
+
+    #twitter_top {
+
+        box-sizing: border-box;
+
+        .my-container {
+            display: flex;
+
+        }
+
+        .left_flex img {
+            display: block;
+            width: 450px;
+            margin-right: 25px;
+
+        }
+
+        .right_flex {
+            width: 550px;
+
+            h1 {
+                color: $timory-color;
+                margin-top: 80px;
+                font-size: 58px;
+                margin-bottom: -10px;
+            }
+
+            h2 {
+                color: rgb(83, 83, 85);
+                font-size: 35px;
+            }
+
+            .button {
+                width: 334px;
+                height: 44px;
+                background-color: $farmily-color;
+                border-radius: 30px;
+                margin: 16px;
+                margin-left: 10px;
+
+                a {
+                    display: block;
+                    width: 260px;
+                    height: 35px;
+                    text-decoration: none;
+                    color: white;
+                    text-align: center;
+                    font-size: 14px;
+                    padding-top: 12px;
+                    margin: auto;
+                    font-weight: 600;
+                }
+            }
+
+            .login {
+                border: 1.5px solid $farmily-color;
+                background-color: white;
+
+                a {
+                    color: $farmily-color;
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+    }
+
+
 }

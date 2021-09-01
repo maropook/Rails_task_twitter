@@ -1,6 +1,10 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
+figure {
+  margin: 0;
+}
 
 img.session_icon {
   margin-top: 20px;
@@ -205,6 +209,7 @@ img.edit_icon {
     padding-left: 35%;
     background-color: $timory-color;
     color: white;
+    font-size: 16px;
   }
 
   .hamburger-menu,
@@ -232,7 +237,7 @@ img.edit_icon {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background-color: #594A31;
+    background-color: $timory-color;
   }
 
   .menu-btn span:before {
@@ -332,7 +337,7 @@ img.edit_icon {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background-color: #594A31;
+    background-color: $timory-color;
   }
 
   .menu-btn span:before {

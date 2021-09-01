@@ -1,21 +1,25 @@
-#twitter_user_detail {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
+#user_list {
     box-sizing: border-box;
     padding: 0 50px;
 
     h2 {
-        color: gray;
+        color: $timory-color;
     }
 
     .post {
         display: flex;
-        border-bottom: 2px solid #594A31;
+        border-bottom: 2px solid $timory-color;
 
         padding: 10px 30px;
         // border-radius: 20px;
         border-radius: 4px;
 
         ::placeholder {
-            color: rgb(173, 173, 173);
+            color: $timory-color;
         }
 
         input:focus {
@@ -27,7 +31,7 @@
 
         .border {
 
-            border-bottom: 2px solid gray;
+            border-bottom: 2px solid $timory-color;
 
         }
 
@@ -40,7 +44,7 @@
             border: none;
 
             font-size: 25px;
-            color: gray;
+            color: $timory-color;
 
 
         }
@@ -48,7 +52,7 @@
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #594A31;
+            background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
@@ -64,7 +68,7 @@
     }
 
     .twiit {
-        border-bottom: 2px solid #594A31;
+        border-bottom: 2px solid $timory-color;
 
         margin: 0 0 -2px;
     }
@@ -132,7 +136,7 @@
     a {
 
         text-decoration: none;
-        color: gray;
+        color: $timory-color;
         font-size: 25px;
     }
 

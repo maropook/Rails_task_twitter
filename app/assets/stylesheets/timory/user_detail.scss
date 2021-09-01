@@ -1,21 +1,32 @@
-#twitter_post_edit {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
+#user_detail_page {
     box-sizing: border-box;
-    padding: 0 50px;
+    padding: 0 20px;
+    width: 72%;
+
+    .diary {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
 
     h2 {
-        color: gray;
+        color: $timory-color;
     }
 
     .post {
         display: flex;
-        border: 2px solid #594A31;
+        border: 2px solid $timory-color;
 
         padding: 10px 30px;
         // border-radius: 20px;
         border-radius: 4px;
 
         ::placeholder {
-            color: rgb(173, 173, 173);
+            color: $timory-color;
         }
 
         input:focus {
@@ -24,47 +35,39 @@
         }
 
         // .form_for_tweet{
-
         .border {
 
-            border-bottom: 2px solid gray;
-
+            border-bottom: 2px solid $timory-color;
         }
 
         // }
         .text_field {
-            width: 694px;
+            width: 100%;
             margin: 5px;
             margin-top: 11px;
             padding: 15px;
             border: none;
-
             font-size: 25px;
-            color: gray;
-
-
+            color: $timory-color;
         }
 
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #594A31;
+            background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
-            margin-left: 80%;
+            margin-left: 65%;
             border: none;
             color: white;
             font-size: 15px;
-
-
-
 
         }
     }
 
     .twiit {
-        border: 2px solid #594A31;
+        border: 2px solid $timory-color;
         border-radius: 4px;
         margin: 0 0 -2px;
     }
@@ -83,7 +86,6 @@
     }
 
     .comment {
-
         margin-left: 30px;
     }
 
@@ -112,23 +114,29 @@
 
     .user {
         display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .user_detail {
+        display: flex;
+        align-items: center;
+
 
     }
 
     a.user_name {
-
         display: inline-block;
         height: 50px;
         margin-top: 10px;
         margin-left: 5px;
-
-
     }
 
     a {
 
         text-decoration: none;
-        color: gray;
+        color: $timory-color;
         font-size: 25px;
     }
 

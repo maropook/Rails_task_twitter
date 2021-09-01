@@ -2,7 +2,7 @@
   $timory-color: #594A31;
   $focus-color: #2d2618;
   $farmily-color: #FF7E79;
-
+  $timory-dark-color:#3d382f;
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
   /* fontawesome */
 
@@ -160,7 +160,7 @@
               z-index: 1;
               height: 40px;
 
-              background-color: rgb(67, 34, 0);
+              background-color: $timory-color;
           }
 
           footer ul {

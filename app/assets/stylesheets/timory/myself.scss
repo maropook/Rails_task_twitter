@@ -1,12 +1,13 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
 
 #myself {
     font-size: 16px;
     box-sizing: border-box;
     padding: 0 20px;
     width: 72%;
-    color: #594A31;
+    color: $timory-color;
 
     p.head {
         font-size: 25px;

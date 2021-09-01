@@ -1,14 +1,18 @@
-#twitter_catalog {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
+#direct_message {
     box-sizing: border-box;
     padding: 0 50px;
 
     h2 {
-        color: gray;
+        color: $timory-color;
     }
 
     .post {
         display: flex;
-        border-bottom: 2px solid #594A31;
+        border: 2px solid $timory-color;
 
         padding: 10px 30px;
         // border-radius: 20px;
@@ -27,7 +31,7 @@
 
         .border {
 
-            border-bottom: 2px solid gray;
+            border-bottom: 2px solid $timory-color;
 
         }
 
@@ -40,7 +44,7 @@
             border: none;
 
             font-size: 25px;
-            color: gray;
+            color: $timory-color;
 
 
         }
@@ -48,7 +52,7 @@
         .btn {
             width: 134px;
             height: 44px;
-            background-color: #594A31;
+            background-color: $timory-color;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
@@ -64,8 +68,8 @@
     }
 
     .twiit {
-        border-bottom: 2px solid #594A31;
-
+        border: 2px solid $timory-color;
+        border-radius: 4px;
         margin: 0 0 -2px;
     }
 
@@ -90,21 +94,21 @@
     .icon_image {
         width: 50px;
         height: 50px;
-        //サイズ指定
         border-radius: 100px;
-        //画像を丸くする
         object-fit: cover;
-        //タテヨコ比を変えないままトリミング
+        margin-right: 20px;
+
     }
 
     .room_plus {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .plus {
         margin: 5px;
         width: 40px;
         height: 40px;
+        margin-right: 20px;
 
 
     }
@@ -114,6 +118,7 @@
     }
 
     .user {
+        padding: 10px 0;
         display: flex;
         align-items: center;
 
@@ -132,7 +137,7 @@
     a {
 
         text-decoration: none;
-        color: gray;
+        color: $timory-color;
         font-size: 25px;
     }
 

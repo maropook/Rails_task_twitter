@@ -1,5 +1,7 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
 
 * {
 
@@ -218,7 +220,7 @@ $farmily-color: #FF7E79;
                 box-sizing: border-box;
                 position: relative;
                 padding: 0px 5px;
-                border: 2px solid #3d382f;
+                border: 2px solid $timory-dark-color;
                 border-left: none;
                 border-top: none;
 

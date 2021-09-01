@@ -1,16 +1,62 @@
-#twitter_room {
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+
+
+#DM {
     box-sizing: border-box;
     padding: 0 50px;
 
     h2 {
-        color: gray;
+        color: $timory-color;
+    }
+
+    .dm {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .my_comment {
+
+
+        justify-content: flex-end;
+
+    }
+
+    .form_for_tweet {
+        display: flex;
+
+    }
+
+    header {
+        padding-top: 15px;
+        position: sticky;
+        top: -15px;
+        width: 500px;
+        height: 50px;
+        margin: auto;
+        z-index: 16;
+        border-radius: 4px;
+
+    }
+
+    .dm_user {
+
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
     }
 
     .post {
         display: flex;
-        border: 2px solid #594A31;
 
-        padding: 10px 30px;
+        border: 2px solid $timory-color;
+
         // border-radius: 20px;
         border-radius: 4px;
 
@@ -27,13 +73,12 @@
 
         .border {
 
-            border-bottom: 2px solid gray;
-
+            border-bottom: 2px solid $timory-color
         }
 
         // }
         .text_field {
-            width: 694px;
+            width: 624px;
             margin: 5px;
             margin-top: 11px;
             padding: 15px;
@@ -52,7 +97,7 @@
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
-            margin-left: 80%;
+
             border: none;
             color: white;
             font-size: 15px;
@@ -64,7 +109,7 @@
     }
 
     .twiit {
-        border: 2px solid #594A31;
+        border: 2px solid $timory-color;
         border-radius: 4px;
         margin: 0 0 -2px;
     }
@@ -90,23 +135,11 @@
     .icon_image {
         width: 50px;
         height: 50px;
+        //サイズ指定
         border-radius: 100px;
+        //画像を丸くする
         object-fit: cover;
-        margin-right: 20px;
-
-    }
-
-    .room_plus {
-        margin-top: 20px;
-    }
-
-    .plus {
-        margin: 5px;
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
-
-
+        //タテヨコ比を変えないままトリミング
     }
 
     .favorite {
@@ -114,9 +147,8 @@
     }
 
     .user {
-        padding: 10px 0;
         display: flex;
-        align-items: center;
+
 
     }
 
@@ -133,7 +165,7 @@
     a {
 
         text-decoration: none;
-        color: gray;
+        color: $timory-color;
         font-size: 25px;
     }
 
