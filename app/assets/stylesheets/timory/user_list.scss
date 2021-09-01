@@ -6,6 +6,37 @@ $timory-dark-color:#3d382f;
     box-sizing: border-box;
     padding: 0 50px;
 
+
+    @media (max-width:450px) {
+        .relation {
+            color: $timory-color;
+            font-size: 10px;
+        }
+
+
+    }
+
+    @media (min-width:449px) {
+
+        .relation {
+            color: $timory-color;
+            font-size: 18px;
+        }
+
+
+    }
+
+
+    .relation {
+        color: $timory-color;
+
+    }
+
+    .user_flex {
+        display: flex;
+        align-items: center;
+    }
+
     h2 {
         color: $timory-color;
     }
@@ -70,12 +101,10 @@ $timory-dark-color:#3d382f;
     .twiit {
         border-bottom: 2px solid $timory-color;
 
-        margin: 0 0 -2px;
+        margin: 6px 0 -2px;
     }
 
-    .twitter {
-        margin: 20px 30px;
-    }
+
 
     .comment_bottom {
         margin-top: 30px;
@@ -117,11 +146,7 @@ $timory-dark-color:#3d382f;
         margin-left: 80%;
     }
 
-    .user {
-        display: flex;
-        align-items: center;
 
-    }
 
     a.user_name {
 

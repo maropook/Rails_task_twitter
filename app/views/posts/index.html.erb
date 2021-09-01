@@ -35,8 +35,6 @@
     </div>
   </div>
   <div class="everyone">
-
-
     <div class="twiit">
       <% @posts.reverse_each do |post| %>
       <div class="twitter">
@@ -44,15 +42,11 @@
           <div class="user_detail">
             <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
                 href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-
           </div>
         </div>
         <div class="edit">
-
           <div class="time">
             <%= time_ago_in_words(post.created_at) %>
-
-
           </div>
           <% if post.user.id == current_user.id%>
           <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
@@ -83,8 +77,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
       <% end %>
     </div>

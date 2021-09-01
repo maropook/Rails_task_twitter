@@ -34,8 +34,11 @@
     <%= form_for @message ,html: { class: "form_for_tweet" } do |f| %>
     <%= f.text_field :content,class:"text_field", :placeholder => "メッセージを入力して下さい" , :size => 70 %>
     <%= f.hidden_field :room_id, :value => @room.id %>
+    <br>
     <%= f.submit "投稿する"  ,class:"btn"%>
+    <br>
     <% end %>
   </div>
-  <%= link_to "ユーザー一覧に戻る", users_path %>
+  <br>
+  <%= link_to "戻る", users_path %>
 </div>

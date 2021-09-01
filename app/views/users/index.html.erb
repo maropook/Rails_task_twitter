@@ -4,14 +4,17 @@
   <div class="twiit">
     <div class="twitter">
       <div class="user">
-        <img src=<%= user.image %> class="icon_image">
-        <a href="/users/<%= user.id %>"><%= user.username %></a>
-        <td>フォロー: <%= user.followings.count %></td>
-        <td>フォロワー: <%= user.followers.count %></td>
-        <hr>
+        <div class="user_flex">
+          <img src=<%= user.image %> class="icon_image">
+          <a href="/users/<%= user.id %>"><%= user.username %></a>
+        </div>
+        <div class="relation">
+          <td>フォロー: <%= user.followings.count %></td>
+          <td>フォロワー: <%= user.followers.count %></td>
+        </div>
       </div>
     </div>
   </div>
   <% end %>
-  <%= link_to "ホームへ戻る", posts_global_path %>
+  <%= link_to "戻る", posts_global_path %>
 </div>

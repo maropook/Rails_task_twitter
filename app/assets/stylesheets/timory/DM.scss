@@ -4,6 +4,36 @@ $timory-dark-color:#3d382f;
 
 
 #DM {
+    @media (max-width:450px) {
+        h2 {
+            font-size: 16px;
+        }
+
+        .text_field {
+
+            font-size: 16px;
+
+
+
+        }
+
+    }
+
+    @media (min-width:449px) {
+
+        h2 {
+            font-size: 23px;
+        }
+
+        .text_field {
+
+            font-size: 16px;
+        }
+
+    }
+
+
+
     box-sizing: border-box;
     padding: 0 50px;
 
@@ -14,7 +44,7 @@ $timory-dark-color:#3d382f;
     .dm {
         display: flex;
         align-items: center;
-        padding: 30px;
+
     }
 
     .my_comment {
@@ -24,17 +54,13 @@ $timory-dark-color:#3d382f;
 
     }
 
-    .form_for_tweet {
-        display: flex;
-
-    }
 
     header {
         padding-top: 15px;
         position: sticky;
         top: -15px;
-        width: 500px;
-        height: 50px;
+        width: 100%;
+        height: 60px;
         margin: auto;
         z-index: 16;
         border-radius: 4px;
@@ -53,20 +79,18 @@ $timory-dark-color:#3d382f;
     }
 
     .post {
-        display: flex;
 
-        border: 2px solid $timory-color;
 
-        // border-radius: 20px;
-        border-radius: 4px;
 
         ::placeholder {
             color: rgb(173, 173, 173);
         }
 
         input:focus {
-            border: none;
-            outline: none;
+            border: 2px solid $timory-color;
+
+            // border-radius: 20px;
+            border-radius: 4px;
         }
 
         // .form_for_tweet{
@@ -78,16 +102,15 @@ $timory-dark-color:#3d382f;
 
         // }
         .text_field {
-            width: 624px;
+            width: 100%;
             margin: 5px;
             margin-top: 11px;
             padding: 15px;
-            border: none;
+            border: 2px solid $timory-color;
 
-            font-size: 25px;
+            // border-radius: 20px;
+            border-radius: 4px;
             color: gray;
-
-
         }
 
         .btn {
@@ -97,7 +120,7 @@ $timory-dark-color:#3d382f;
             border-radius: 30px;
             margin: 0 16px;
             margin-top: 16px;
-
+            float: right;
             border: none;
             color: white;
             font-size: 15px;
@@ -166,7 +189,8 @@ $timory-dark-color:#3d382f;
 
         text-decoration: none;
         color: $timory-color;
-        font-size: 25px;
+        font-size: 20px;
+        display: inline-block;
     }
 
     .comment_bottom {
