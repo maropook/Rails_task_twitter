@@ -18,6 +18,11 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   # 【class_name: "Relationship"】は省略可能
   has_many :followings, through: :relationships, source: :followed
+
+  validates :readtime, numericality:{only_integer: true, greater_than_or_equal_to: 0,less_than_or_equal_to: 23}
+  validates :readlimit, numericality:{only_integer: true, greater_than_or_equal_to: 1,less_than_or_equal_to: 23}
+
+
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
   def follow(user_id)
     relationships.create(followed_id: user_id)
