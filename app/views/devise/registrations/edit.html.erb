@@ -13,6 +13,14 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field form-item">
+          <p>何時から閲覧可能か(0~23)</p>
+          <%= f.text_field :readtime, placeholder:"何時から閲覧可能か入力",required: true%>
+        </div>
+
+        <%# <%= f.label :readlimit %>
+        <%# <%= f.text_field :readlimit, placeholder:"何時間閲覧可能か入力",required: true%>
+
+        <div class="field form-item">
           <p>ユーザーネーム</p>
           <%= f.text_field :username %>
         </div>

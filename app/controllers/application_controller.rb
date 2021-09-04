@@ -19,5 +19,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys: [:username])
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image])
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:readtime, :readlimit])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:readtime, :readlimit])
       end
 end

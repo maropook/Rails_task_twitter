@@ -1,3 +1,7 @@
+
+[Timory](http://timory.herokuapp.com/)
+# 日記投稿サービス
+
 # Timory
 
 
@@ -6,6 +10,7 @@
 -定時日記交換システム-
 
 http://timory.herokuapp.com/
+
 
 ## About
 
@@ -17,7 +22,7 @@ http://timory.herokuapp.com/
 
 決まった時間に確認
 
-## 使い方
+##　使い方
 
 - git clone
 - bundle install
@@ -25,6 +30,16 @@ http://timory.herokuapp.com/
 - rails db:migrate
 - rails s
 
+
+```
+
+git clone
+bundle install
+yarn install
+rails db:migrate
+rails s
+
+```
 # 目標
 twitterもどきだが少し違う
 
@@ -291,7 +306,7 @@ class CommentsController < ApplicationController
     end
 
   end
-  
+
   private
   def comment_params
     params.require(:comment).permit(:content, :post_id) #追加
