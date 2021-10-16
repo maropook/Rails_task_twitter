@@ -12,13 +12,174 @@
         </h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field form-item">
+        <%# <div class="field form-item">
           <p>何時から閲覧可能か(0~23)</p>
           <%= f.text_field :readtime, placeholder:"何時から閲覧可能か入力",required: true%>
+        <%# </div> %>
+
+
+        <%Time.current.to_s(:time_clock) %>
+        <% time = Time.current.to_s(:time_clock) %>
+        <% isReadTime = 'readTime'%>
+        <% now = time.to_i%>
+
+        <% if  current_user.readtime <=  current_user.readlimit %>
+        <% if current_user.readtime <= now  && current_user.readtime >= now %>
+        <% isReadTimeNow= true %>
+        <% else %>
+        <% isReadTimeNow= false %>
+        <% end %>
+        <% else %>
+        <% if current_user.readtime <= now  || current_user.readtime >= now %>
+        <% isReadTimeNow= true %>
+        <% else %>
+        <% isReadTimeNow= false %>
+        <% end %>
+        <% end %>
+
+
+        <% if isReadTimeNow %>
+
+
+        <div class="field form-item">
+          <%# <% <div id="readtime" class="form-group"> %>
+          <%= f.label :readtime, '閲覧可能時間' %>
+          <%# <div class="readtime">
+              <%= f.select :readtime, {'1': 1, '2': 2,'3': 3, '4': 4,'5': 5, '6': 6,'7': 7, '8': 8,'9': 9, '10': 10,'11': 11, '12': 12,'13': 13, '14': 14,'15': 15, '16': 16,'17': 17, '18': 18,'19': 19, '20': 20,'21': 21,'22': 22,'23': 23,}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          <%# <span>〜</span>
+              <%= f.select :readlimit, {'1': 1, '2': 2,'3': 3, '4': 4,'5': 5, '6': 6,'7': 7, '8': 8,'9': 9, '10': 10,'11': 11, '12': 12,'13': 13, '14': 14,'15': 15, '16': 16,'17': 17, '18': 18,'19': 19, '20': 20,'21': 21,'22': 22,'23': 23,}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          <%# </div> %>
+          <div id="readtime">
+            <div class="readtime">
+              <select required="required" name="user[readtime]" id="user_readtime" class="form-control"
+                v-model="selected">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option selected="selected" value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select> <span>〜</span>
+              <select required="required" name="user[readlimit]" id="user_readlimit" class="form-control"
+                v-model="selectedEnd">
+                <option value="">選択してください</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option selected="selected" value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+            <%= f.label :readtime, '記録可能時間' %>
+
+            <div class="readtime">
+
+              <select required="required" name="user[readlimit]" id="user_readlimit" class="form-control"
+                v-model="selectedEnd">
+                <option value="">選択してください</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option selected="selected" value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+              <span>〜</span>
+
+              <select required="required" name="user[readtime]" id="user_readtime" class="form-control"
+                v-model="selected">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option selected="selected" value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <%# <%= f.label :readlimit %>
-        <%# <%= f.text_field :readlimit, placeholder:"何時間閲覧可能か入力",required: true%>
+
+
+
+        <% else %>
+        <%= f.label :readtime, '記録時間と閲覧時間の設定は' %>
+        <br>
+        <%= f.label :readtime, '閲覧可能時間にのみ設定できます' %>
+        <br>
+        <br>
+        <% end %>
+
 
         <div class="field form-item">
           <p>ユーザーネーム</p>
@@ -96,3 +257,13 @@
 
   }
 </style>
+<script>
+  var app = new Vue({
+    el: '#readtime',
+    data: {
+
+      selected: '12',
+      selectedEnd: '12'
+    }
+  })
+</script>

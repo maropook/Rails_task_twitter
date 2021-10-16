@@ -8,6 +8,9 @@
   <%= favicon_link_tag '/favicon.png' %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1689234409331263"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -45,32 +48,46 @@
           <nav class="farmily">
             <ul>
               <% if user_signed_in? %>
-              <span class="user_name"><%= current_user.username%></span>
-              <%# <% if @is_am %>
               <%Time.current.to_s(:time_clock) %>
-
-
               <% time = Time.current.to_s(:time_clock) %>
-
+              <% isReadTime = 'readTime'%>
               <% now = time.to_i%>
 
-              <% if current_user.readtime <= now %>
-              <%# もしreadtimeがnowより大きかったら %>
-              <p class="limit"><%= current_user.readtime %>時から0時まで<br>閲覧可能</p>
+              <% if  current_user.readtime <=  current_user.readlimit %>
+              <% if current_user.readtime <= now  && current_user.readtime >= now %>
+              <% isReadTimeNow= true %>
+              <% else %>
+              <% isReadTimeNow= false %>
+              <% end %>
+              <% else %>
+              <% if current_user.readtime <= now  || current_user.readtime >= now %>
+              <% isReadTimeNow= true %>
+              <% else %>
+              <% isReadTimeNow= false %>
+              <% end %>
+              <% end %>
+
+              <%if  isReadTimeNow %>
+              <% isReadTime = 'readTime'%>
+              <% else %>
+              <% isReadTime = 'writeTime'%>
+              <% end %>
+
+              <span class="user_name"><%= current_user.username%></span>
+              <%# <% if @is_am %>
+
+              <% if isReadTimeNow %>
               <li>
                 <img src="/assets/myself_white.png" class="header_icon" alt="">
                 <%= link_to "自分", users_myself_path %>
               </li>
-              <%# //////////////みんな//////// %>
               <li>
                 <img src="/assets/everyone_white.png" class="header_icon" alt="">
                 <%= link_to "みんな", posts_global_path %>
               </li>
 
-              <%# <%= link_to "みんな index昔の", posts_global_path %>
-              <%# <%= link_to 'みんな(local)',posts_follow_path%>
               <% else %>
-              <p class="limit">0時から<%= current_user.readtime %>時まで<br>記録可能</p>
+
               <li>
                 <img src="/assets/pencil_white.png" class="header_icon" alt="">
                 <%= link_to "記録",  posts_record_path%>
@@ -79,12 +96,25 @@
                 <img src="/assets/clock_white.png" class="header_icon" alt="">
                 <%= link_to "履歴",  users_history_path%>
               </li>
+
               <% end %>
 
               <li>
                 <img src="/assets/other_white.png" class="header_icon" alt="">
                 <%= link_to "その他", posts_other_path %>
               </li>
+
+              <% if isReadTime=='readTime' %>
+
+              <p class="limit">記録<%= current_user.readlimit %>:00-<%= current_user.readtime%>:00</p>
+              <p class="limit limit_underline">閲覧<%= current_user.readtime %>:00-<%= current_user.readlimit%>:00</p>
+
+              <% else %>
+              <p class="limit limit_underline">記録<%= current_user.readlimit %>:00-<%= current_user.readtime%>:00</p>
+              <p class="limit">閲覧<%= current_user.readtime %>:00-<%= current_user.readlimit%>:00</p>
+
+              <% end %>
+
 
               <% else %>
               <li>
@@ -98,6 +128,7 @@
           </nav>
         </div>
       </div>
+
 
       <!--ここまでメニュー-->
       <!--ここからメニュー-->

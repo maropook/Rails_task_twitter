@@ -1,6 +1,7 @@
 $timory-color: #594A31;
 $farmily-color: #FF7E79;
 $timory-dark-color:#3d382f;
+$timory-white-color: #847863;
 
 #timory_record {
     box-sizing: border-box;
@@ -8,20 +9,25 @@ $timory-dark-color:#3d382f;
     width: 72%;
     font-size: 16px;
 
-    .select {}
+    .select {
+        height: 30px;
+    }
+
+
+
 
     .input_image {
         display: block;
         background-color: $timory-color;
-        width: 130px;
-        height: 30px;
-        margin-top: 10px;
+        width: 100px;
+        height: 40px;
 
         border-radius: 5px;
-        padding-top: 2px;
+        padding-top: 6px;
         color: white;
         text-decoration: none;
         text-align: center;
+        font-size: 19px;
     }
 
     #input_img {
@@ -29,7 +35,7 @@ $timory-dark-color:#3d382f;
     }
 
     input::placeholder {
-        color: $timory-color;
+        color: $timory-white-color;
     }
 
     h2 {
@@ -44,16 +50,18 @@ $timory-dark-color:#3d382f;
     }
 
     .post {
-        padding: 10px 30px;
+        padding: 0px 30px;
         // border-radius: 20px;
         border-radius: 4px;
 
         ::placeholder {
-            color: rgb(173, 173, 173);
+            font-weight: 700;
+            color: $timory-white-color
         }
 
         input:focus {
-            border: none;
+            border: 3px solid $timory-color;
+            border-radius: 10px;
             outline: none;
         }
 
@@ -74,31 +82,42 @@ $timory-dark-color:#3d382f;
         // }
         .text_field {
             color: $timory-color;
-            width: 90%;
-            margin: 5px;
-            margin-top: 11px;
-            border: none;
-            font-size: 25px;
+            width: 100%;
+
+            border-radius: 10px;
+            padding: 5px 20px;
+            border: 3px solid $timory-color;
+            font-size: 32px;
 
         }
 
+        .field {
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .field2 {
+            display: flex;
+        }
+
         .text_field::placeholder {
-            color: $timory-color;
+            color: $timory-white-color;
 
         }
 
         .btn {
-            float: right;
+
             width: 134px;
             height: 44px;
             background-color: $timory-color;
             border-radius: 30px;
-            margin: 0 16px;
-            margin-top: 16px;
+            margin-left: 5px;
+            margin-top: 0;
             left: 0;
             border: none;
             color: white;
-            font-size: 15px;
+            font-size: 19px;
 
         }
     }

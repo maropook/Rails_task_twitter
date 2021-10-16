@@ -26,14 +26,14 @@ class PostsController < ApplicationController
   def global
     #フォローしているユーザーの投稿
     @users=User.all
-    @posts = Post.where(status: :released, cronstatus: 1).order(:created_at)
+    @posts = Post.where(status: :released).order(:created_at)
     @post = Post.new
   end
 
   def follow
     @followings = current_user.followings
     @users=User.all
-    @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1).order(:created_at)
+    @nonposts = Post.where(user_id: [*current_user.following_ids],status: :nonreleased).order(:created_at)
     @post = Post.new
   end
 
