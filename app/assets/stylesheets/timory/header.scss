@@ -7,11 +7,25 @@ figure {
 }
 
 img.session_icon {
-  margin-top: 20px;
-  width: 62px;
-  height: 62px;
+
+  width: 85px;
+  height: 85px;
   left: 20px;
   top: 40px;
+
+}
+
+.session_header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+
+  h2 {
+    font-weight: 700;
+
+  }
+
 }
 
 img.edit_icon {
@@ -38,6 +52,11 @@ img.edit_icon {
 
   }
 
+  .limit_underline {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+
 
 }
 
@@ -58,6 +77,10 @@ img.edit_icon {
 
   }
 
+  .limit_underline {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
 }
 
 

@@ -1,30 +1,52 @@
 <div id="timory_record">
     <% if user_signed_in? %>
-    <img src="/assets/pencil_brown.png" class="session_icon" alt="">
+    <div class="session_header">
+        <img src="/assets/pencil_brown.png" class="session_icon" alt="">
+        <h2>記録</h2>
+
+    </div>
     <div class="post">
         <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
         <%= f.text_field :content ,class:"text_field",placeholder:"記録する"%>
+
         <br>
-        <hr>
         <div class="field">
             <label for="input_img" class="input_image">
-                画像を選択
+                <span>写真</span>
                 <%= f.file_field :image ,id:"input_img",onchange:"previewImage(this);",accept:'image/*'%>
                 <%= f.hidden_field :image_cache %>
             </label>
 
-            <select name="post[status]" id="post_status" class="select">
-                <option value="nonreleased">非公開</option>
-                <option selected="selected" value="released">公開</option>
-            </select>
-            <br>
-            <canvas id="preview" style="max-width:180px; margin-top:10px"></canvas>
+            <div class="field2">
+                <div id="app">
 
-            <br>
-            <%# <%= f.select :status, Post.statuses.keys.to_a, {} %>
-            <%= f.submit '記録する' ,class:"btn"%>
+                    <div>
+                        <div @click="radioClick">
+                            <div v-if="radio == 'released'">
+                                <img src="/assets/outgoing_brown.png" alt="" class="clova">
+                            </div>
+                            <div v-else> <img src="/assets/outgoing_grey.png" alt="" class="clova"></div>
+                        </div>
 
+                        <div style="display:none">
+                            <br><input type="radio" name="post[status]" id="released" v-model="radio" value="released">
+                            <label for="released">公開</label>
+                            <input type="radio" name="post[status]" id="nonreleased" v-model="radio"
+                                value="nonreleased">
+                            <label for="nonreleased">非公開</label>
+                            <p>プロパティの状態: {{radio}}</p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <%= f.submit '記録する' ,class:"btn btn-record"%>
+
+
+            </div>
         </div>
+        <canvas id="preview" style="max-width:180px; margin-top:10px"></canvas>
+
 
         <% end %>
     </div>
@@ -54,6 +76,29 @@
     <% end %>
 </div>
 <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            //ラジオボタン
+            radio: 'released'
+        },
+        methods: {
+            radioClick: function (event) {
+                // メソッド内の `this` は、 Vue インスタンスを参照します
+                if (this.radio == 'nonreleased') {
+                    this.radio = 'released'
+
+                } else {
+                    this.radio = 'nonreleased';
+
+                }
+                // `event` は、ネイティブ DOM イベントです
+
+            }
+        }
+    })
+
+
     function previewImage(obj) {
         var fileReader = new FileReader();
         fileReader.onload = (function () {

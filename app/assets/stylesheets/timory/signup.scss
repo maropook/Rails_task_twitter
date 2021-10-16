@@ -18,6 +18,7 @@
       height: 50px;
   }
 
+
   .farmily_devise {
       background-color: #d1c8be;
 
@@ -51,6 +52,14 @@
 
           form {
               padding: 0 1.5em;
+          }
+
+          .readtime {
+              display: flex;
+
+              select {
+                  width: 40px;
+              }
           }
 
           .form-item {
