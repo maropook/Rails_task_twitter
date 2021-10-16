@@ -5,12 +5,12 @@ class PostsController < ApplicationController
   # , only: [:show, :create]
   def index
     #フォローしているユーザーの投稿
-    @posts = Post.where(status: :released, cronstatus: 1)
+    @posts = Post.where(status: :released)
     @post = Post.new
   end
   def search
     @users=User.all
-    @posts = Post.search(params[:keyword]).where(status: :released, cronstatus: 1)
+    @posts = Post.search(params[:keyword]).where(status: :released)
     @post = Post.new
     @keyword = params[:keyword]
     render "global"
@@ -18,13 +18,19 @@ class PostsController < ApplicationController
   def searchfollow
     @followings = current_user.followings
     @users=User.all
-    @nonposts = Post.search(params[:keyword]).where(user_id: [*current_user.following_ids],status: :nonreleased, cronstatus: 1)
+    @nonposts = Post.search(params[:keyword]).where(user_id: [*current_user.following_ids],status: :nonreleased)
     @post = Post.new
     @keyword = params[:keyword]
     render "follow"
   end
   def global
     #フォローしているユーザーの投稿
+    @users=User.all
+    @posts = Post.where(status: :released).order(:created_at)
+    @post = Post.new
+  end
+
+  def random
     @users=User.all
     @posts = Post.where(status: :released).order(:created_at)
     @post = Post.new
@@ -46,7 +52,7 @@ class PostsController < ApplicationController
 
   def show
     @users=User.all
-    @posts = Post.where(status: :released, cronstatus: 1)
+    @posts = Post.where(status: :released, )
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new

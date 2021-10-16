@@ -99,6 +99,15 @@
 
               <% end %>
 
+              <% if current_user.is_random_exchange_diary == 0 %>
+              <li>
+                <img src="/assets/earth_white.png" class="header_icon" alt="">
+                <%= link_to "ランダム交換日記",  posts_random_path%>
+              </li>
+              <% end %>
+
+
+
               <li>
                 <img src="/assets/other_white.png" class="header_icon" alt="">
                 <%= link_to "その他", posts_other_path %>

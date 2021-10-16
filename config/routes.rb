@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'search' => 'posts#search'
   get 'searchfollow' => 'posts#searchfollow'
   get 'posts/global' => 'posts#global'
+  get 'posts/random' => 'posts#random'
   get 'posts/follow' => 'posts#follow'
   get 'posts/record' => 'posts#record'
   get 'posts/other' => 'posts#other'
