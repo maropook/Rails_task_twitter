@@ -1,25 +1,45 @@
 <%# 自分　じぶん %>
 <div id="myself">
+
     <div class="diary">
-        <img src="/assets/clock_brown.png" class="session_icon" alt="">
-    </div> <% flag = true%>
+        <div class="session_header">
+            <img src="/assets/clock_brown.png" class="session_icon" alt="">
+
+            <h2>履歴</h2>
+
+        </div>
+    </div>
+
+    <% flag = true%>
     <% @myselfs.reverse_each do |post| %>
     <div class="twiit">
         <div class="twitter">
-            <div class="user">
-                <div class="datetime">
-                    <p><%= post.created_at.to_s(:datetime_jp_date) %></p>
-                    <p>　</p>
-                    <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
-                </div>
-                <div class="isflex">
-                    <% if post.image?%>
+            <div style="display:flex">
+                <div class="user">
+                    <div class="datetime">
+                        <%= link_to image_tag("/assets/triangle.png", class:"edit_icon"), edit_post_path(post) %>
+                        <p><%= post.created_at.to_s(:datetime_jp_date) %></p>
+                        <p>　</p>
+                        <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
+                    </div>
+                    <div class="isflex">
+                        <% if post.image?%>
 
-                    <img src=<%= post.image.url %> class="post_image">
-                    <% end %>
+                        <img src=<%= post.image.url %> class="post_image">
+                        <% end %>
 
-                    <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                        <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                    </div>
                 </div>
+                <% if post.released? %>
+                <%= link_to image_tag("/assets/outgoing_brown.png", class:"session_icon"), edit_post_path(post) %>
+                <% else %>
+                <%= link_to image_tag("/assets/outgoing_grey.png", class:"session_icon"), edit_post_path(post) %>
+
+                <% end %>
+                <%= link_to image_tag("/assets/pencil_brown.png", class:"session_icon"), edit_post_path(post) %>
+                <%= link_to image_tag("/assets/garbage_can_brown.png", class:"session_icon"), edit_post_path(post) %>
+
             </div>
 
         </div>

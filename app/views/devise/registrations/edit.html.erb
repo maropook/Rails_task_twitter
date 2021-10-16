@@ -180,6 +180,24 @@
         <br>
         <% end %>
 
+        <div class="field form-item">
+
+
+          <div class="form-group selectbox">
+            <%= f.label :is_follow_approval, 'フォローの承認' %>
+            <%= f.select :is_follow_approval, {'する': 0, 'しない': 1}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            <br>
+            <%= f.label :is_post_time_release, '投稿時間の一般公開' %>
+
+            <%= f.select :is_post_time_release, {'する': 0, 'しない': 1},{ include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            <br>
+            <%= f.label :is_random_exchange_diary, '匿名ランダム交換日記' %>
+            <%= f.select :is_random_exchange_diary, {'する': 0, 'しない': 1} ,{ include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+
+          </div>
+        </div>
+
+
 
         <div class="field form-item">
           <p>ユーザーネーム</p>

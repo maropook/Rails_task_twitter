@@ -6,7 +6,7 @@
     </div>
     <% @myselfs.each do |post| %>
     <div class="twiit">
-        <div class="twitter">
+        <div class="twitter" style="display:flex">
             <div class="user">
                 <div class="datetime">
                     <%= link_to image_tag("/assets/triangle.png", class:"edit_icon"), edit_post_path(post) %>
@@ -18,6 +18,14 @@
                 <% end %>
                 <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
 
+
+            </div>
+            <div style="float:right; padding-right:20px">
+                <% if post.released? %>
+                <img src="/assets/outgoing_brown.png" class="session_icon" alt="">
+                <% else %>
+                <img src="/assets/outgoing_grey.png" class="session_icon" alt="">
+                <% end %>
             </div>
 
         </div>
