@@ -1,94 +1,32 @@
-<div id="global">
-    <% if user_signed_in? %>
-    <%# みんな(公開) %>
-    <%# <h2>投稿一覧</h2> %>
-    <div class="tab">
-        <a class="div_white div" href="/posts/follow"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
-        <a class="div" href="/posts/global"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
-    </div>
-    <div class="everyone">
-        <div class="search">
-            <div class="search_window_top">
-            </div>
-            <div class="search_window">
-                <div class="search-form">
-                    <%= form_with url: search_path, method: :get, local: true do |f| %>
-                    <%= f.submit '🔍', class: "btn" %>
-
-                    <%= f.text_field :keyword, value: @keyword %>
-                    <% end %>
-                </div>
-            </div>
-            <div class="search_result">
-                <% @users.each do |user| %>
-                <div class="result">
-                    <img src=<%= user.image %> class="result_user">
-                    <a href="/users/<%= user.id %>"><%= user.username %></a>
-                </div>
-                <% end %>
-            </div>
-        </div>
-        <div class="twiit">
-            <% @posts.reverse_each do |post| %>
-            <div class="twitter">
-                <div class="user">
-                    <div class="user_detail">
-                        <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
-                                href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-
-                    </div>
-                </div>
-                <div class="edit">
-
-                    <div class="time">
-                        <%= time_ago_in_words(post.created_at) %>
+<div id="grayDisplay"></div>
 
 
-                    </div>
-                    <% if post.user.id == current_user.id%>
-                    <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
-                    <% else %>
-                    <div class="edit_icon"></div>
-                    <% end %>
-                </div>
-                <div class="post">
-                    <% if post.content?%>
-                    <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
-
-                    </p>
-                    <% end %>
-                    <% if post.image?%>
-
-                    <div id="videos">
-                        <div class="half">
-                            <div class="wrapper"><img src=<%= post.image.url %> alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <% end %>
-                    <div class="good">
-                        <div class="date_good" id="likes_buttons_<%= post.id %>">
-                            <%= render partial: 'likes/like', locals: { post: post} %>
-                        </div>
-                        <div class="date_good">
-                            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
-                                    class="like"></a><%= post.comments.count%>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <% end %>
+<div class="modal_container">
+    <div class="course-wrapper">
+        <div class="course-item">
+            <img src="/assets/earth_brown.png" alt="画像その１" class="course-item-img">
         </div>
     </div>
-
-    <div class="  search_side">
-    </div>
-    <div class=" tab_end">
-    </div>
-    <div class=" tab_side">
-    </div>
-    <% else %>
-    <% end %>
 </div>
+
+
+
+
+<script>
+    // コース画像モーダル表示イベント
+    $(".course-item img").click(function () {
+        // まず、クリックした画像の HTML(<img>タグ全体)を#frayDisplay内にコピー
+        $("#grayDisplay").html($(this).prop("outerHTML"));
+        //そして、fadeInで表示する。
+        $("#grayDisplay").fadeIn(200);
+        return false;
+    });
+
+    // コース画像モーダル非表示イベント
+    // モーダル画像背景 または 拡大画像そのものをクリックで発火
+    $("#grayDisplay").click(function () {
+        // 非表示にする
+        $("#grayDisplay").fadeOut(200);
+        return false;
+    });
+</script>
