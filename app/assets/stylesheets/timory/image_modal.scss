@@ -1,0 +1,57 @@
+img.course-item-img {
+    width: 100%;
+    height: 100%;
+}
+
+.course-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.course-item {
+    width: 100%;
+    height: 100%;
+}
+
+.modal_container {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-left: 11px;
+    flex-shrink: 0;
+
+    /* 追加 */
+}
+
+/* =====================================================
+コース画像拡大モーダル （ここから本PEN のコア）
+===================================================== */
+#grayDisplay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* コンテンツ全てに対して固定的に 1160pxとか指定されているときの対応で、
+  ダサいが!importantつける */
+    max-width: 100% !important;
+    height: 100%;
+    background: rgba(95, 60, 20, 0.8);
+
+    z-index: 1000;
+}
+
+#grayDisplay img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    height: 90%;
+    object-fit: contain;
+    z-index: 1001;
+
+}

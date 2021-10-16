@@ -46,9 +46,10 @@ img.edit_icon {
   }
 
   p.limit {
+    display: inline-block;
     font-size: 16px;
     color: white;
-    text-align: center;
+    margin-right: 30px;
 
   }
 
@@ -73,7 +74,7 @@ img.edit_icon {
   p.limit {
     font-size: 11px;
     color: white;
-    text-align: center;
+
 
   }
 
