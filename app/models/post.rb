@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
   mount_uploader :image, ImageUploader
@@ -15,6 +15,8 @@ class Post < ApplicationRecord
   def self.searchfollow(keyword)
     where(["content like?","%#{keyword}%"])
   end
+
+
 end
 
 # Post.update_all ['cronstatus = ?',1]

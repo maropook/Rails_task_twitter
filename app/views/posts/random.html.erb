@@ -1,32 +1,59 @@
-<div id="grayDisplay"></div>
+<div id="random">
+    <% if user_signed_in? %>
+    <% @users= @users.sort_by {rand} %>
+    <%randomUser = []%>
+    <% @users.reverse_each do |user| %>
 
+    <% user.posts.reverse_each do |post| %>
+    <% if post.content? %>
+    <% randomUser.push(user)%>
+    <%break%>
+    <% end %>
+    <% end %>
 
-<div class="modal_container">
-    <div class="course-wrapper">
-        <div class="course-item">
-            <img src="/assets/earth_brown.png" alt="画像その１" class="course-item-img">
+    <% if randomUser.length == 4 %>
+    <%break%>
+    <% end %>
+
+    <% end %>
+
+    <div class="random_grid">
+
+        <% randomUser.each_with_index do |user,index| %>
+        <div class="twiit">
+
+            <p class="random_count">
+                <%= index+1%>
+            </p>
+            <div class="twitter">
+                <% user.posts.reverse_each do |post| %>
+
+                <div class="post">
+                    <% if post.content?%>
+                    <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                    </p>
+                    <% end %>
+                    <% if post.image?%>
+                    <div id="videos">
+                        <div class="half">
+                            <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+                <% end %>
+
+            </div>
+
         </div>
+        <% end %>
+
     </div>
+
 </div>
 
 
-
-
-<script>
-    // コース画像モーダル表示イベント
-    $(".course-item img").click(function () {
-        // まず、クリックした画像の HTML(<img>タグ全体)を#frayDisplay内にコピー
-        $("#grayDisplay").html($(this).prop("outerHTML"));
-        //そして、fadeInで表示する。
-        $("#grayDisplay").fadeIn(200);
-        return false;
-    });
-
-    // コース画像モーダル非表示イベント
-    // モーダル画像背景 または 拡大画像そのものをクリックで発火
-    $("#grayDisplay").click(function () {
-        // 非表示にする
-        $("#grayDisplay").fadeOut(200);
-        return false;
-    });
-</script>
+<% else %>
+<% end %>
+</div>
