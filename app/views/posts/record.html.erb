@@ -8,8 +8,9 @@
     <div class="post">
         <%= form_for @post  ,html: { class: "form_for_tweet" }  do |f|%>
         <%= f.text_field :content ,class:"text_field",placeholder:"記録する"%>
-
-        <%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d")%>
+        <div style="display:none">
+            <%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d")%>
+        </div>
         <br>
         <div class="field">
             <label for="input_img" class="input_image">
