@@ -60,6 +60,17 @@ class PostsController < ApplicationController
     @like = Like.new
   end
 
+  def randomshow
+    @users=User.all
+    @posts = Post.where(status: :released, )
+    @post = Post.find(params[:id])
+    @index = params[:index]
+    @comments = @post.comments
+    @comment = Comment.new
+    @like = Like.new
+  end
+
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
