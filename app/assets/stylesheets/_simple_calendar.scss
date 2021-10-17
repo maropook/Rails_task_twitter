@@ -1,0 +1,88 @@
+$timory-color: #594A31;
+$farmily-color: #FF7E79;
+$timory-dark-color:#3d382f;
+$timory-white-color:#cabfab;
+
+#calendar {
+
+    .user_tag {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    hr {
+        color: $timory-color;
+    }
+
+    .twiit {
+        margin-left: 10px;
+    }
+
+    a {
+        color: $timory-color;
+        text-decoration: none;
+    }
+
+    .simple-calendar {
+        margin: 10px;
+
+
+        a {
+            color: $timory-color;
+        }
+
+        thead {
+            background: $timory-color;
+
+            td {
+                color: white;
+            }
+        }
+
+        .calendar-heading {
+            display: flex;
+            align-items: center;
+        }
+
+        .calendar-title {
+            color: $timory-color;
+        }
+
+        .day {}
+
+        .wday-0 {}
+
+        .wday-1 {}
+
+        .wday-2 {}
+
+        .wday-3 {}
+
+        .wday-4 {}
+
+        .wday-5 {}
+
+        .wday-6 {}
+
+        .today {}
+
+        .past {}
+
+        .future {}
+
+        .start-date {}
+
+        .prev-month {}
+
+        .next-month {}
+
+        .current-month {}
+
+        .has-events {
+            background: $timory-white-color;
+        }
+    }
+
+
+}

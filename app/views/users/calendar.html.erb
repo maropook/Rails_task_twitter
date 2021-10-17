@@ -1,10 +1,34 @@
- <% if user_signed_in? %>
- <%= month_calendar events: @posts do |date, posts| %>
- <%= date.day %>
- <% posts.each do |post| %>
- <div>
-     <%= link_to post.content, post %>
+ <div id="calendar">
+     <% if user_signed_in? %>
+
+     <div class="twiit">
+         <div class="twitter">
+             <div class="user">
+                 <div class="user_tag">
+                     <img src=<%= @user.image %> class="icon_image">
+                     <strong><a class="user_name" href="/users/<%= @user.id %>"><%= @user.username %></a></strong>
+                 </div>
+             </div>
+         </div>
+         <% if current_user.following?(@user) %>
+         <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
+         <% else %>
+         <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+         <% end %>
+
+         <%= link_to "フォロワー", user_followers_path(@user.id)%> <td><%= @user.followers.count %></td>
+         <%= link_to "フォロー", user_followings_path(@user.id)%>
+         <td> <%= @user.followings.count %></td>
+     </div>
+     <hr>
+
+     <%= month_calendar events: @posts do |date, posts| %>
+     <%= date.day %>
+     <% posts.each do |post| %>
+     <div>
+         <%= link_to post.content, post %>
+     </div>
+     <% end %>
+     <% end %>
+     <% end %>
  </div>
- <% end %>
- <% end %>
- <% end %>

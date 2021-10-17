@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def calendar
     @user=User.find(params[:id])
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: @user.id)
 
   end
 
