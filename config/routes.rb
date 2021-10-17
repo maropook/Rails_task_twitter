@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   get 'users/myself' => 'users/myself'
+  get 'users/:id/calendar' => 'users#calendar'
   get 'users/history' => 'users/history'
   resources :users, only: [:index, :show] do
     resource :relationships, only: [:create, :destroy]
@@ -21,7 +22,8 @@ Rails.application.routes.draw do
   get 'posts/follow' => 'posts#follow'
   get 'posts/record' => 'posts#record'
   get 'posts/other' => 'posts#other'
-  resources :posts, only: [:index, :show, :create, :destroy, :edit, :update] do
+  get 'randomshow/:id/:index' => 'posts#randomshow'
+  resources :posts, only: [:index, :show, :create, :destroy, :edit, :update,] do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end

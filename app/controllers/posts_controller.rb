@@ -60,6 +60,17 @@ class PostsController < ApplicationController
     @like = Like.new
   end
 
+  def randomshow
+    @users=User.all
+    @posts = Post.where(status: :released, )
+    @post = Post.find(params[:id])
+    @index = params[:index]
+    @comments = @post.comments
+    @comment = Comment.new
+    @like = Like.new
+  end
+
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -91,7 +102,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status)
+      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status,:start_time)
 
     end
 end

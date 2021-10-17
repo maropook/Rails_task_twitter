@@ -1,6 +1,6 @@
- <div class="post">
-     <%= form_for [@post, @comment],remote: true,html: { class: "form_for_tweet" } do |f| %>
-     <%= f.text_field :content,class:"text_field",placeholder:"いまどうしてる？" %>
+ <div class="post random_commemnt_post">
+     <%= form_for [@post, @comment],remote: true,html: { class: "form_for_tweet random_comment_form" } do |f| %>
+     <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
      <%= f.hidden_field :post_id, value: @post.id %>
      <%= f.submit 'コメントする', class: "btn btn-primary" %>
      <% end %>

@@ -1,0 +1,50 @@
+<div id="random_show">
+    <% if user_signed_in? %>
+    <div class="session_header">
+        <img src="/assets/earth_brown.png" class="session_icon" alt="">
+        <h2>匿名ランダム交換日記</h2>
+        <hr>
+    </div>
+    <div id="grayRandomDisplay"></div>
+    <div class="twiit">
+        <div class="twitter">
+            <p class="random_count">
+                <%= @index%>
+            </p>
+            <div class="random_post">
+
+
+                <% if @post.content?%>
+                <p class="comment_bottom"> <a class="comment"><%= @post.content %></a>
+                </p>
+                <% end %>
+                <% if @post.image?%>
+                <div id="videos">
+                    <div class="half">
+                        <div class="wrapper"><img src=<%= @post.image.url %> alt="">
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+                <div class="good">
+                    <% post = @post %>
+                    <div class="date_good" id="likes_buttons_<%= post.id %>">
+                        <%= render partial: 'likes/like', locals: { post: post} %>
+                    </div>
+                    <div class="date_good">
+                        <a class="comment" href="/posts/<%= @post.id %>"><img src="/assets/balloon.png" alt=""
+                                class="like"></a>
+                        <%= @post.comments.count%></div>
+                </div>
+            </div>
+            <div id="comments_area">
+            </div>
+            <div class="new-comment random_comment">
+                <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
+            </div>
+        </div>
+    </div>
+
+    <% else %>
+    <% end %>
+</div>

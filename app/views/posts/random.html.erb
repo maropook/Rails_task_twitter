@@ -1,4 +1,8 @@
 <div id="random">
+    <div class="session_header">
+        <img src="/assets/earth_brown.png" class="session_icon" alt="">
+        <h2>匿名ランダム交換日記</h2>
+    </div>
     <% if user_signed_in? %>
     <% @users= @users.sort_by {rand} %>
     <%randomUser = []%>
@@ -30,7 +34,9 @@
 
                 <div class="post">
                     <% if post.content?%>
-                    <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+
+                    <p class="comment_bottom"> <a class="comment"
+                            href="/randomshow/<%= post.id %>/<%= index+1%>"><%= post.content %></a>
                     </p>
                     <% end %>
                     <% if post.image?%>

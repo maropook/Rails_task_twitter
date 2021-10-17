@@ -22,6 +22,8 @@
   <%= link_to "フォロワー", user_followers_path(@user.id)%> <td><%= @user.followers.count %></td>
   <%= link_to "フォロー", user_followings_path(@user.id)%>
   <td> <%= @user.followings.count %></td>
+  <a href="/users/<%= @user.id %>/calendar">カレンダーへ</a>
+
   <div class="chat">
     <% if @user.id == current_user.id %>
     <% else %>
