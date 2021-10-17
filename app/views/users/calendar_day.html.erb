@@ -21,17 +21,24 @@
          <td> <%= @user.followings.count %></td>
      </div>
      <hr>
+     <%=Date.today %>
 
-     <%= month_calendar events: @posts do |date, posts| %>
-     <a href="/users/<%= @user.id %>/calendar_day?start_date=<%= date.day %>"> <%= date.day %></a>
+
+
+
+
+
+     <%= calendar( events: @posts ,number_of_days: 1) do |date, posts|%>
+     <%= date %>
+
 
      <% posts.each do |post| %>
      <div>
          <%= link_to post.content, post %>
      </div>
-     <% end %>
-     <% end %>
 
+     <% end %>
+     <% end %>
      <% end %>
 
 

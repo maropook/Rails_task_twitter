@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   get 'users/myself' => 'users/myself'
   get 'users/:id/calendar' => 'users#calendar'
+  get 'users/:id/calendar_day' => 'users#calendar_day'
   get 'users/history' => 'users/history'
   resources :users, only: [:index, :show] do
     resource :relationships, only: [:create, :destroy]
