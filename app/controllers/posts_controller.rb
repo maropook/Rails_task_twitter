@@ -31,9 +31,10 @@ class PostsController < ApplicationController
   end
 
   def random
-    @users=User.all
-    @posts = Post.where(status: :released).order(:created_at)
+    @users=User.all.where.not(id: current_user.id)
+    @posts = Post.where(status: :released,).where.not(user_id: current_user).order(:created_at)
     @post = Post.new
+
   end
 
   def follow
