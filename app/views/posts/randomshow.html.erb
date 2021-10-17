@@ -1,11 +1,17 @@
 <div id="random_show">
     <% if user_signed_in? %>
+    <div class="session_header">
+        <img src="/assets/earth_brown.png" class="session_icon" alt="">
+        <h2>匿名ランダム交換日記</h2>
+        <hr>
+    </div>
+    <div id="grayRandomDisplay"></div>
     <div class="twiit">
         <div class="twitter">
             <p class="random_count">
                 <%= @index%>
             </p>
-            <div class="post">
+            <div class="random_post">
 
 
                 <% if @post.content?%>
@@ -33,7 +39,7 @@
             </div>
             <div id="comments_area">
             </div>
-            <div class="new-comment">
+            <div class="new-comment random_comment">
                 <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
             </div>
         </div>

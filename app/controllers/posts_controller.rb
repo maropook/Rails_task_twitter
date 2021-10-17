@@ -102,7 +102,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status)
+      params.require(:post).permit(:content,:image, :image_cache, :remove_image, :status,:start_time)
 
     end
 end

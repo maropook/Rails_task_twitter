@@ -1,0 +1,10 @@
+ <% if user_signed_in? %>
+ <%= month_calendar events: @posts do |date, posts| %>
+ <%= date.day %>
+ <% posts.each do |post| %>
+ <div>
+     <%= link_to post.content, post %>
+ </div>
+ <% end %>
+ <% end %>
+ <% end %>

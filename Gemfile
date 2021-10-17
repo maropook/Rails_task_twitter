@@ -77,3 +77,4 @@ group :production do
   gem 'pg'
 end
 gem 'cloudinary' , '1.11.1'
+gem 'simple_calendar', '~> 2.0'

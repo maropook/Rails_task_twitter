@@ -2,12 +2,29 @@ $timory-color: #594A31;
 $farmily-color: #FF7E79;
 $timory-dark-color:#3d382f;
 
+$timory-white-color:#776a53;
+
 * {
 
     box-sizing: border-box;
 }
 
 #random_show {
+    #grayRandomDisplay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        /* コンテンツ全てに対して固定的に 1160pxとか指定されているときの対応で、
+      ダサいが!importantつける */
+        width: 73% !important;
+        height: 100%;
+        background-color: rgba($color: $timory-color, $alpha: 0.5);
+
+
+        z-index: 10;
+    }
+
+
 
 
     .random_count {
@@ -29,7 +46,8 @@ $timory-dark-color:#3d382f;
     margin: 20px;
     width: 65%;
 
-    a {
+    a,
+    h2 {
         text-decoration: none;
         color: $timory-color;
     }
@@ -55,7 +73,7 @@ $timory-dark-color:#3d382f;
             font-size: 16px;
         }
 
-        div.post {
+        div.random_post {
             margin-left: 0px;
         }
     }
@@ -77,7 +95,7 @@ $timory-dark-color:#3d382f;
             font-size: 20px;
         }
 
-        div.post {
+        div.random_post {
             margin-left: 50px;
             border-left: 4px solid $timory-color;
         }
@@ -108,25 +126,11 @@ $timory-dark-color:#3d382f;
             box-sizing: border-box;
             position: relative;
             padding: 0px 5px;
-            border: 2px solid $timory-dark-color;
-            border-left: none;
-            border-top: none;
-
-
 
             .comment_bottom {
                 margin: 0px;
                 margin-bottom: 10px;
             }
-
-
-
-
-
-
-
-
-
 
             .comment_bottom {
                 padding-left: 20px;
@@ -134,8 +138,78 @@ $timory-dark-color:#3d382f;
 
         }
 
+    }
+
+    .random_comment {
+        z-index: 50;
+        position: fixed;
+        top: 100px;
+        border-radius: 4px;
+
+        ::placeholder {
+            font-weight: 700;
+            color: $timory-white-color;
+        }
+
+        input:focus {
+            border: 3px solid $timory-color;
+
+            outline: none;
+        }
+
+        // .form_for_tweet{
+        .border {
+
+            border-bottom: 2px solid $timory-color
+        }
 
 
+        // }
+        .text_field {
+            color: $timory-color;
+            width: 100%;
+            max-width: 1000px;
+
+            border-radius: 10px;
+            padding: 5px 20px;
+            border: 3px solid $timory-color;
+            font-size: 32px;
+
+        }
+
+        .random_comment_form,
+        .random_commemnt_post {
+            width: 100%;
+        }
+
+        .field {
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .field2 {
+            display: flex;
+        }
+
+        .text_field::placeholder {
+            color: $timory-white-color;
+
+        }
+
+        .btn {
+
+            width: 134px;
+            height: 44px;
+            background-color: white;
+            border-radius: 30px;
+            float: right;
+            border: none;
+            margin-top: 15px;
+            color: $timory-color;
+            font-size: 19px;
+
+        }
     }
 
 

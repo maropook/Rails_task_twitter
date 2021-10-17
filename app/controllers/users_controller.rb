@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def calendar
+    @user=User.find(params[:id])
+    @posts = Post.where(user_id: current_user.id)
+
+  end
+
   def myself
     @user= current_user
     @myselfs = Post.where(user_id: current_user.id).where("created_at >= ?", Time.zone.now.beginning_of_day).order(:created_at)
