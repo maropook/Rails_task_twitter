@@ -24,21 +24,25 @@
         <% now = time.to_i%>
 
         <% if  current_user.readtime <=  current_user.readlimit %>
-        <% if current_user.readtime <= now  && current_user.readtime >= now %>
+        <% if current_user.readtime <= now  &&  now <=current_user.readlimit %>
         <% isReadTimeNow= true %>
         <% else %>
         <% isReadTimeNow= false %>
         <% end %>
         <% else %>
-        <% if current_user.readtime <= now  || current_user.readtime >= now %>
+        <%# readtime>readlimit %>
+        <% if current_user.readtime <= now  ||  now<=   current_user.readlimit %>
         <% isReadTimeNow= true %>
         <% else %>
         <% isReadTimeNow= false %>
         <% end %>
         <% end %>
+
 
 
         <% if isReadTimeNow %>
+        <% end %>
+        <% if true %>
 
 
         <div class="field form-item">
