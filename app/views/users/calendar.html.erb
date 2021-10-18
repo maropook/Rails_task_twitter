@@ -25,11 +25,16 @@
      <%= month_calendar events: @posts do |date, posts| %>
      <a href="/users/<%= @user.id %>/calendar_day?start_date=<%= date.day %>"> <%= date.day %></a>
 
-     <% posts.each do |post| %>
-     <div>
-         <%= link_to post.content, post %>
-     </div>
-     <% end %>
+     <a href="/users/<%= @user.id %>/calendar_day?start_date=<%= date.day %>">
+         <p class="calendar_mark mark_<%= posts.length %>"> </p>
+     </a>
+
+     <%# <% posts.each do |post| %>
+     <%# <div>
+         <p class="calendar_mark mark_<%= posts.length %>
+     <%# <%= link_to post.content, post %>
+     <%# </div> %>
+     <%# <% end %>
      <% end %>
 
      <% end %>
