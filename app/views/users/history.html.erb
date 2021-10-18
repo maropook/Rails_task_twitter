@@ -37,12 +37,11 @@
 
 
 
-
-
                         <%# <img src=<%= post.image.url class="post_image"> %>
                         <% end %>
 
-                        <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                        <a class="comment" href=""><%= post.content %></a>
+                        <%# <a class="comment" href="/posts/<%= post.id %<%= post.content</a> %>
                     </div>
                 </div>
                 <% if post.released? %>
