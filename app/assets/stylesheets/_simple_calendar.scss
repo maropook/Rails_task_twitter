@@ -2,13 +2,22 @@ $timory-color: #594A31;
 $farmily-color: #FF7E79;
 $timory-dark-color:#3d382f;
 $timory-white-color:#cabfab;
-$mark_1: #ddbbba;
-$mark_2: #e2a6a4;
-$mark_3: #e7918e;
-$mark_4: #f68f8c;
-$mark_5: #e86c67;
-$mark_6: #fd6a65;
-$mark_7: #f84741;
+$mark_0: #FFFFFF;
+$mark_1: #FE9E9A;
+$mark_2: #f4cb37;
+$mark_3: #70AD47;
+$mark_4: #15A8C1;
+$mark_5: #FE8401;
+$mark_6: #FA1004;
+$mark_7: #9A83E1;
+
+// $mark_1: #ddbbba;
+// $mark_2: #e2a6a4;
+// $mark_3: #e7918e;
+// $mark_4: #f68f8c;
+// $mark_5: #e86c67;
+// $mark_6: #fd6a65;
+// $mark_7: #f84741;
 
 #calendar {
 
@@ -17,6 +26,7 @@ $mark_7: #f84741;
         border-radius: 100%;
         width: 35px;
         height: 35px;
+        border: 0.4px solid rgb(239, 229, 229);
 
     }
 
