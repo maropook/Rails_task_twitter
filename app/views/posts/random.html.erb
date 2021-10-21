@@ -8,7 +8,7 @@
     <%randomUser = []%>
     <% @users.reverse_each do |user| %>
 
-    <% user.posts.reverse_each do |post| %>
+    <% user.posts.each do |post| %>
     <% if post.content? %>
     <% randomUser.push(user)%>
     <%break%>
