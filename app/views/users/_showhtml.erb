@@ -1,0 +1,38 @@
+ <div class="twiit">
+     <% @user.liked_posts.each do |post| %>
+     <div class="twitter">
+         <div class="user">
+             <% if post.user.id == current_user.id%>
+             <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
+             <% end %>
+         </div>
+         <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a></p>
+         <p>
+             <% if post.image?%>
+             <div id="videos">
+                 <div class="half">
+                     <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                     </div>
+                 </div>
+             </div>
+             <% end %>
+         </p>
+         <div class="good">
+             <div class="date_good" id="likes_buttons_<%= post.id %>">
+                 <%= render partial: 'likes/like', locals: { post: post} %>
+             </div>
+             <div class="date_good">
+                 <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
+             </div>
+         </div>
+     </div>
+     <% end %>
+ </div>
+ <div class="good">
+     <div class="date_good" id="likes_buttons_<%= post.id %>">
+         <%= render partial: 'likes/like', locals: { post: post} %>
+     </div>
+     <div class="date_good">
+         <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt="" class="like"></a>
+     </div>
+ </div>

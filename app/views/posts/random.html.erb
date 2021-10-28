@@ -1,3 +1,4 @@
+<% if current_user.is_random_exchange_diary == 0 %>
 <div id="random">
     <div class="session_header">
         <img src="/assets/earth_brown.png" class="session_icon" alt="">
@@ -22,19 +23,23 @@
     <% end %>
 
     <div class="random_grid">
-
         <% randomUser.each_with_index do |user,index| %>
         <div class="twiit">
-
             <p class="random_count">
                 <%= index+1%>
             </p>
-            <div class="twitter">
-                <% user.posts.reverse_each do |post| %>
+            <%postDate = '初代入' %>
 
+
+            <div class="twitter">
+
+                <% user.posts.reverse_each do |post| %>
+                <%if postDate != post.created_at.to_s(:datetime_jp_date) %>
+                <%postDate =  post.created_at.to_s(:datetime_jp_date) %>
+                <%=postDate  %>
+                <% end %>
                 <div class="post">
                     <% if post.content?%>
-
                     <p class="comment_bottom"> <a class="comment"
                             href="/randomshow/<%= post.id %>/<%= index+1%>"><%= post.content %></a>
                     </p>
@@ -63,3 +68,6 @@
 <% else %>
 <% end %>
 </div>
+<% else %>
+<p>設定にて匿名ランダム交換日記するをONにしてください</p>
+<% end %>

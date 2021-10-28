@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
   get 'users/myself' => 'users/myself'
+  get 'users/:id/detail' => 'users#detail'
   get 'users/:id/calendar' => 'users#calendar'
   get 'users/:id/calendar_day' => 'users#calendar_day'
   get 'users/history' => 'users/history'
@@ -28,7 +29,4 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,50 @@
+<div id="detail">
+    <div class="detail_top">
+        <div class="diary detail_session_header">
+            <div class="session_header">
+                <img src="/assets/everyone_brown.png" class="session_icon" alt="">
+                <h2>ユーザ詳細</h2>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="twiit">
+            <div class="twitter">
+                <div class="user">
+                    <div class="user_tag">
+                        <img src=<%= @user.image %> class="icon_image">
+                        <strong><a class="user_name"
+                                href="/users/<%= @user.id %>/detail/"><%= @user.username %></a></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% if current_user.following?(@user) %>
+        <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete %>
+        <% else %>
+        <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+        <% end %>
+        <%= link_to "フォロワー", user_followers_path(@user.id)%> <td><%= @user.followers.count %></td>
+        <%= link_to "フォロー", user_followings_path(@user.id)%>
+        <td> <%= @user.followings.count %></td>
+        <a href="/users/<%= @user.id %>/calendar">カレンダーへ</a>
+        <div class="chat">
+            <% if @user.id == current_user.id %>
+            <% else %>
+            <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+                <% else %>
+                <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                <%= f.submit "チャットを始める" %>
+                <% end %>
+                <% end %>
+                <% end %>
+        </div>
+
+    </div>
+
+
+</div>
