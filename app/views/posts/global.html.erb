@@ -1,10 +1,28 @@
-<div id="global">
-    <% if user_signed_in? %>
-    <%# みんな(公開) %>
-    <%# <h2>投稿一覧</h2> %>
-    <div class="tab">
-        <a class="div_white div" href="/posts/follow"><img src="/assets/everyone_brown.png" class="tab_icon" alt=""></a>
-        <a class="div" href="/posts/global"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
+<div id="user_detail_show">
+    <div class="diary detail_session_header">
+        <div class="session_header">
+            <img src="/assets/everyone_brown.png" class="session_icon" alt="">
+            <h2>みんな</h2>
+        </div>
+        <div class="session_header random_header">
+            <h5> <%= link_to "匿名ランダム",  posts_random_path%><br> <%= link_to "交換日記へ",  posts_random_path%></h5>
+            <img src="/assets/earth_brown.png" class="session_icon" alt="">
+        </div>
+    </div>
+    <div>
+        <div class="tab">
+            <a class="div_white div" href="/posts/follow"><img src="/assets/everyone_brown.png" class="tab_icon"
+                    alt=""></a>
+            <a class="div" href="/posts/global"><img src="/assets/earth_white.png" class="tab_icon" alt=""></a>
+        </div>
+        <div class="tab_flex">
+            <div class="user_tag">
+                <% @promotion_users= @promotion_users.sort_by {rand} %>
+                <img src=<%= @promotion_users.first.image %> class="icon_image">
+                <strong><a class="user_name"
+                        href="/users/<%= @promotion_users.first.id %>/detail/"><%= @promotion_users.first.username %></a></strong>
+            </div>
+        </div>
     </div>
     <div class="everyone">
         <div class="search">
@@ -14,7 +32,6 @@
                 <div class="search-form">
                     <%= form_with url: search_path, method: :get, local: true do |f| %>
                     <%= f.submit '🔍', class: "btn" %>
-
                     <%= f.text_field :keyword, value: @keyword %>
                     <% end %>
                 </div>
@@ -29,66 +46,39 @@
             </div>
         </div>
         <div class="twiit">
-            <% @posts.reverse_each do |post| %>
+            <%postDate = '初代入' %>
+
+            <% @promotion_users.first.posts.reverse_each do |post| %>
             <div class="twitter">
-                <div class="user">
-                    <div class="user_detail">
-                        <img src=<%= post.user.image %> class="icon_image"><strong><a class="user_name"
-                                href="/users/<%= post.user.id %>"><%= post.user.username %></a></strong>
-
-                    </div>
-                </div>
-                <div class="edit">
-
-                    <div class="time">
-                        <%= time_ago_in_words(post.created_at) %>
-
-
-                    </div>
-                    <% if post.user.id == current_user.id%>
-                    <%= link_to image_tag("/assets/edit_brown.png", class:"edit_icon"), edit_post_path(post) %>
-                    <% else %>
-                    <div class="edit_icon"></div>
-                    <% end %>
-                </div>
-                <div class="post">
-                    <% if post.content?%>
-                    <p class="comment_bottom"> <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
-
-                    </p>
-                    <% end %>
-                    <% if post.image?%>
-
-                    <div id="videos">
-                        <div class="half">
-                            <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                <%if postDate != post.created_at.to_s(:datetime_jp_date) %>
+                <%postDate =  post.created_at.to_s(:datetime_jp_date) %>
+                <%= postDate  %>
+                <% end %>
+                <div class="comment_bottom">
+                    <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
+                    <div class=" comment_right" style="width:100%;">
+                        <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+                        <% if post.image?%>
+                        <div id="videos">
+                            <div class="half">
+                                <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <% end %>
-                    <div class="good">
-                        <div class="date_good" id="likes_buttons_<%= post.id %>">
-                            <%= render partial: 'likes/like', locals: { post: post} %>
-                        </div>
-                        <div class="date_good">
-                            <a class="comment" href="/posts/<%= post.id %>"><img src="/assets/balloon.png" alt=""
-                                    class="like"></a><%= post.comments.count%>
-                        </div>
+                        <% end %>
                     </div>
                 </div>
-
-
             </div>
+
             <% end %>
         </div>
     </div>
 
-    <div class="  search_side">
+
+    <div class="search_side">
     </div>
     <div class=" tab_end">
     </div>
     <div class=" tab_side">
     </div>
-    <% else %>
-    <% end %>
 </div>

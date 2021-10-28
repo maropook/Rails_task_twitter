@@ -32,7 +32,10 @@
 <body class="twitter-container">
   <span class="farmily">
     <header class="container farmily">
-      <img src="/assets/farmily_logo.png" class="white_logo" alt="">
+      <a href='/'>
+        <img src="/assets/farmily_logo.png" class="white_logo" alt="">
+      </a>
+
       <% if user_signed_in? %>
       <% if current_user.image? %>
       <%= image_tag current_user.image.url, class: "user_icon" %>
@@ -98,11 +101,11 @@
 
               <% end %>
 
-              <% if current_user.is_random_exchange_diary == 0 %>
-              <li>
+              <%# <% if current_user.is_random_exchange_diary == 0 %>
+              <%# <li>
                 <img src="/assets/earth_white.png" class="header_icon" alt="">
                 <%= link_to "ランダム交換日記",  posts_random_path%>
-              </li>
+              <%# </li>
               <% end %>
 
               <li>

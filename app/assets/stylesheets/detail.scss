@@ -6,11 +6,40 @@ $timory-dark-color:#3d382f;
     box-sizing: border-box;
 }
 
-#global {
+#detail {
     position: relative;
     box-sizing: border-box;
     margin: 20px;
     width: 65%;
+    right: 0;
+    color: $timory-color;
+
+    .detail_session_header {
+        position: fixed;
+        top: -10px;
+        width: 79%;
+        background-color: white;
+        z-index: 1;
+
+    }
+
+    .tab_flex {
+        z-index: 10;
+        position: fixed;
+        top: 80px;
+        right: 10px;
+        margin-bottom: 20px;
+        height: 80px;
+        width: 44%;
+        position: fixed;
+    }
+
+
+    .detail_top {
+        width: 67%;
+        margin-top: 100px;
+
+    }
 
     a {
         text-decoration: none;
@@ -65,8 +94,6 @@ $timory-dark-color:#3d382f;
         }
     }
 
-
-
     .good {
         margin-left: 50px;
         display: flex;
@@ -79,11 +106,12 @@ $timory-dark-color:#3d382f;
         margin-right: 5px;
     }
 
+
+
     .tab {
         z-index: 10;
-        background-color: white;
         position: fixed;
-        top: 0px;
+        top: 40px;
         margin-bottom: 20px;
         height: 80px;
         width: 21%;
@@ -91,8 +119,7 @@ $timory-dark-color:#3d382f;
         align-items: flex-end;
 
         .div {
-
-            display: inine-block;
+            display: inline-block;
 
             .tab_icon {
                 margin: auto;
@@ -122,7 +149,6 @@ $timory-dark-color:#3d382f;
         width: 100%;
         margin-top: 60px;
 
-
         .search {
             box-sizing: border-box;
             padding: 0px 5px;
@@ -139,9 +165,7 @@ $timory-dark-color:#3d382f;
             }
 
             .search-form {
-
                 box-sizing: border-box;
-
                 width: 100%;
 
                 form {
@@ -154,7 +178,6 @@ $timory-dark-color:#3d382f;
                     height: 28px;
                     background-color: $timory-color;
                     color: white;
-
                 }
 
                 input:focus {
@@ -165,8 +188,6 @@ $timory-dark-color:#3d382f;
                     width: 30px;
                     background-color: $timory-color;
                     color: $timory-color;
-
-
                 }
             }
 
@@ -177,8 +198,6 @@ $timory-dark-color:#3d382f;
                 height: 30px;
                 background-color: $timory-color;
 
-
-
             }
 
             .search_result {
@@ -188,8 +207,6 @@ $timory-dark-color:#3d382f;
                     display: flex;
                     align-items: center;
                 }
-
-
 
                 .result_user {
                     width: 40px;
@@ -221,8 +238,6 @@ $timory-dark-color:#3d382f;
                     margin: 0;
                 }
 
-
-
                 .edit {
                     margin: 0;
                     display: flex;
@@ -235,17 +250,10 @@ $timory-dark-color:#3d382f;
                     right: 0px;
                 }
 
-
-
                 .comment_bottom {
                     margin: 0px;
                     margin-bottom: 10px;
                 }
-
-
-
-
-
 
                 .user {
                     margin-top: 5px;
