@@ -1,4 +1,7 @@
 <%# 自分　じぶん %>
+<% if @isReadTimeNow %>
+
+
 <div id="myself">
     <div class="diary">
         <img src="/assets/myself_brown.png" class="session_icon" alt="">
@@ -45,6 +48,10 @@
 
 
 </div>
+
+<% else %>
+<h2>今は閲覧可能時間ではありません</h2>
+<% end %>
 <script>
     // コース画像モーダル表示イベント
     $(".course-item img").click(function () {

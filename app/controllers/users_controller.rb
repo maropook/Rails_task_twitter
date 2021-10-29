@@ -2,19 +2,21 @@ class UsersController < ApplicationController
   include IsAmPm
   before_action :is_am_pm
   before_action :authenticate_user!, :only => [:show, :myself, :history]
+  before_action :isReadTimeNow
+  # , only: [:show, :create]
 
   def isReadTimeNow
     @time = Time.current.to_s(:time_clock)
-    @now = time.to_i
+    @now = @time.to_i
     if  (current_user.readtime <=  current_user.readlimit)
-      if (current_user.readtime <= now  &&  now <=current_user.readlimit)
+      if (current_user.readtime <= @now  &&  @now <=current_user.readlimit)
       @isReadTimeNow= true
       else
       @isReadTimeNow= false
       end
     else
 
-      if (current_user.readtime <= now  ||  now<=  current_user.readlimit)
+      if (current_user.readtime <= @now  ||  @now<=  current_user.readlimit)
       @isReadTimeNow= true
       else
       @isReadTimeNow= false
@@ -29,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @isReadTimeNow
     @users=User.all
     @user=User.find(params[:id])
     @currentUserEntry=Entry.where(user_id: current_user.id)
