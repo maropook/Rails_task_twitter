@@ -1,6 +1,8 @@
 <div id="timory_record">
     <% if user_signed_in? %>
-    <% if  @isReadTimeNow %>
+
+
+    <% if  @isReadTimeNow==true %>
     <p>今は記録時間ではありません</p>
     <% else %>
     <div class="session_header">

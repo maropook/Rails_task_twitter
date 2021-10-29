@@ -19,11 +19,13 @@
 <li>
                         <%= link_to "ユーザー一覧へ", users_path %>
                     <%# </li> %>
-
-
                     <li>
-                        <%= link_to "マイページへ", user_path(current_user.id) %>
+                        <a href="/users/<%= current_user.id %>/detail/">マイページへ</a>
                     </li>
+
+                    <%# <li>
+                        <%= link_to "マイページへ", user_path(current_user.id) %>
+                    <%# </li> %>
                     <li>
                         <%= link_to '設定', edit_user_registration_path %>
                     </li>

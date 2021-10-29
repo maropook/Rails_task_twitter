@@ -1,82 +1,86 @@
-<div id="user_detail_show">
-  <div class="diary detail_session_header">
-    <div class="session_header">
-      <img src="/assets/everyone_brown.png" class="session_icon" alt="">
-      <h2>フォロー</h2>
-    </div>
-    <div class="session_header random_header">
-      <h5> <%= link_to "匿名ランダム",  posts_random_path%><br> <%= link_to "交換日記へ",  posts_random_path%></h5>
-      <img src="/assets/earth_brown.png" class="session_icon" alt="">
-    </div>
-  </div>
-  <div>
-    <div class="tab">
-      <a class=" div" href="/posts/follow"><img src="/assets/everyone_white.png" class="tab_icon" alt=""></a>
-      <a class="div_white div" href="/posts/global"><img src="/assets/earth_brown.png" class="tab_icon" alt=""></a>
-    </div>
-    <div class="tab_flex">
-      <div class="user_tag">
-        <img src=<%= @users.first.image %> class="icon_image">
-        <strong><a class="user_name"
-            href="/users/<%= @users.first.id %>/detail/"><%= @users.first.username %></a></strong>
-      </div>
-    </div>
-  </div>
-  <div class="everyone">
-    <div class="search">
-      <div class="search_window_top">
-      </div>
-      <div class="search_window">
-        <div class="search-form">
-          <%= form_with url: search_path, method: :get, local: true do |f| %>
-          <%= f.submit '🔍', class: "btn" %>
-          <%= f.text_field :keyword, value: @keyword %>
-          <% end %>
-        </div>
-      </div>
-      <div class="search_result">
-        <% @followings.each do |user| %>
-        <div class="result">
-          <img src=<%= user.image %> class="result_user">
-          <a href="/users/<%= user.id %>"><%= user.username %></a>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="twiit">
-      <%postDate = '初代入' %>
-      <% @users.reverse_each do |user| %>
-      <% user.posts.reverse_each do |post| %>
-      <div class="twitter">
-        <%if postDate != post.created_at.to_s(:datetime_jp_date) %>
-        <%postDate =  post.created_at.to_s(:datetime_jp_date) %>
-        <%= postDate  %>
-        <% end %>
-        <div class="comment_bottom">
-          <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
-          <div class=" comment_right" style="width:100%;">
-            <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
-            <% if post.image?%>
-            <div id="videos">
-              <div class="half">
-                <div class="wrapper"><img src=<%= post.image.url %> alt="">
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
+ <% if @isReadTimeNow %>
+ <div id="user_detail_show">
+   <div class="diary detail_session_header">
+     <div class="session_header">
+       <img src="/assets/everyone_brown.png" class="session_icon" alt="">
+       <h2>フォロー</h2>
+     </div>
+     <div class="session_header random_header">
+       <h5> <%= link_to "匿名ランダム",  posts_random_path%><br> <%= link_to "交換日記へ",  posts_random_path%></h5>
+       <img src="/assets/earth_brown.png" class="session_icon" alt="">
+     </div>
+   </div>
+   <div>
+     <div class="tab">
+       <a class=" div" href="/posts/follow"><img src="/assets/everyone_white.png" class="tab_icon" alt=""></a>
+       <a class="div_white div" href="/posts/global"><img src="/assets/earth_brown.png" class="tab_icon" alt=""></a>
+     </div>
+     <div class="tab_flex">
+       <div class="user_tag">
+         <img src=<%= @users.first.image %> class="icon_image">
+         <strong><a class="user_name"
+             href="/users/<%= @users.first.id %>/detail/"><%= @users.first.username %></a></strong>
+       </div>
+     </div>
+   </div>
+   <div class="everyone">
+     <div class="search">
+       <div class="search_window_top">
+       </div>
+       <div class="search_window">
+         <div class="search-form">
+           <%= form_with url: search_path, method: :get, local: true do |f| %>
+           <%= f.submit '🔍', class: "btn" %>
+           <%= f.text_field :keyword, value: @keyword %>
+           <% end %>
+         </div>
+       </div>
+       <div class="search_result">
+         <% @followings.each do |user| %>
+         <div class="result">
+           <img src=<%= user.image %> class="result_user">
+           <a href="/users/<%= user.id %>"><%= user.username %></a>
+         </div>
+         <% end %>
+       </div>
+     </div>
+     <div class="twiit">
+       <%postDate = '初代入' %>
+       <% @users.reverse_each do |user| %>
+       <% user.posts.reverse_each do |post| %>
+       <div class="twitter">
+         <%if postDate != post.created_at.to_s(:datetime_jp_date) %>
+         <%postDate =  post.created_at.to_s(:datetime_jp_date) %>
+         <%= postDate  %>
+         <% end %>
+         <div class="comment_bottom">
+           <p><%= post.created_at.to_s(:datetime_jp_clock) %></p>
+           <div class=" comment_right" style="width:100%;">
+             <a class="comment" href="/posts/<%= post.id %>"><%= post.content %></a>
+             <% if post.image?%>
+             <div id="videos">
+               <div class="half">
+                 <div class="wrapper"><img src=<%= post.image.url %> alt="">
+                 </div>
+               </div>
+             </div>
+             <% end %>
+           </div>
+         </div>
+       </div>
+       <% end %>
+       <% end %>
+     </div>
+   </div>
 
 
-  <div class="search_side">
-  </div>
-  <div class=" tab_end">
-  </div>
-  <div class=" tab_side">
-  </div>
-</div>
+   <div class="search_side">
+   </div>
+   <div class=" tab_end">
+   </div>
+   <div class=" tab_side">
+   </div>
+ </div>
+ <% else %>
+ <h2>今は閲覧可能時間ではありません</h2>
+ <% end %>

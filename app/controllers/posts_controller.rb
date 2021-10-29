@@ -2,20 +2,21 @@ class PostsController < ApplicationController
   include IsAmPm
   before_action :is_am_pm
   before_action :authenticate_user!
+  before_action :isReadTimeNow
   # , only: [:show, :create]
 
   def isReadTimeNow
     @time = Time.current.to_s(:time_clock)
-    @now = time.to_i
+    @now = @time.to_i
     if  (current_user.readtime <=  current_user.readlimit)
-      if (current_user.readtime <= now  &&  now <=current_user.readlimit)
+      if (current_user.readtime <= @now  &&  @now <=current_user.readlimit)
       @isReadTimeNow= true
       else
       @isReadTimeNow= false
       end
     else
 
-      if (current_user.readtime <= now  ||  now<=  current_user.readlimit)
+      if (current_user.readtime <= @now  ||  @now<=  current_user.readlimit)
       @isReadTimeNow= true
       else
       @isReadTimeNow= false
@@ -48,6 +49,7 @@ class PostsController < ApplicationController
   end
 
   def global
+    @isReadTimeNow
     @users = User.all
     @promotion_users=User.all.where(is_promotion: 1).order(:created_at)
     @posts = Post.where(status: :released).order(:created_at)
@@ -61,6 +63,7 @@ class PostsController < ApplicationController
   end
 
   def follow
+    @isReadTimeNow
     @promotion_users=User.all.where(is_promotion: 1).order(:created_at)
     @followings = current_user.followings
     @users=User.all
