@@ -1,4 +1,3 @@
-<% if current_user.is_random_exchange_diary == 0 %>
 <div id="random">
     <div class="session_header">
         <img src="/assets/earth_brown.png" class="session_icon" alt="">
@@ -25,9 +24,20 @@
     <div class="random_grid">
         <% randomUser.each_with_index do |user,index| %>
         <div class="twiit">
-            <p class="random_count">
-                <%= index+1%>
-            </p>
+            <div style="display:flex">
+                <p class="random_count">
+                    <%= index+1%>
+                </p>
+                <% if user.is_random_exchange_diary == 1%>
+                <img src=<%= user.image %> class="icon_image">
+                <a href=""><%= user.username %></a>
+                <% else %>
+                <img src="/assets/user_icon.png" class="icon_image">
+                <% end %>
+
+            </div>
+
+
             <%postDate = '初代入' %>
 
 
@@ -68,6 +78,3 @@
 <% else %>
 <% end %>
 </div>
-<% else %>
-<p>設定にて匿名ランダム交換日記するをONにしてください</p>
-<% end %>
