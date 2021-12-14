@@ -72,12 +72,12 @@
               <%= @post.comments.count%></div>
           </div>
         </div>
+        <%# <div class="new-comment">
+          <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
+        <%# </div> %>
 
         <div id="comments_area">
           <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
-        </div>
-        <div class="new-comment">
-          <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
         </div>
 
       </div>

@@ -1,7 +1,23 @@
  <div class="post random_commemnt_post">
+
+     <% isExistComment = false %>
+     <%  comments.each do |comment| %>
+     <% if comment.user == current_user%>
+     <% isExistComment = true %>
+     <% end %>
+     <% end %>
+
+
+     <% if isExistComment %>
+     <h3>コメント済みのためコメントできません</h3>
+     <% else %>
+
      <%= form_for [@post, @comment],remote: true,html: { class: "form_for_tweet random_comment_form" } do |f| %>
      <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
      <%= f.hidden_field :post_id, value: @post.id %>
      <%= f.submit 'コメントする', class: "btn btn-primary" %>
      <% end %>
+
+     <% end %>
+
  </div>

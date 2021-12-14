@@ -1,6 +1,35 @@
 <div class="comment__">
     <hr>
     <h2>コメント一覧</h2>
+
+
+
+    <% isExistComment = false %>
+    <%  comments.each do |comment| %>
+    <% if comment.user == current_user%>
+    <% isExistComment = true %>
+    <% end %>
+    <% end %>
+
+
+    <% if isExistComment %>
+    <h3>コメント済みのためコメントできません</h3>
+    <% else %>
+    <div class="post random_commemnt_post">
+
+        <%= form_for [@post, @comment],remote: true,html: { class: "form_for_tweet random_comment_form" } do |f| %>
+        <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.submit 'コメントする', class: "btn btn-primary" %>
+        <% end %>
+
+
+    </div>
+
+
+    <% end %>
+
+
     <%  comments.each do |comment| %>
     <div>
         <img src=<%= comment.user.image %> class="icon_image"> <a
@@ -12,4 +41,6 @@
         <hr>
     </div>
     <% end %>
+
+
 </div>
