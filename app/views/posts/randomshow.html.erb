@@ -38,9 +38,12 @@
                 </div>
             </div>
             <div id="comments_area">
+
             </div>
             <div class="new-comment random_comment">
-                <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
+                <div id="comments_area">
+                    <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
+                </div>
             </div>
         </div>
     </div>

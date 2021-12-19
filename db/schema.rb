@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_065840) do
+ActiveRecord::Schema.define(version: 2021_12_14_080755) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_065840) do
     t.integer "is_post_time_release", default: 0, null: false
     t.integer "is_random_exchange_diary", default: 0, null: false
     t.integer "is_promotion", default: 0, null: false
+    t.integer "today_comments_count", default: 0, null: false
+    t.integer "comments_count_limit", default: 5, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -72,12 +72,64 @@
               <%= @post.comments.count%></div>
           </div>
         </div>
+        <%# <div class="new-comment">
+          <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
+        <%# </div> %>
 
         <div id="comments_area">
-          <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
-        </div>
-        <div class="new-comment">
-          <%= render partial:'comments/form', locals: {post: post, comments: @comments }%>
+          <%# <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
+
+          <div class="comment__">
+            <hr>
+            <h2>コメント一覧</h2>
+
+            <% if  @isCommentLimit  %>
+            <h3>コメント可能上限です 00:00に解除されます</h3>
+            <% else %>
+            <div class="post random_commemnt_post">
+
+              <%= form_for [@post, @comment],html: { class: "form_for_tweet random_comment_form" } do |f| %>
+              <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
+              <%= f.hidden_field :post_id, value: @post.id %>
+              <%# <%= f.hidden_field :today_comments_count, value: 100 %>
+
+              <%= f.fields_for :users do |user| %>
+
+              <%= user.hidden_field :today_comments_count, value: 4 %>
+              <%= user.hidden_field :id, value: @current_user.id %>
+
+              <%= f.submit 'コメントする', class: "btn btn-primary" %>
+              <% end %>
+              <% end %>
+
+
+            </div>
+
+            <% end %>
+
+
+            <%  @comments.each do |comment| %>
+            <div>
+              <img src=<%= comment.user.image %> class="icon_image"> <a
+                href="/users/<%= @post.user.id %>"><%= comment.user.username %></a>
+              <%= comment.content %>
+
+              <% if @current_user == comment.user %>
+              <div class="comment-delete">
+                <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete,remote: true,  data: {confirm: "本当に削除しますか？"} %>
+              </div>
+              <% end %>
+
+              <hr>
+            </div>
+            <% end %>
+
+
+          </div>
+
+
+
+
         </div>
 
       </div>
