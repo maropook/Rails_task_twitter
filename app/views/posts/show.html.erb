@@ -92,14 +92,10 @@
               <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
               <%= f.hidden_field :post_id, value: @post.id %>
               <%# <%= f.hidden_field :today_comments_count, value: 100 %>
+              <%= f.hidden_field :is_random_dialy, value: 0%>
 
-              <%= f.fields_for :users do |user| %>
-
-              <%= user.hidden_field :today_comments_count, value: 4 %>
-              <%= user.hidden_field :id, value: @current_user.id %>
 
               <%= f.submit 'コメントする', class: "btn btn-primary" %>
-              <% end %>
               <% end %>
 
 
@@ -110,8 +106,12 @@
 
             <%  @comments.each do |comment| %>
             <div>
-              <img src=<%= comment.user.image %> class="icon_image"> <a
-                href="/users/<%= @post.user.id %>"><%= comment.user.username %></a>
+              <% if comment.is_random_dialy == 1 %>
+              <img src="/assets/default.png" class="icon_image">
+              <% else %>
+              <img src=<%= comment.user.image %> class="icon_image">
+              <% end %>
+              <a href="/users/<%= @post.user.id %>"><%= comment.user.username %></a>
               <%= comment.content %>
 
               <% if @current_user == comment.user %>

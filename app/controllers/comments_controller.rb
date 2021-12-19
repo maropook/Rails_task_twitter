@@ -29,6 +29,6 @@ class CommentsController < ApplicationController
 
     private
     def comment_params
-      params.require(:comment).permit(:content, :post_id, users_attributes: [:today_comments_count, :_destroy, :id]) #追加
+      params.require(:comment).permit(:content, :post_id,:is_random_dialy) #追加
     end
 end

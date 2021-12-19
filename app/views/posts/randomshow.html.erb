@@ -42,7 +42,30 @@
             </div>
             <div class="new-comment random_comment">
                 <div id="comments_area">
-                    <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
+
+                    <% if  @isCommentLimit  %>
+                    <h3>コメント可能上限です 00:00に解除されます</h3>
+                    <% else %>
+                    <div class="post random_commemnt_post">
+
+                        <%= form_for [@post, @comment],html: { class: "form_for_tweet random_comment_form" } do |f| %>
+                        <%= f.text_field :content,class:"text_field",placeholder:"コメントする" %>
+                        <%= f.hidden_field :post_id, value: @post.id %>
+                        <%= f.hidden_field :is_random_dialy, value: 1%>
+
+
+
+                        <%= f.submit 'コメントする', class: "btn btn-primary" %>
+                        <% end %>
+
+
+                    </div>
+
+                    <% end %>
+
+
+
+                    <%# <%= render partial:'comments/post_comments', locals: {post: post, comments: @comments} %>
                 </div>
             </div>
         </div>

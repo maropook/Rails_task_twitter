@@ -99,6 +99,8 @@ class PostsController < ApplicationController
     @comments = @post.comments
     @comment = Comment.new
     @like = Like.new
+    @isCommentLimit = current_user.today_comments_count >= current_user.comments_count_limit
+
   end
 
   def create
