@@ -125,6 +125,10 @@
 
               <% end %>
 
+              <p class="limit ">
+                コメント可能回数 <%= current_user.comments_count_limit -  current_user.today_comments_count%>回</p>
+
+
 
               <% else %>
               <li>

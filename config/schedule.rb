@@ -4,7 +4,7 @@ set :environment, rails_env
 # require File.expand_path(File.dirname(__FILE__) + "/environment")
 # set :output, 'log/cron.log'
 
-every 1.minute do
+every 1.days do
   rake "midnight_reset:reset_flag"
 end
 

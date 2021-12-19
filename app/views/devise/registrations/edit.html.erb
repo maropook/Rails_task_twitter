@@ -16,8 +16,6 @@
           <p>何時から閲覧可能か(0~23)</p>
           <%= f.text_field :readtime, placeholder:"何時から閲覧可能か入力",required: true%>
         <%# </div> %>
-
-
         <%Time.current.to_s(:time_clock) %>
         <% time = Time.current.to_s(:time_clock) %>
         <% isReadTime = 'readTime'%>
@@ -40,7 +38,7 @@
 
 
 
-        <% if isReadTimeNow %>
+        <% if !isReadTimeNow %>
         <div class="field form-item">
           <%# <% <div id="readtime" class="form-group"> %>
 
@@ -179,11 +177,10 @@
         <% end %>
 
         <div class="field form-item">
-
-
           <div class="form-group selectbox">
-            <%= f.label :is_follow_approval, 'フォローの承認' %>
-            <%= f.select :is_follow_approval, {'する': 0, 'しない': 1}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            <%# <%= f.label :is_follow_approval, 'フォローの承認' %>
+            <%# <%= f.select :is_follow_approval, {'する': 0, 'しない': 1}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+
             <br>
             <%= f.label :is_post_time_release, '投稿時間の一般公開' %>
 
@@ -197,9 +194,16 @@
 
 
 
+
+        <div class="field form-item">
+          <p>1日に可能なコメント数</p>
+          <%= f.text_field :comments_count_limit %>
+        </div>
+
+
         <div class="field form-item">
           <p>ユーザーネーム</p>
-          <%= f.text_field :username %>
+          <%= f.number_field :username %>
         </div>
 
         <div class="field form-item">

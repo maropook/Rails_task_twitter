@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
 
     protected
       def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:username,:name, :image,:readtime, :readlimit,:is_follow_approval,:is_post_time_release,:is_random_exchange_diary])
-        devise_parameter_sanitizer.permit(:account_update, keys: [:username,:name, :image,:readtime, :readlimit,:is_follow_approval,:is_post_time_release,:is_random_exchange_diary])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:username,:name, :image,:readtime, :readlimit,:is_follow_approval,:is_post_time_release,:is_random_exchange_diary,:comments_count_limit])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:username,:name, :image,:readtime, :readlimit,:is_follow_approval,:is_post_time_release,:is_random_exchange_diary,:comments_count_limit])
 
       end
 end
